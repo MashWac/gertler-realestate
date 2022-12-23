@@ -1,7 +1,7 @@
 @extends('layouts.client')
 @section('content')
     <video width="100%" autoplay muted loop id="myVideo">
-        <source src='/assets/staticimg/final3.mp4' type='video/mp4'>
+        <source src='https://gertler-investment.s3.amazonaws.com/public/assets/statics/final3.mp4' type='video/mp4'>
     </video>
     <div class="landingback">
     
@@ -9,8 +9,8 @@
             <p class='landertext'>YOUR NEXT INVESTMENT IS RIGHT HERE</p>
         </div>
         <div class="landingoptions d-none d-lg-block d-xl-block">
-            <a href="{{url('houselistings')}}"><div><button class="homelandoptions">BUY</button></div></a>
-            <a href="{{url('houselistings')}}"><div><button class="homelandoptions">RENT</button></div></a>
+            <a href="{{url('houselistings/buy')}}"><div><button class="homelandoptions">BUY</button></div></a>
+            <a href="{{url('houselistings/rent')}}"><div><button class="homelandoptions">RENT</button></div></a>
             <a href="{{url('rentout')}}"><div><button class="homelandoptions">SELL</button></div></a>
         </div>
     </div>
@@ -31,7 +31,7 @@
 
             </div>
         </a>
-            <a href="{{url('houselistings')}}">
+            <a href="{{url('houselistings/none')}}">
             <div class="localexpertiseimage">
             
                 <div class="card text-bg-dark" style="width:18rem;">

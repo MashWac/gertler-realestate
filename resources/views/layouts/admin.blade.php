@@ -10,6 +10,7 @@
     Admin Section
   </title>
   <!--     Fonts and icons     -->
+  <link rel="icon" href="{{ url('/assets/staticimg/gertlerinvest.png') }}">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="{{ asset('frontend/css/nucleo-icons.css')}}" rel="stylesheet" />
@@ -54,7 +55,9 @@
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}" defer></script>
     <script src="{{ asset('frontend/js/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('frontend/js/imgdisplay.js') }}" defer></script>
+    <script src="{{ asset('frontend/js/deletemessage.js') }}" defer></script>
     <script src="{{ asset('frontend/js/multipleimgupload.js') }}" defer></script>
+    <script src="{{ asset('frontend/js/multipleimgdisplay.js') }}" defer></script>
     <script src="{{ asset('frontend/js/bootstrap5.2.2.bundle.min.js') }}" defer></script>
     <script src="{{ asset('frontend/js/paycalc.js') }}" defer></script>
     <script src="{{ asset('frontend/js/downloadpdf.js') }}" defer></script>

@@ -17,6 +17,14 @@
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
+        <li class="nav-item  {{ \Illuminate\Support\Facades\Request::is('locations') ? 'active' : ''}}">
+          <a class="nav-link text-white " href="{{ url('locations') }}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-location-crosshairs"></i>
+            </div>
+            <span class="nav-link-text ms-1">Locations</span>
+          </a>
+        </li>
         <li class="nav-item  {{ \Illuminate\Support\Facades\Request::is('uploads') ? 'active' : ''}}">
           <a class="nav-link text-white " href="{{ url('uploads') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -57,8 +65,8 @@
             <span class="nav-link-text ms-1">Blogs</span>
           </a>
         </li>
-        <li class="nav-item  {{ \Illuminate\Support\Facades\Request::is('admins') ? 'active' : ''}}">
-          <a class="nav-link text-white " href="{{ url('admins') }}">
+        <li class="nav-item  {{ \Illuminate\Support\Facades\Request::is('viewusers') ? 'active' : ''}}">
+          <a class="nav-link text-white " href="{{ url('viewusers') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
             </div>

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('email');
             $table->integer('phone');
+            $table->string('country_code');
             $table->timestamp('created_at');
             $table->dateTime('updated_at')->nullable();
             $table->integer('is_deleted')->default(0);

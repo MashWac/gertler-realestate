@@ -49,47 +49,75 @@
             </div>
 
         </div>
-
-
-
     </div>
     <div class="houselistingsection">
+    @foreach($data['listings'] as $item)
         <div class=" houselist">
             <div class="houseimage">
-                <img src="/assets/staticimg/house1.jpg" class="houseimages" alt="...">
+                <img src="{{$item->mainphoto}}" class="houseimages" alt="property image">
             </div>
             <div class="housedetails">
                 <div class="projectname housedetailsect">
                     <h3 class="housetitles"> Project Name</h3>
-                    <p>2 Bedroom Runda</p>
+                    <p>{{$item->property_name}}</p>
                 </div>
                 <div class="housetype housedetailsect">
                     <h3 class="housetitles"> Type</h3>
-                    <p>Bungalow</p>
+                    <p>{{$item->house_type}}</p>
                 </div>
                 <div class="houseaddress housedetailsect">
                     <h3 class="housetitles"> Address</h3>
-                    <p>3rd Avenue Close</p>
+                    <p>{{$item->full_address}}</p>
                 </div>
                 <div class="housedetailsect">
+                    @if($item->total_bedrooms != NULL)
                     <div class="housepace">
-                        <h3 class="housetitles"> Rooms</h3>
-                        <p> 3</p>
+                        <h3 class="housetitles">Bedrooms </h3>
+                        <p> {{$item->total_bedrooms}}</p>
                     </div>
+                    @endif
+                    @if($item->total_bathrooms != NULL)
                     <div class="housepace">
                         <h3 class="housetitles"> Bathrooms</h3>
-                        <p>2.5</p>
+                        <p>{{$item->total_bathrooms}}</p>
                     </div>
+                    @endif
+                    @if($item->square_feet != NULL)
                     <div class="housepace">
                         <h3 class="housetitles"> SqFt</h3>
-                        <p>6000ft</p>
+                        <p>{{$item->square_feet}}</p>
                     </div>
+                    @endif
+                    @if($item->acreage != NULL)
+                    <div class="housepace">
+                        <h3 class="housetitles"> Acres</h3>
+                        <p>{{$item->acreage}}</p>
+                    </div>
+                    @endif
+                    @if($item->floor != NULL)
+                    <div class="housepace">
+                        <h3 class="housetitles"> Floors</h3>
+                        <p>{{$item->floor}}</p>
+                    </div>
+                    @endif
+            
+
                 </div>
                 <div class="Price housedetailsect">
                     <h3 class="housetitles"> Price</h3>
-                    <p>KSH 8,000,000</p>
-                    <a href="houseview">
-                        <button class="btn btn-dark buttongoproduct">BUY</button>
+                    <p>KSH {{$item->starting_price}} 
+                        @if($item->end_price != NULL)
+                        - {{$item->end_price}} 
+                        @endif
+                    </p>
+                    <a href="{{url('houseview/'.$item->property_id)}}">
+                        @if($item->listing_type=='buy')
+                        <button class="btn btn-dark buttongoproduct">BUY</button>   
+                        @elseif($item->listing_type=='rent')
+                        <button class="btn btn-dark buttongoproduct">RENT</button>
+                        @else
+                        <button class="btn btn-dark buttongoproduct">BUY/RENT</button>
+                        @endif  
                     </a>
                 </div>
                 <div>
@@ -97,121 +125,7 @@
                 </div>
             </div>
         </div>
-        <div class=" houselist">
-            <div class="houseimage">
-                <img src="/assets/staticimg/house2.jpg" class="houseimages" alt="...">
-            </div>
-            <div class="housedetails">
-                <div class="projectname housedetailsect">
-                    <h3 class="housetitles"> Project Name</h3>
-                    <p>2 Bedroom Runda</p>
-                </div>
-                <div class="housetype housedetailsect">
-                    <h3 class="housetitles"> Type</h3>
-                    <p>Bungalow</p>
-                </div>
-                <div class="houseaddress housedetailsect">
-                    <h3 class="housetitles"> Address</h3>
-                    <p>3rd Avenue Close</p>
-                </div>
-                <div class="housedetailsect">
-                    <div class="housepace">
-                        <h3 class="housetitles"> Rooms</h3>
-                        <p> 3</p>
-                    </div>
-                    <div class="housepace">
-                        <h3 class="housetitles"> Bathrooms</h3>
-                        <p>2.5</p>
-                    </div>
-                    <div class="housepace">
-                        <h3 class="housetitles"> SqFt</h3>
-                        <p>6000ft</p>
-                    </div>
-                </div>
-                <div class="Price housedetailsect">
-                    <h3 class="housetitles"> Price</h3>
-                    <p>KSH 8,000,000</p>
-                    <a href="{{url('houseview')}}">
-                        <button class="btn btn-dark buttongoproduct">RENT</button>
-                    </a>  
-                </div>
-            </div>
-        </div>
-        <div class=" houselist">
-            <div class="houseimage">
-                <img src="/assets/staticimg/house3.jpg" class="houseimages" alt="...">
-            </div>
-            <div class="housedetails">
-                <div class="projectname housedetailsect">
-                    <h3 class="housetitles"> Project Name</h3>
-                    <p>2 Bedroom Runda</p>
-                </div>
-                <div class="housetype housedetailsect">
-                    <h3 class="housetitles"> Type</h3>
-                    <p>Bungalow</p>
-                </div>
-                <div class="houseaddress housedetailsect">
-                    <h3 class="housetitles"> Address</h3>
-                    <p>3rd Avenue Close</p>
-                </div>
-                <div class="housedetailsect">
-                    <div class="housepace">
-                        <h3 class="housetitles"> Rooms</h3>
-                        <p> 3</p>
-                    </div>
-                    <div class="housepace">
-                        <h3 class="housetitles"> Bathrooms</h3>
-                        <p>2.5</p>
-                    </div>
-                    <div class="housepace">
-                        <h3 class="housetitles"> SqFt</h3>
-                        <p>6000ft</p>
-                    </div>
-                </div>
-                <div class="Price housedetailsect">
-                    <h3 class="housetitles"> Price</h3>
-                    <p>KSH 8,000,000</p>   
-                </div>
-            </div>
-        </div>
-        <div class=" houselist">
-            <div class="houseimage">
-                <img src="/assets/staticimg/house5.jpg" class="houseimages" alt="...">
-            </div>
-            <div class="housedetails">
-                <div class="projectname housedetailsect">
-                    <h3 class="housetitles"> Project Name</h3>
-                    <p>2 Bedroom Runda</p>
-                </div>
-                <div class="housetype housedetailsect">
-                    <h3 class="housetitles"> Type</h3>
-                    <p>Bungalow</p>
-                </div>
-                <div class="houseaddress housedetailsect">
-                    <h3 class="housetitles"> Address</h3>
-                    <p>3rd Avenue Close</p>
-                </div>
-                <div class="housedetailsect">
-                    <div class="housepace">
-                        <h3 class="housetitles"> Rooms</h3>
-                        <p> 3</p>
-                    </div>
-                    <div class="housepace">
-                        <h3 class="housetitles"> Bathrooms</h3>
-                        <p>2.5</p>
-                    </div>
-                    <div class="housepace">
-                        <h3 class="housetitles"> SqFt</h3>
-                        <p>6000ft</p>
-                    </div>
-                </div>
-                <div class="Price housedetailsect">
-                    <h3 class="housetitles"> Price</h3>
-                    <p>KSH 8,000,000</p>   
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
-   
 </div>
 @endsection  

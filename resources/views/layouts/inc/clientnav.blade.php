@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg fixed-top clientnav" style="display:none;">
     <div class="container-fluid">
         <div class=" d-block d-sm-block d-md-block d-lg-none">        
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ url('landing') }}">
                 <img src="/assets/staticimg/gertlerinvest.png" alt="logo" height="100px"  width="135px">
             </a>
         </div>
@@ -15,18 +15,18 @@
             <a class="nav-link navlinko" aria-current="page" href="{{ url('landing') }}">HOME</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link navlinko" href="{{url('houselistings')}}">OUR PROPERTIES</a>
+            <a class="nav-link navlinko" href="{{url('houselistings/none')}}">OUR PROPERTIES</a>
             </li>
         </ul>
         <div class=" d-none d-lg-flex justify-content-center ">        
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ url('landing') }}">
                 <img src="/assets/staticimg/gertlerinvest.png" alt="logo" height="100px"  width="135px">
             </a>
         </div>
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right:10%;">
             <li class="nav-item">
-            <a class="nav-link navlinko" href="#">CONTACT US</a>
+            <a class="nav-link navlinko" href="#footercon">CONTACT US</a>
             </li>
             <li class="nav-item">
             <a class="nav-link navlinko" href="{{ url('aboutus') }}">ABOUT US</a>

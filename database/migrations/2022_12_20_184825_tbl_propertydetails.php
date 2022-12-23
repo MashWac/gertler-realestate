@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('tbl_propertydetails', function (Blueprint $table) {
             $table->increments('property_id');
+            $table->integer('seller_id');
             $table->string('property_name');
             $table->string('property_description');
             $table->string('house_type');
@@ -22,22 +23,24 @@ return new class extends Migration
             $table->string('full_address');
             $table->string('location');
             $table->string('neighborhood');
-            $table->string('land_details');
-            $table->string('building_details');
-            $table->string('apartment_details');
+            $table->string('land_details')->nullable();
+            $table->string('building_details')->nullable();
+            $table->string('apartment_details')->nullable();
             $table->integer('starting_price');
-            $table->integer('end_price');
-            $table->integer('floor');
-            $table->integer('acreage');
-            $table->integer('total_bedrooms');
+            $table->integer('end_price')->nullable();
+            $table->integer('floor')->nullable();
+            $table->integer('acreage')->nullable();
+            $table->integer('square_feet')->nullable();
+            $table->integer('total_bedrooms')->nullable();
+            $table->integer('total_bathrooms')->nullable();
             $table->string('mainphoto');
-            $table->string('doorman');
-            $table->string('storage');
-            $table->string('elavator');
-            $table->string('washer');
-            $table->string('natural_lighting');
-            $table->string('laundry_room');
-            $table->string('high_ceiling');
+            $table->string('doorman')->nullable();
+            $table->string('storage')->nullable();
+            $table->string('elavator')->nullable();
+            $table->string('washer')->nullable();
+            $table->string('natural_lighting')->nullable();
+            $table->string('laundry_room')->nullable();
+            $table->string('high_ceiling')->nullable();
             $table->string('pet_policy');
             $table->timestamp('created_at');
             $table->dateTime('updated_at')->nullable();

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email');
+            $table->string('country_code');
             $table->integer('phone');
             $table->timestamp('created_at');
             $table->dateTime('updated_at')->nullable();
