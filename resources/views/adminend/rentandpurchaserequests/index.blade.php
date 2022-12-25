@@ -3,8 +3,8 @@
 
 <div class="card">
         <div class="card-header text-center">
-            <h2>List Of Rent Requests</h2>
-        </div> 
+            <h2>List Of Purchase/Rent Requests</h2>
+        </div>
         <div class="card-body" style="display: block; overflow:auto">
             <table class="table table-striped table-hover">
                 <thead>
@@ -18,8 +18,8 @@
                     <th scope="col">House Type </th>
                     <th scope="col">Location</th>
                     <th scope="col">Created At</th>
-                    <th scope="col">Action</th>
-                    
+                    <th scope="col">Actions</th>
+
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -33,13 +33,13 @@
                         <td>{{$item->property_name}}</td>
                         <td>{{$item->house_type}}</td>
                         <td>{{$item->neighborhood}}</td>
-                        <td>{{$item->created_at}}</td>
+                        <td>{{$item->created_at}}</td>   
                         <td>
-                            <form method="GET" action="{{url('rentrequestserviced/'.$item->rent_requestid)}}">
+                            <form method="GET" action="{{url('rentpurchaserequestserviced/'.$item->purchaserequest_id)}}">
                                 @csrf
                                 <button type="submit" class="btn btn-danger show_confirmrequest" data-toggle="tooltip" title='Service'>Service</button>
                             </form>
-                        </td>      
+                        </td>     
                     </tr>
                     @endforeach
                 </tbody>

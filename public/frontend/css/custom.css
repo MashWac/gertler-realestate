@@ -51,6 +51,8 @@ h1,h2,h3,h4{
   min-width: 100%;
   min-height: 100%;
 }
+
+
 .landingback{
   /* background-image: url('/assets/staticimg/final3.gif');
   background-repeat: no-repeat;
@@ -140,6 +142,129 @@ h1,h2,h3,h4{
 .localexpertiseimage:hover .imgexpertisee{
   transform: scale(1.5);
 }
+.ourprops{
+  background-color: #f1f1f1;
+}
+.filterbar{
+  width: 100%;
+  display: block;
+  overflow: auto;
+}
+#filters{
+
+  margin-left: 10%;
+  list-style: none;
+}
+.filteropts{
+  float: left;
+  margin: 2%;
+  padding:20px;
+  
+}
+.filteropts>a{
+  text-decoration: none;
+  color: black;
+  font-family: 'Oxygen', sans-serif;
+
+}
+.filteropts>a:hover{
+  padding: 10px;
+  border: solid 1px;
+  /* border-radius: 0.5rem; */
+  /* color: white;
+  background-color: rgb(64, 130, 230); */
+}
+.filteropts.active{
+  /* padding: 10px; */
+  border-bottom: solid 1px;
+  /* border-radius: 0.5rem; */
+  /* color: white;
+  background-color: rgb(64, 130, 230); */
+}
+.propertieshome{
+  border: none;
+  margin: 3%;
+  margin-left: 5%;
+  width: 90%;
+}
+.propertyhome{
+  position: relative;
+}
+.housetypetag{
+  position: absolute;
+  top: 6%;
+  left: 2%;
+  
+  border: 1px solid #FFB673;
+  background-color: #FFB673;
+  opacity: 0.8;
+  border-radius: 0.3rem;
+  padding: 3px;
+  color: #000000;
+  text-transform: uppercase;
+}
+.housetitleprop{
+  text-transform: uppercase;
+}
+.viewalllistings{
+  margin-top: 3%;
+  border: 1px solid black;
+  padding: 10px;
+  background-color:#f1f1f1;
+  transition: all 1s ease;
+}
+.viewalllistings:hover{
+  margin-top: 2%;
+  border: 1px solid black;
+  padding: 10px;
+  background-color:#000000;
+  color: whitesmoke;
+}
+.housefitcontent{
+  overflow: auto;
+  display: block;
+  height: max-content;
+}
+
+.houseiconsdetails{
+  border-right: 1px solid lightgray;
+  width: 80px;
+  padding-right: 3px;
+  margin-bottom: 5%;
+  float: left;
+  margin-left: 3%;
+
+}
+.valuehomeicon{
+  font-size: 22px;
+}
+.homeicon{
+  margin-left:3px;
+}
+.houseicondetails{
+  display: flex;
+  position: relative;
+}
+.fas.fa-shower{
+  position: absolute;
+  top:30%;
+  right: 30%;
+}
+.fas.fa-ruler-combined{
+  position: absolute;
+  top:30%;
+  right: 0%;
+}
+.fas.fa-mountain{
+  position: absolute;
+  top:30%;
+  right: 30%;
+}
+.far.fa-building{
+  position: absolute;
+  top:30%;
+  right: 30%;
+}
 .servicesoffered{
   background-image: url(/assets/staticimg/homehid2.jpg);
   background-size: cover;
@@ -207,7 +332,7 @@ h1,h2,h3,h4{
   padding-bottom:3%;
   opacity: 0;
   transition: all 2s ease;
-  transform: translateX(60px);
+  transform: translateX(0px);
 }
 .whywork.active{
   width:100%;
@@ -605,3 +730,6 @@ text-justify: inter-word;
   opacity: 1;
   transform: translateX(0px);
 }
+
+
+

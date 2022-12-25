@@ -8,7 +8,11 @@ use App\Models\CountriesModel;
 use App\Models\LocationsModel;
 use App\Models\PropertyimagesModel;
 use App\Models\PropertyModel;
+use App\Models\PurchaserequestsModel;
+use App\Models\RentandPurchaserequestsModel;
+use App\Models\RentrequestsModel;
 use App\Models\SellersModel;
+use App\Models\SellrequestsModel;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -455,14 +459,52 @@ class AdminendController extends Controller
     }
     
     public function purchaserequests(){
-        return view('adminend.purchaserequests.index');
+        $data['requests']=PurchaserequestsModel::orderBy('tbl_purchaserequest.created_at', 'asc')->where('tbl_purchaserequest.is_deleted',0)->join('tbl_propertydetails','tbl_propertydetails.property_id','=','tbl_purchaserequest.property_id')->select('tbl_purchaserequest.*','tbl_propertydetails.property_name as property_name','tbl_propertydetails.house_type as house_type','tbl_propertydetails.neighborhood as neighborhood')->paginate(5);
+        return view('adminend.purchaserequests.index',compact('data'));
+    }
+    public function purchaserequestserviced($id){
+        $property=PurchaserequestsModel::find($id);
+        $property->is_deleted=1;
+        $property->update();
+
+        return redirect('purchaserequests')->with('status', 'Serviced Successfully');
+
     }
     public function rentalrequests(){
-        return view('adminend.rentrequests.index');
+        $data['requests']=RentrequestsModel::orderBy('tbl_rentrequest.created_at', 'ASC')->where('tbl_rentrequest.is_deleted',0)->join('tbl_propertydetails','tbl_propertydetails.property_id','=','tbl_rentrequest.property_id')->select('tbl_rentrequest.*','tbl_propertydetails.property_name as property_name','tbl_propertydetails.house_type as house_type','tbl_propertydetails.neighborhood as neighborhood')->paginate(5);
+        return view('adminend.rentrequests.index',compact('data'));
+    }
+    public function rentrequestserviced($id){
+        $property=RentrequestsModel::find($id);
+        $property->is_deleted=1;
+        $property->update();
+        return redirect('rentalrequests')->with('status', 'Serviced Successfully');
+
+    }
+    public function rentpurchaserequests(){
+        $data['requests']=RentandPurchaserequestsModel::orderBy('tbl_rentandpurchaserequest.created_at', 'ASC')->where('tbl_rentandpurchaserequest.is_deleted',0)->join('tbl_propertydetails','tbl_propertydetails.property_id','=','tbl_rentandpurchaserequest.property_id')->select('tbl_rentandpurchaserequest.*','tbl_propertydetails.property_name as property_name','tbl_propertydetails.house_type as house_type','tbl_propertydetails.neighborhood as neighborhood')->paginate(5);
+        return view('adminend.rentrequests.index', compact('data'));
+    }
+    public function rentpurchaserequestserviced($id){
+        $property=RentandPurchaserequestsModel::find($id);
+        $property->is_deleted=1;
+        $property->update();
+
+        return redirect('rentpurchaserequests')->with('status', 'Serviced Successfully');
+
     }
     public function sellrequests(){
-        return view('adminend.sellrequests.index');
+        $data['requests']=SellrequestsModel::orderBy('created_at', 'ASC')->where('is_deleted',0)->paginate(5);
+
+        return view('adminend.sellrequests.index',compact('data'));
     }
+    public function sellrequestservice($id){
+        $property=SellrequestsModel::find($id);
+        $property->is_deleted=1;
+        $property->update();
+        return redirect('sellrequests')->with('status','Serviced Successfully.');
+    }
+    
     public function blogs(){
         return view('adminend.blogs.index');
     }

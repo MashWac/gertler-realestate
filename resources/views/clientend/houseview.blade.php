@@ -59,6 +59,72 @@
             </p>
         </div>
         <div class="abouthousedetailsicons">
+            <div class="ammenities">
+                @if($data['property']->doorman != NULL)
+                    <div class="text-start houseiconsdetails" style="position: relative;height:70px; width:100px">
+                        <h3 class="housetitles" >Doorman</h3>
+                        <div class="houseicondetails" style="position: absolute;bottom:0%; left:40%">
+                            <i class="fa-solid fa-person-military-pointing fa-xl"></i>
+                        </div> 
+                    </div> 
+                @endif
+                @if($data['property']->storage != NULL)
+                <div class="text-start houseiconsdetails"  style="position: relative;height:70px; width:100px">
+                        <h3 class="housetitles" >Storage </h3>
+                        <div class="houseicondetails" style="position: absolute;bottom:0%; left:40%">
+                            <i class="fa-solid fa-door-open fa-xl"></i>
+                        </div> 
+                    </div> 
+                @endif
+                @if($data['property']->elevator != NULL)
+                <div class="text-start houseiconsdetails"  style="position: relative;height:70px; width:100px">
+                        <h3 class="housetitles" >Elevator</h3>
+                        <div class="houseicondetails" style="position: absolute;bottom:0%; left:40%">
+                            <i class="fa-solid fa-elevator fa-xl"></i>
+                        </div> 
+                    </div> 
+                @endif
+                @if($data['property']->washer != NULL)
+                <div class="text-start houseiconsdetails"  style="position: relative;height:70px; width:100px">
+                        <h3 class="housetitles" >Washer/Dryer </h3>
+                        <div class="houseicondetails" style="position: absolute;bottom:0%; left:40%">
+                            <i class="fa-solid fa-soap fa-xl"></i>
+                             </div> 
+                    </div> 
+                @endif
+                @if($data['property']->natural_lighting != NULL)
+                <div class="text-start houseiconsdetails"  style="position: relative;height:70px; width:100px">
+                        <h3 class="housetitles" >Natural Lighting </h3>
+                        <div class="houseicondetails" style="position: absolute;bottom:0%; left:40%">
+                            <i class="fa-regular fa-sun fa-xl"></i>
+                        </div> 
+                    </div> 
+                @endif
+                @if($data['property']->high_ceiling != NULL)
+                <div class="text-start houseiconsdetails"  style="position: relative;height:70px; width:100px">
+                        <h3 class="housetitles" >High Ceiling</h3>
+                        <div class="houseicondetails" style="position: absolute;bottom:0%; left:40%">
+                            <i class="fa-solid fa-hanukiah fa-xl"></i>
+                        </div> 
+                    </div> 
+                @endif
+                @if($data['property']->laundry_room != NULL)
+                <div class="text-start houseiconsdetails"  style="position: relative;height:70px; width:100px">
+                        <h3 class="housetitles" >Laundry Room </h3>
+                        <div class="houseicondetails" style="position: absolute;bottom:0%; left:40%">
+                            <i class="fa-solid fa-jug-detergent fa-xl"></i>
+                        </div> 
+                    </div> 
+                @endif
+                @if($data['property']->pet_policy != NULL)
+                <div class="text-start houseiconsdetails"  style="position: relative;height:70px; width:100px">
+                        <h3 class="housetitles" >Pets Allowed </h3>
+                        <div class="houseicondetails" style="position: absolute;bottom:0%; left:40%">
+                            <i class="fa-solid fa-paw fa-xl"></i>
+                        </div> 
+                    </div> 
+                @endif
+            </div>
 
         </div>
     </div>

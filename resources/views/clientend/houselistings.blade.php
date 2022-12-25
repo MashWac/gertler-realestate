@@ -22,6 +22,18 @@
                             <option value="mercedes">Mercedes</option>
                             <option value="audi">Audi</option>
                         </select>
+                        <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
 
                         <input type="text" class="form-control filterinputs" placeholder="Location">
                         <input type="number" class="form-control filterinputs" placeholder="Minimum price">
@@ -32,6 +44,18 @@
                 <div class="card w-100 actualform"id="formrent" style="border:none; display:none;">
                     <form method="POST" action="{{url('reguser')}} "  enctype="multipart/form-data">
                         @csrf
+                        <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
                         <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
                             <option value="volvo">Volvo</option>
                             <option value="saab">Saab</option>

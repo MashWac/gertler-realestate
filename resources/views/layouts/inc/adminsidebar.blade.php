@@ -41,6 +41,14 @@
             <span class="nav-link-text ms-1">Purchase Appointment</span>
           </a>
         </li>
+        <li class="nav-item  {{ \Illuminate\Support\Facades\Request::is('rentpurchaserequests') ? 'active' : ''}}">
+          <a class="nav-link text-white " href="{{ url('rentpurchaserequests') }}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fa-solid fa-money-bill"></i>
+            </div>
+            <span class="nav-link-text ms-1">Rent/Purchase Appointment</span>
+          </a>
+        </li>
         <li class="nav-item  {{ \Illuminate\Support\Facades\Request::is('rentalrequests') ? 'active' : ''}}">
           <a class="nav-link text-white " href="{{ url('rentalrequests') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">

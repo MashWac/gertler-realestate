@@ -56,6 +56,7 @@
     <script src="{{ asset('frontend/js/bootstrap.min.js') }}" defer></script>
     <script src="{{ asset('frontend/js/imgdisplay.js') }}" defer></script>
     <script src="{{ asset('frontend/js/deletemessage.js') }}" defer></script>
+    <script src="{{ asset('frontend/js/requestmessage.js') }}" defer></script>
     <script src="{{ asset('frontend/js/multipleimgupload.js') }}" defer></script>
     <script src="{{ asset('frontend/js/multipleimgdisplay.js') }}" defer></script>
     <script src="{{ asset('frontend/js/bootstrap5.2.2.bundle.min.js') }}" defer></script>
