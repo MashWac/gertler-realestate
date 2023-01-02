@@ -16,15 +16,13 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('login', [LoginController::class,'loginpage']);
 Route::post('signin', [LoginController::class,'signin']);
 
 
 
-Route::get('landing', [ClientendController::class,'landingpage']);
+Route::get('/', [ClientendController::class,'landingpage']);
 Route::get('aboutus', [ClientendController::class,'aboutus']);
 Route::get('houselistings/{str}', [ClientendController::class,'houselistings']);
 Route::get('houseview/{id}', [ClientendController::class,'houseview']);
