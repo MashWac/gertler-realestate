@@ -73,6 +73,7 @@
         </div>
     </div>
     <div class="houselistingsection">
+    @if($data['count']>0)
     @foreach($data['listings'] as $item)
         <div class=" houselist">
             <div class="houseimage">
@@ -148,6 +149,19 @@
             </div>
         </div>
         @endforeach
+        @else
+        <div class="emptyquery container-fluid" style="width: 100%;">
+            <div class="row" style="width: 95%;">
+                <div class="text-center">
+                <h2 class="emptyqueryheader">
+                    SORRY NO PROPERTIES FOUND
+                </h2>
+                <p >There are no properties with the specifications you have search for. You can change your specifications or <a href="#footercon">Contact Us</a> for assistance.</p>
+                </div>
+                <ion-icon name="sad-outline" style="font-size: 100px;"></ion-icon>
+            </div>
+        </div>
+        @endif
     </div>
     <div class="text-center d-flex justify-content-center">
         {{ $data['listings']->links('pagination::bootstrap-4') }}

@@ -509,6 +509,12 @@ h1,h2,h3,h4{
   width: 100%;
   height:40vh;
 }
+.emptyquery{
+  border: 1px dashed black;
+  border-radius: 0.8rem;
+  padding: 5%;
+  margin-bottom: 3%;
+}
 .houselist{
   float: left;
   min-width: 280px;

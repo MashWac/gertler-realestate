@@ -26,7 +26,6 @@ class ClientendController extends Controller
     }
     public function filteropts($id){
         $strid=strval($id);
-        $data['location']='filterbylocation.3';
         $data['locations']=LocationsModel::where('is_deleted',0)->paginate(6);
         $data['listings']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->get(); 
         $data['count']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->count(); 
@@ -48,6 +47,7 @@ class ClientendController extends Controller
             $data['pricemax']=NULL;
             $data['counties']=LocationsModel::all();
             $data['listings']=PropertyModel::where('listing_type','buyrent')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->paginate(4);
+            $data['count']=PropertyModel::where('listing_type','buyrent')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->count();
 
         }elseif($str=='sale'){
             $data['house_type']='buy';
@@ -58,7 +58,7 @@ class ClientendController extends Controller
             $data['pricemax']=NULL;
             $data['counties']=LocationsModel::all();
             $data['listings']=PropertyModel::where('listing_type','buy')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->paginate(4);
-
+            $data['count']=PropertyModel::where('listing_type','buy')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->count();
         }elseif($str=='rent'){
             $data['house_type']='rent';
             $data['location']='all';
@@ -68,7 +68,7 @@ class ClientendController extends Controller
             $data['pricemax']=NULL;
             $data['counties']=LocationsModel::all();
             $data['listings']=PropertyModel::where('listing_type','rent')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->paginate(4);
-       
+            $data['count']=PropertyModel::where('listing_type','rent')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->count();
         }else{
             $data['house_type']='all';
             $data['location']='all';
@@ -78,7 +78,7 @@ class ClientendController extends Controller
             $data['pricemax']=NULL;
             $data['counties']=LocationsModel::all();
             $data['listings']=PropertyModel::where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->paginate(4);
-
+            $data['count']=PropertyModel::where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->count();
         }
         return view('clientend.houselistings',compact('data'));
     }
@@ -146,12 +146,15 @@ class ClientendController extends Controller
                     $data['listing_type']=$request->input('listingtype');
                     $listingtype=$request->input('listingtype');
                     $data['listings']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->where('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                    $data['count']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->where('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->count();
 
 
                 }else{
                     $data['listing_type']='all';
                     $listingtype=['buy','rent','buyrent'];
                     $data['listings']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->where('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                    $data['count']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->where('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->count();
+
                 }
             }else{
                 $data['house_type']='all';
@@ -160,10 +163,13 @@ class ClientendController extends Controller
                     $data['listing_type']=$request->input('listingtype');
                     $listingtype=$request->input('listingtype');
                     $data['listings']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->whereIn('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                    $data['count']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->whereIn('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->count();
+
                 }else{
                     $data['listing_type']='all';
                     $listingtype=['buy','rent','buyrent'];
                     $data['listings']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->whereIn('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                    $data['count']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->whereIn('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->count();
 
                 }
             }
@@ -177,10 +183,13 @@ class ClientendController extends Controller
                     $data['listing_type']=$request->input('listingtype');
                     $listingtype=$request->input('listingtype');
                     $data['listings']=PropertyModel::where('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                    $data['count']=PropertyModel::where('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->count();
+
                 }else{
                     $data['listing_type']='all';
                     $listingtype=['buy','rent','buyrent'];
                     $data['listings']=PropertyModel::where('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                    $data['count']=PropertyModel::where('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->count();
 
                 }
             }else{
@@ -190,10 +199,13 @@ class ClientendController extends Controller
                     $data['listing_type']=$request->input('listingtype');
                     $listingtype=$request->input('listingtype');
                     $data['listings']=PropertyModel::whereIn('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                    $data['count']=PropertyModel::whereIn('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->count();
+
                 }else{
                     $data['listing_type']='all';
                     $listingtype=['buy','rent','buyrent'];
                     $data['listings']=PropertyModel::whereIn('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                    $data['count']=PropertyModel::whereIn('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->count();
 
                 }
             }
