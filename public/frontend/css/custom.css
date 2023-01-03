@@ -184,7 +184,6 @@ h1,h2,h3,h4{
 }
 .propertieshome{
   border: none;
-  margin: 3%;
   margin-left: 5%;
   width: 90%;
 }
@@ -229,7 +228,7 @@ h1,h2,h3,h4{
 
 .houseiconsdetails{
   border-right: 1px solid lightgray;
-  width: 80px;
+  width: 77px;
   padding-right: 3px;
   margin-bottom: 5%;
   float: left;
@@ -453,6 +452,7 @@ h1,h2,h3,h4{
   margin-left: 12%;
   margin-top: 150px;
   margin-bottom: 150px;
+  position: relative;
 }
 .aboutfloat{
   float: left;
@@ -486,6 +486,11 @@ h1,h2,h3,h4{
   font-size: 20px;
   text-justify: inter-word;
   
+}
+.founderlarge{
+  position: absolute;
+  top:50%;
+  right:0%;
 }
 /* houselist */
 .mainview{

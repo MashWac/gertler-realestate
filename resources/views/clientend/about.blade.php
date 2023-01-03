@@ -5,7 +5,6 @@
         <h3>About Us</h3>
     </div>
     <div class="revealhouse imagesectionabout">
-
     </div>
     <div class="reveal aboutgertler">
         <div class="aboutgertlerheader aboutfloat">
@@ -16,6 +15,7 @@
                 <br>Our professional, friendly and experienced team is made up of experts in wide range of property and construction field. From our civil engineers to our experience property agents, we can provide a complete property liaising, development and management service.</p>
         </div>
     </div>
+
     <div class="reveal aboutgertler">
         <div class="aboutgertlerheader aboutfloat">
             <h3 class="aboutustitle"> OUR VISION</h3>
@@ -39,8 +39,24 @@
         <div class="reveal aboutinfo aboutfloat">
             <p class="aboutustext">To ensure over +1 million people invest in property</p>
         </div>
-    </div>    
+    </div>
+    <div class="reveal aboutgertler d-block d-sm-block d-md-block d-lg-none">
+        <div class="aboutgertlerheader aboutfloat">
+            <h3 class="aboutustitle"> OUR FOUNDER</h3>
+        </div>
+        <div class="aboutinfo aboutfloat">
+            <div>
+                <img src="/assets/staticimg/gertler.png" alt="gertler" width="300px" height="410px">
+            </div>        
+        </div>
+    </div>
+    <div class="founderlarge d-none d-lg-block d-xl-block">
+        <h3 class="aboutustitle"> OUR FOUNDER</h3>
+        <img src="/assets/staticimg/gertler.png" alt="gertler" width="300px" height="410px">
+    </div>
 </div>
+
+
 @endsection  
 
 
