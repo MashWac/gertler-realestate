@@ -5,73 +5,71 @@
 </div>
 <div class="mainview">
     <div class=" filtersection">
-        <div class="filteroptions">
-            <ul>
-                <li class="formswitchbutton" ><button id="buyform" class="btn btn-dark buttonswitch" style="background-color:#FFB673 ;" onclick="showbuy()">Buy</button></li>
-                <li class="formswitchbutton" ><button id="rentform" class="btn btn-dark buttonswitch" onclick="showrent()">Rent</button></li>
-            </ul>
-        </div>
         <div class="formsection">
-            <div class="card w-100 actualform">
                 <div id="formbuy" style="display:inline;">
-                    <form method="POST" action="reguser"  enctype="multipart/form-data">
+                    <form method="GET" action="{{url('filterproperties')}}">
                         @csrf
-                        <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                        <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                        <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
+                        <div> 
+                            <span class="invalid-feedback" role="alert">
+                            @error('selectedlocation')<strong>{{ $message }}</strong>@enderror
+                            </span>                       
+                            <input class="form-control filterinputs @error('selectedlocation') is-invalid @enderror" name="selectedlocation"list="datalistOptions" style="width: 200px;" id="exampleDataList" placeholder="Type to search...">
+                            <datalist id="datalistOptions">
+                                @foreach($data['counties'] as $item)
+                                <option value="{{$item->name}}" {{$item->name == $data['location'] ? 'selected' : '' }}>{{$item->name}}</option>
+                                @endforeach
+                            </datalist>
+                            <span class="invalid-feedback" role="alert">
+                            @error('selectedlocation')<strong>{{ $message }}</strong>@enderror
+                            </span> 
 
-                        <input type="text" class="form-control filterinputs" placeholder="Location">
-                        <input type="number" class="form-control filterinputs" placeholder="Minimum price">
-                        <input type="number" class="form-control filterinputs" placeholder="Maximum Price">
+                        </div>
+                        <select name="housetype" class="form-select filterinputs" style="width: 150px;" aria-placeholder="Category">
+                            <option value="all" {{$data['house_type'] == 'all' ? 'selected' : '' }}>All</option>
+                            <option value="apartment" {{$data['house_type'] == 'apartment' ? 'selected' : '' }} >Apartment</option>
+                            <optgroup label="Houses">
+                                <option value="bungalow" {{$data['house_type'] == 'bungalow' ? 'selected' : '' }}>Bungalow</option>
+                                <option value="townhouse" {{$data['house_type'] == 'townhouse' ? 'selected' : '' }}>Town House</option>
+                                <option value="mansion" {{$data['house_type'] == 'mansion' ? 'selected' : '' }}>Mansion</option>
+                                <option value="villa" {{$data['house_type'] == 'villa' ? 'selected' : '' }}>Villa</option>
+                                <option value="ranchhouse" {{$data['house_type'] == 'ranchhouse' ? 'selected' : '' }}>Ranch House</option>
+                                <option value="condominium" {{$data['house_type'] == 'condominium' ? 'selected' : '' }}>Condominium</option>
+                            </optgroup>
+                            <optgroup label="Land">
+                                <option value="residentialland" {{$data['house_type'] == 'residentialland' ? 'selected' : '' }}>Residential</option>
+                                <option value="commercialland" {{$data['house_type'] == 'commercialland' ? 'selected' : '' }}>Commercial Land</option>
+                            </optgroup>
+                            <optgroup label="Commercial Property">
+                                <option value="warehouse" {{$data['house_type'] == 'warehouse' ? 'selected' : '' }}>Warehouses</option>
+                                <option value="shop" {{$data['house_type'] == 'shop' ? 'selected' : '' }}>Shops</option>
+                                <option value="office" {{$data['house_type'] == 'office' ? 'selected' : '' }}>Offices</option>
+                            </optgroup>
+                        </select>
+                        <select name="listingtype" class="form-select filterinputs" style="width: 150px;"  aria-placeholder="Category">
+                            <option value="all" {{$data['listing_type'] == 'all' ? 'selected' : '' }}>All</option>
+                            <option value="buy" {{$data['listing_type'] == 'buy' ? 'selected' : '' }}> Buy</option>
+                            <option value="rent" {{$data['listing_type'] == 'rent' ? 'selected' : '' }}>Rent</option>
+                            <option value="buyrent" {{$data['listing_type'] == 'buyrent' ? 'selected' : '' }}>Buy or Rent </option>
+                        </select>
+                        <select name="orderby" class="form-select filterinputs" style="width: 150px;"  aria-placeholder="OrderBy">
+                            <option value="priceascending" {{$data['orderby'] == 'priceascending' ? 'selected' : '' }}>Price Ascending</option>
+                            <option value="pricedescending" {{$data['orderby'] == 'pricedescending' ? 'selected' : '' }}>Price Descending</option>
+                            <option value="newtoold" {{$data['orderby'] == 'newtoold' ? 'selected' : '' }}>Newest to Oldest</option>
+                            <option value="oldtonew" {{$data['orderby'] == 'oldtonew' ? 'selected' : '' }}>Oldest to Newest</option>
+                        </select>
+                        @if($data['pricemin'])
+                            <input type="number" class="form-control filterinputs" name="minprice" value="{{$data['pricemin']}}" placeholder="Minimum price">
+                        @else
+                            <input type="number" class="form-control filterinputs" name="minprice" value="{{$data['pricemin']}}" placeholder="Minimum price">
+                        @endif
+                        @if($data['pricemax'])
+                            <input type="number" class="form-control filterinputs" name="maxprice" value="{{$data['pricemax']}}" placeholder="Maximum Price">
+                        @else
+                            <input type="number" class="form-control filterinputs" name="maxprice" value="{{$data['pricemax']}}" placeholder="Maximum Price">
+                        @endif
                         <button type="submit" class="btn filtersbutton" style="float: left;">Search</button>
                     </form>
                 </div>
-                <div class="card w-100 actualform"id="formrent" style="border:none; display:none;">
-                    <form method="POST" action="{{url('reguser')}} "  enctype="multipart/form-data">
-                        @csrf
-                        <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                        <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                        <select name="cars" class="form-select filterinputs"id="cars" aria-placeholder="Category">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
-
-                        <input type="text" class="form-control filterinputs" placeholder="Location">
-                        <input type="number" class="form-control filterinputs" placeholder="Minimum price">
-                        <input type="number" class="form-control filterinputs" placeholder="Maximum Price">
-                        <button type="submit" class="btn filtersbutton" style="float: left;">Search</button>
-
-                    </form>
-                </div>
-            </div>
-
         </div>
     </div>
     <div class="houselistingsection">
@@ -150,6 +148,9 @@
             </div>
         </div>
         @endforeach
+    </div>
+    <div class="text-center d-flex justify-content-center">
+        {{ $data['listings']->links('pagination::bootstrap-4') }}
     </div>
 </div>
 @endsection  

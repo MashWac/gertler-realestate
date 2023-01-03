@@ -25,6 +25,7 @@ Route::post('signin', [LoginController::class,'signin']);
 Route::get('/', [ClientendController::class,'landingpage']);
 Route::get('aboutus', [ClientendController::class,'aboutus']);
 Route::get('houselistings/{str}', [ClientendController::class,'houselistings']);
+Route::get('filterproperties', [ClientendController::class,'filterproperties']);
 Route::get('houseview/{id}', [ClientendController::class,'houseview']);
 Route::post('interested/{type}', [ClientendController::class,'potential']);
 Route::get('filterbylocation/{id}', [ClientendController::class,'filteropts']);

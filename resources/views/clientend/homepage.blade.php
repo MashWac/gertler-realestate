@@ -1,8 +1,7 @@
 @extends('layouts.client')
 @section('content')
-    <video width="100%" autoplay muted loop id="myVideo">
-        <source src='https://gertler-investment.s3.amazonaws.com/public/assets/statics/final3.mp4' type='video/mp4'>
-    </video>
+
+    <img src="/assets/staticimg/newgif.gif" id="myVideo"width="100%">
     <div class="landingback">
     
         <div class="landingtext d-none d-lg-block d-xl-block">
@@ -61,7 +60,7 @@
     <div class="reveal forsale">
         <div id="filterbar" class="filterbar"class="text-center">
             <ul id="filters">
-                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('landing') ? 'active' : ''}}"><a href="{{url('/landing')}}" >All</a></li>
+                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('/') ? 'active' : ''}}"><a href="{{url('/')}}" >All</a></li>
                 @foreach($data['locations'] as $things)
                     <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('filterbylocation/'.$things->location_id) ? 'active' : ''}}"><a href="{{url('filterbylocation/'.$things->location_id)}}" >{{$things->name}}</a></li>
                 @endforeach
@@ -71,7 +70,7 @@
             @if($data['count']>5)
             <div class="owl-carousel owl-theme">
             @foreach($data['listings'] as $item)
-                    <div class="card propertyhome item" style="width: 18rem;">
+                    <div class="card propertyhome item" style="width: 18rem; height:640px">
                         <img src="{{$item->mainphoto}}" class="card-img-top" alt="image property" height="280px" width="">
                         <p class="housetypetag"> {{$item->listing_type}}</p>
                         <div class="card-body">
@@ -141,7 +140,7 @@
             <div class="container">
                 <div class=" justify-content-center">
                 @foreach($data['listings'] as $item)
-                    <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:720px">
+                    <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:640px">
                         <img src="{{$item->mainphoto}}" class="card-img-top" alt="image property" height="280px" width="">
                         <p class="housetypetag"> {{$item->listing_type}}</p>
                         <div class="card-body">
@@ -263,49 +262,49 @@
             <p>We partner with property owners,real estate professionals,financial instituitions and government institutions with an aim to complete a task in the most effective and efficient way.</p>
         </div>
     </div>
-    <div class="reveal whywork text-center">
+    <div class="reveal whywork text-center d-none d-lg-block d-xl-block">
         <h3> What Our Clients Say </h3>
     </div>
-    <div class="testimonials">
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+    <div class="testimonials d-none d-lg-block d-xl-block">
+        <div id="carouselExampleDark" style="height:80vh" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000" style="position: relative;">
+                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh"alt="...">
+                    <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
+                        <h5 style="font-size: 26px;">Angela</h5>
+                        <p style="font-size: 21px;">“My wife & I have moved 6 times in the last 25 years. Obviously, we've dealt with many realtors both on the buying and selling side. I have to say that Kelvin is by far the BEST realtor we've ever worked with, his professionalism, personality, attention to detail, responsiveness and his ability to close the deal was Outstanding!!! If you are buying or selling a home, do yourselves a favor and hire Gertler Investment!!”</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000" style="position: relative;">
+                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh" alt="...">
+                    <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
+                        <h5 style="font-size: 26px;">Rachel</h5>
+                        <p style="font-size: 21px;">“I recently sold a house with Gertler and while this can be a very stressful process, I felt 110% confident by partnering with Gertler. He was candid, provided great feedback, helped explain clearly all details and managed the actual sale negotiation brilliantly. In addition, he was extremely responsive  to every one of my questions, no matter how small. As I move forward to now BUY my next house, I am extremely certain Dave will be the right partner to help me navigate this process.”</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="position: relative;">
+                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh" alt="...">
+                    <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%;  min-width:300px;">
+                        <h5 style="font-size: 26px;">Wafula</h5>
+                        <p style="font-size: 21px;">“I was looking for an apartment that would be comfortable for me and my pets.Thank you for providing one that suites me”</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+    </div>
 @endsection  
 
 

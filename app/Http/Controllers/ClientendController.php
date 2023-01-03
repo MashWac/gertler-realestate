@@ -40,19 +40,169 @@ class ClientendController extends Controller
     public function houselistings($str){
                 
         if($str=='sall'){
-            $data['listings']=PropertyModel::where('listing_type','buyrent')->where('is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(2);
+            $data['house_type']='buyrent';
+            $data['location']='all';
+            $data['listing_type']='buyrent';
+            $data['orderby']='priceascending';
+            $data['pricemin']=NULL;
+            $data['pricemax']=NULL;
+            $data['counties']=LocationsModel::all();
+            $data['listings']=PropertyModel::where('listing_type','buyrent')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->paginate(4);
 
         }elseif($str=='sale'){
-            $data['listings']=PropertyModel::where('listing_type','buy')->where('is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(2);
+            $data['house_type']='buy';
+            $data['location']='all';
+            $data['listing_type']='buy';
+            $data['orderby']='priceascending';
+            $data['pricemin']=NULL;
+            $data['pricemax']=NULL;
+            $data['counties']=LocationsModel::all();
+            $data['listings']=PropertyModel::where('listing_type','buy')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->paginate(4);
 
         }elseif($str=='rent'){
-            $data['listings']=PropertyModel::where('listing_type','rent')->where('is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(2);
+            $data['house_type']='rent';
+            $data['location']='all';
+            $data['listing_type']='rent';
+            $data['orderby']='priceascending';
+            $data['pricemin']=NULL;
+            $data['pricemax']=NULL;
+            $data['counties']=LocationsModel::all();
+            $data['listings']=PropertyModel::where('listing_type','rent')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->paginate(4);
        
         }else{
-            $data['listings']=PropertyModel::join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(4);
+            $data['house_type']='all';
+            $data['location']='all';
+            $data['listing_type']='all';
+            $data['orderby']='priceascending';
+            $data['pricemin']=NULL;
+            $data['pricemax']=NULL;
+            $data['counties']=LocationsModel::all();
+            $data['listings']=PropertyModel::where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy('tbl_propertydetails.starting_price','asc')->paginate(4);
 
         }
         return view('clientend.houselistings',compact('data'));
+    }
+    public function filterproperties(Request $request){
+        if($request->input('selectedlocation')){
+            if(
+            !$request->validate([            
+                'selectedlocation'=>['exists:App\Models\LocationsModel,name']
+            ])){
+                return redirect()->back()->with('status','Location Not Found.');
+            }
+        }
+        $data['house_type']='all';
+        $data['location']='all';
+        $data['listing_type']='all';
+        $data['pricemin']=NULL;
+        $data['pricemax']=NULL;
+        $data['counties']=LocationsModel::all();
+        if($request->input('minprice')){
+            $minprice=$request->input('minprice');
+            $data['pricemin']=$request->input('minprice');
+        }else{
+            $minprice=0;
+            $data['pricemin']=NULL;
+        }
+        if($request->input('maxprice')){
+            $data['pricemax']=$request->input('maxprice');
+            $maxprice=$request->input('maxprice'); 
+        }else{
+            $data['pricemax']=NULL;
+            $maxprice=1000000000; 
+        }
+
+        if($request->input('orderby')=='priceascending'||$request->input('orderby')=='oldtonew'){
+            $orderreal='ASC';
+            if($request->input('orderby')=='priceascending'){
+                $data['orderby']='priceascending';
+
+                $orderby='tbl_propertydetails.starting_price';
+            }else{
+                $data['orderby']='oldtonew';
+
+                $orderby='tbl_propertydetails.created_at';
+            }
+
+        }else{
+            $orderreal='DESC';
+            if($request->input('orderby')=='pricedescending'){
+                $data['orderby']='pricedescending';
+
+                $orderby='tbl_propertydetails.starting_price';
+            }else{
+                $data['orderby']='newtoold';
+                $orderby='tbl_propertydetails.created_at';
+            }
+            
+        }
+        if($request->input('selectedlocation')){
+            $location=$request->input('selectedlocation');
+            $data['location']=$request->input('selectedlocation');
+            if($request->input('housetype')!='all'){
+                $data['house_type']=$request->input('housetype');
+                $housetype=$request->input('housetype');
+                if($request->input('listingtype')!='all'){
+                    $data['listing_type']=$request->input('listingtype');
+                    $listingtype=$request->input('listingtype');
+                    $data['listings']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->where('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+
+
+                }else{
+                    $data['listing_type']='all';
+                    $listingtype=['buy','rent','buyrent'];
+                    $data['listings']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->where('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                }
+            }else{
+                $data['house_type']='all';
+                $housetype=['apartment','bungalow','townhouse','mansion','villa','ranchhouse','condominium','residentialland','commercialland','warehouse','shop','office'];
+                if($request->input('listingtype')!='all'){
+                    $data['listing_type']=$request->input('listingtype');
+                    $listingtype=$request->input('listingtype');
+                    $data['listings']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->whereIn('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                }else{
+                    $data['listing_type']='all';
+                    $listingtype=['buy','rent','buyrent'];
+                    $data['listings']=PropertyModel::where('tbl_propertydetails.neighborhood',$location)->whereIn('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+
+                }
+            }
+
+        }else{
+            $data['location']='all';
+            if($request->input('housetype')!='all'){
+                $data['house_type']=$request->input('housetype');
+                $housetype=$request->input('housetype');
+                if($request->input('listingtype')!='all'){
+                    $data['listing_type']=$request->input('listingtype');
+                    $listingtype=$request->input('listingtype');
+                    $data['listings']=PropertyModel::where('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                }else{
+                    $data['listing_type']='all';
+                    $listingtype=['buy','rent','buyrent'];
+                    $data['listings']=PropertyModel::where('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+
+                }
+            }else{
+                $data['house_type']='all';
+                $housetype=['apartment','bungalow','townhouse','mansion','villa','ranchhouse','condominium','residentialland','commercialland','warehouse','shop','office'];
+                if($request->input('listingtype')!='all'){
+                    $data['listing_type']=$request->input('listingtype');
+                    $listingtype=$request->input('listingtype');
+                    $data['listings']=PropertyModel::whereIn('tbl_propertydetails.house_type',$housetype)->where('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+                }else{
+                    $data['listing_type']='all';
+                    $listingtype=['buy','rent','buyrent'];
+                    $data['listings']=PropertyModel::whereIn('tbl_propertydetails.house_type',$housetype)->whereIn('tbl_propertydetails.listing_type',$listingtype)->where('tbl_propertydetails.starting_price','>',$minprice)->where('tbl_propertydetails.starting_price','<',$maxprice)->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->orderBy($orderby,$orderreal)->paginate(4);
+
+                }
+            }
+        }
+
+
+        return view('clientend.houselistings',compact('data'));
+
+
     }
     public function houseview($id){
         $data['counties']=CountiesModel::all();
@@ -85,7 +235,7 @@ class ClientendController extends Controller
         $potential->property_id= $request->input('propid');
         
         if( $potential->save()){
-            return redirect('landing')->with('status','Request Sent. We Will Get In Touch Soon');
+            return redirect('/')->with('status','Request Sent. We Will Get In Touch Soon');
         }else{
             return redirect('')->with('status','Listing Addition failed.');
 
@@ -137,7 +287,7 @@ class ClientendController extends Controller
         $sellreq->high_ceiling=$request->input('ammenityhighceiling');
         $sellreq->pet_policy=$request->input('petpolicy');
         if( $sellreq->save()){
-            return redirect('landing')->with('status','Request Sent. We Will Get In Touch Soon');
+            return redirect('/')->with('status','Request Sent. We Will Get In Touch Soon');
         }else{
             return redirect('')->with('status','Listing Addition failed.');
 

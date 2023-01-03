@@ -391,33 +391,33 @@
                         <div class="col-md-6">
                             <label for="housetype">House Type</label> 
                             <select name="housetype" class="form-select" aria-label="Default select example">
-                                <option value="apartment" selected>Apartment</option>
-                                <optgroup label="Houses">
-                                    <option value="bungalow">Bungalow</option>
-                                    <option value="townhouse">Town House</option>
-                                    <option value="mansion">Mansion</option>
-                                    <option value="villa">Villa</option>
-                                    <option value="ranchhouse">Ranch House</option>
-                                    <option value="condominium">Condominium</option>
-                                </optgroup>
-                                <optgroup label="Land">
-                                    <option value="residentialland">Residential</option>
-                                    <option value="commercialland">Commercial Land</option>
-                                </optgroup>
-                                <optgroup label="Commercial Property">
-                                    <option value="warehouse">Warehouses</option>
-                                    <option value="shop">Shops</option>
-                                    <option value="office">Offices</option>
-                                </optgroup>
-                            </select>
+                            <option value="apartment" {{$data['listing']->house_type == 'apartment' ? 'selected' : '' }} >Apartment</option>
+                            <optgroup label="Houses">
+                                <option value="bungalow" {{$data['listing']->house_type == 'bungalow' ? 'selected' : '' }}>Bungalow</option>
+                                <option value="townhouse" {{$data['listing']->house_type == 'townhouse' ? 'selected' : '' }}>Town House</option>
+                                <option value="mansion" {{$data['listing']->house_type == 'mansion' ? 'selected' : '' }}>Mansion</option>
+                                <option value="villa" {{$data['listing']->house_type == 'villa' ? 'selected' : '' }}>Villa</option>
+                                <option value="ranchhouse" {{$data['listing']->house_type == 'ranchhouse' ? 'selected' : '' }}>Ranch House</option>
+                                <option value="condominium" {{$data['listing']->house_type == 'condominium' ? 'selected' : '' }}>Condominium</option>
+                            </optgroup>
+                            <optgroup label="Land">
+                                <option value="residentialland" {{$data['listing']->house_type == 'residentialland' ? 'selected' : '' }}>Residential</option>
+                                <option value="commercialland" {{$data['listing']->house_type == 'commercialland' ? 'selected' : '' }}>Commercial Land</option>
+                            </optgroup>
+                            <optgroup label="Commercial Property">
+                                <option value="warehouse" {{$data['listing']->house_type == 'warehouse' ? 'selected' : '' }}>Warehouses</option>
+                                <option value="shop" {{$data['listing']->house_type == 'shop' ? 'selected' : '' }}>Shops</option>
+                                <option value="office" {{$data['listing']->house_type == 'office' ? 'selected' : '' }}>Offices</option>
+                            </optgroup>
+                        </select>
                         </div>
                         <div class="col-md-6">
                             <label for="listingtype">Listing type</label> 
-                            <select class="form-select" name="listingtype"aria-label="Default select example">
-                                <option value="buy" selected>Buy</option>
-                                <option value="rent">Rent</option>
-                                <option value="buyrent">Buy or Rent </option>
-                                <option value="selling">Brokering</option>
+                            <select name="listingtype" class="form-select filterinputs" style="width: 150px;"  aria-placeholder="Category">
+                                <option value="all" {{$data['listing']->listing_type == 'all' ? 'selected' : '' }}>All</option>
+                                <option value="buy" {{$data['listing']->listing_type == 'buy' ? 'selected' : '' }}> Buy</option>
+                                <option value="rent" {{$data['listing']->listing_type == 'rent' ? 'selected' : '' }}>Rent</option>
+                                <option value="buyrent" {{$data['listing']->listing_type == 'buyrent' ? 'selected' : '' }}>Buy or Rent </option>
                             </select>
                         </div>
                         <div class="col-md-6 ">

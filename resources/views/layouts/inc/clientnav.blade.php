@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg fixed-top clientnav" style="display:none;">
     <div class="container-fluid">
         <div class=" d-block d-sm-block d-md-block d-lg-none">        
-            <a class="navbar-brand" href="{{ url('landing') }}">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="/assets/staticimg/gertlerinvest.png" alt="logo" height="100px"  width="135px">
             </a>
         </div>
@@ -11,25 +11,43 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText" >
         <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left:10%;" >
-            <li class="nav-item">
-            <a class="nav-link navlinko" aria-current="page" href="{{ url('landing') }}">HOME</a>
+            <li class="nav-item d-none d-lg-flex">
+            <a class="nav-link navlinko" aria-current="page" href="{{ url('/') }}">HOME</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item d-none d-lg-flex">
             <a class="nav-link navlinko" href="{{url('houselistings/none')}}">OUR PROPERTIES</a>
             </li>
         </ul>
         <div class=" d-none d-lg-flex justify-content-center ">        
-            <a class="navbar-brand" href="{{ url('landing') }}">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="/assets/staticimg/gertlerinvest.png" alt="logo" height="100px"  width="135px">
             </a>
         </div>
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right:10%;">
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+            <a class="nav-link navlinko" aria-current="page" href="{{ url('/') }}">HOME</a>
+            </li>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+            <a class="nav-link navlinko" href="{{url('houselistings/none')}}">OUR PROPERTIES</a>
+            </li>
             <li class="nav-item">
             <a class="nav-link navlinko" href="#footercon">CONTACT US</a>
             </li>
             <li class="nav-item">
             <a class="nav-link navlinko" href="{{ url('aboutus') }}">ABOUT US</a>
+            </li>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+            <a class="nav-link navlinko" href="{{url('houselistings/buy')}}">BUY</a>
+            </li>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+            <a class="nav-link navlinko" href="{{url('houselistings/rent')}}">RENT</a>
+            </li>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+            <a class="nav-link navlinko" href="{{url('houselistings/sall')}}">BUY/RENT</a>
+            </li>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+            <a class="nav-link navlinko" href="{{url('rentout')}}">SELL</a>
             </li>
         </ul>
         </div>

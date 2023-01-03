@@ -61,8 +61,8 @@
     <script src="{{ asset('frontend/js/navbarchange.js') }}" defer></script>
     <script src="{{ asset('frontend/js/changehomedivstatus.js') }}" defer></script>
     <script src="{{ asset('frontend/js/houselistload.js') }}" defer></script>
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     
     @if(session('status'))
     <script>
