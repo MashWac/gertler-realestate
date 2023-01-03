@@ -70,7 +70,7 @@
             @if($data['count']>5)
             <div class="owl-carousel owl-theme">
             @foreach($data['listings'] as $item)
-                    <div class="card propertyhome item" style="width: 18rem; height:640px">
+                    <div class="card propertyhome item" style="width: 18rem; height:660px">
                         <img src="{{$item->mainphoto}}" class="card-img-top" alt="image property" height="280px" width="">
                         <p class="housetypetag"> {{$item->listing_type}}</p>
                         <div class="card-body">
@@ -140,7 +140,7 @@
             <div class="container">
                 <div class=" justify-content-center">
                 @foreach($data['listings'] as $item)
-                    <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:640px">
+                    <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:660px">
                         <img src="{{$item->mainphoto}}" class="card-img-top" alt="image property" height="280px" width="">
                         <p class="housetypetag"> {{$item->listing_type}}</p>
                         <div class="card-body">
