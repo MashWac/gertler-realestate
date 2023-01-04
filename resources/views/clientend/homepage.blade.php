@@ -4,7 +4,7 @@
         <source src="/assets/staticimg/final7.mp4" type="video/mp4">
     </video>
     <video width="100%" class="d-block d-sm-block d-md-none" autoplay muted loop id="myVideo">
-        <source src="/assets/staticimg/final8.mp4" type="video/mp4">
+        <source src="/assets/staticimg/final10.mp4" type="video/mp4">
     </video>
     <!-- <img src="/assets/staticimg/final7.gif" class="" id="myVideo"width="100%" > -->
     <div class="landingback">

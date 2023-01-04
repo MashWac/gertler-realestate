@@ -89,8 +89,8 @@
                     <p>{{$item->house_type}}</p>
                 </div>
                 <div class="houseaddress housedetailsect">
-                    <h3 class="housetitles"> Address</h3>
-                    <p>{{$item->full_address}}</p>
+                    <h3 class="housetitles"> Location</h3>
+                    <p>{{$item->neighborhood}}</p>
                 </div>
                 <div class="housedetailsect">
                     @if($item->total_bedrooms != NULL)

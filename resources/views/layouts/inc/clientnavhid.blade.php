@@ -25,11 +25,29 @@
         </div>
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="margin-right:10%;">
-            <li class="nav-item d-none d-lg-flex">
-            <a class="nav-link navlinkohid" href="#footercon">CONTACT US</a>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+                <a class="nav-link navlinko" aria-current="page" href="{{ url('/') }}">HOME</a>
             </li>
-            <li class="nav-item d-none d-lg-flex">
-            <a class="nav-link navlinkohid" href="{{ url('aboutus') }}">ABOUT US</a>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+                <a class="nav-link navlinko" href="{{url('houselistings/none')}}">OUR PROPERTIES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navlinko" href="#footercon">CONTACT US</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navlinko" href="{{ url('aboutus') }}">ABOUT US</a>
+            </li>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+                <a class="nav-link navlinko" href="{{url('houselistings/buy')}}">BUY</a>
+            </li>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+                <a class="nav-link navlinko" href="{{url('houselistings/rent')}}">RENT</a>
+            </li>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+                <a class="nav-link navlinko" href="{{url('houselistings/sall')}}">BUY/RENT</a>
+            </li>
+            <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
+                <a class="nav-link navlinko" href="{{url('rentout')}}">SELL</a>
             </li>
         </ul>
         </div>

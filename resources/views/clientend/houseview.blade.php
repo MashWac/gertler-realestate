@@ -11,8 +11,14 @@
                     <h3 class="featuretitle">Price</h3>
                     <p class="featureinfo"> KSH {{$data['property']->starting_price}}  
 						@if($data['property']->end_price != NULL)
-                        - {{$data['property']->end_price}} 
+                        - KSH{{$data['property']->end_price}} 
                         @endif</p>
+                </div>
+            </li>
+            <li> 
+                <div class="featureshouse">
+                    <h3 class="featuretitle">County</h3>
+                    <p class="featureinfo"> {{$data['property']->location}} </p>
                 </div>
             </li>
             <li> 
@@ -21,24 +27,38 @@
                     <p class="featureinfo"> {{$data['property']->neighborhood}} </p>
                 </div>
             </li>
+            @if($data['property']->square_feet!= NULL)
             <li>
                 <div class="featureshouse">
                     <h3 class="featuretitle">SqM</h3>
                     <p class="featureinfo">{{$data['property']->square_feet}} </p>
                 </div>
             </li>
+            @endif
+            @if($data['property']->floor!= NULL || $data['property']->floor!=0)
             <li>
                 <div class="featureshouse">
                     <h3 class="featuretitle">Floor</h3>
                     <p class="featureinfo">{{$data['property']->floor}} </p>
                 </div>
             </li>
+            @endif
+            @if($data['property']->total_bedrooms!= NULL)
             <li>
                 <div class="featureshouse">
                     <h3 class="featuretitle">Total Bedrooms</h3>
                     <p class="featureinfo">{{$data['property']->total_bedrooms}} </p>
                 </div>
             </li>
+            @endif
+            @if($data['property']->acreage!= NULL)
+            <li>
+                <div class="featureshouse">
+                    <h3 class="featuretitle">Acreage</h3>
+                    <p class="featureinfo">{{$data['property']->acreage}} </p>
+                </div>
+            </li>
+            @endif
             <li>
                 <div class="featureshouse">
                     <h3 class="featuretitle">House Type</h3>
