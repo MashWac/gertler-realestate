@@ -4,7 +4,7 @@
         <source src="/assets/staticimg/final7.mp4" type="video/mp4">
     </video>
     <video width="100%" class="d-block d-sm-block d-md-none" height="300px"autoplay muted loop id="myVide0">
-        <source src="https://gertler-investment.s3.amazonaws.com/public/assets/statics/final8.mp4" type="video/mp4;">
+        <source src="https://gertler-investment.s3.amazonaws.com/public/assets/statics/final9.mp4" type="video/mp4;">
     </video>
     <!-- <img src="/assets/staticimg/final7.gif" class="" id="myVideo"width="100%" > -->
     <div class="landingback">
