@@ -130,7 +130,7 @@
     </div>
 	<div class="imagessection">
 		@foreach($data['images'] as $item)
-		<div class="reveal imagesproperty">
+		<div class="reveal imagesproperty exprop">
 			<img src="{{$item->image_url}} " alt="property_image" class="extraimages">
 		</div>
 		@endforeach
