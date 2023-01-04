@@ -111,7 +111,7 @@ h1,h2,h3,h4{
   margin-left: 30%;
   transform: translateY(100px);
   opacity: 0;
-  transition: all 2s ease;
+  transition: all 1.3s ease;
 }
 .localexpertisetext.active{
   margin-left: 30%;
@@ -274,7 +274,7 @@ h1,h2,h3,h4{
   overflow: auto;
   width: 100%;
   opacity: 0;
-  transition: all 2s ease;
+  transition: all 1.3s ease;
 }
 .servicesoffered.active{
   background-image: url(/assets/staticimg/homehid2.jpg);
@@ -333,7 +333,7 @@ h1,h2,h3,h4{
   padding-top:3%;
   padding-bottom:3%;
   opacity: 0;
-  transition: all 2s ease;
+  transition: all 1.3s ease;
   transform: translateX(0px);
 }
 .whywork.active{
@@ -627,7 +627,7 @@ h1,h2,h3,h4{
   min-height: 310px;
   margin-top: 3%;
   opacity: 0;
-  transition: all 2s ease;
+  transition: all 1.3s ease;
   transform: translateX(-100px);
 }
 .abouthousedetails.active{
@@ -648,7 +648,7 @@ h1,h2,h3,h4{
   min-width: 300px;
   min-height: 320px;
   opacity: 0;
-  transition: all 2s ease;
+  transition: all 1.3s ease;
 }
 .imagesproperty.active{
   float: left;
@@ -700,7 +700,7 @@ text-justify: inter-word;
   padding-bottom: 3%;
   padding-top: 10px;
   opacity: 0;
-  transition: all 2s ease;
+  transition: all 1.3s ease;
 }
 .visitformhouse.active{
   width: 100%;
@@ -752,7 +752,7 @@ text-justify: inter-word;
   padding-bottom: 3%;
   padding-top: 10px;
   opacity: 0;
-  transition: all 2s ease;
+  transition: all 1.3s ease;
 }
 .sellformhouse.active{
   width: 100%;
