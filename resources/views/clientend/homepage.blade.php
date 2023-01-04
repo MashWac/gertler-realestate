@@ -1,9 +1,9 @@
 @extends('layouts.client')
 @section('content')
-    <video width="100%" autoplay muted loop id="myVide0">
-        <source src="https://gertler-investment.s3.amazonaws.com/public/assets/statics/final7.mp4" type="video/mp4">
+    <video width="100%" class="d-none d-md-block" autoplay muted loop id="myVide0">
+        <source src="/assets/staticimg/final7.mp4" type="video/mp4">
     </video>
-    <!-- <img src="/assets/staticimg/newgif.gif" id="myVideo"width="100%"> -->
+    <img src="/assets/staticimg/final7.gif" class="d-block d-sm-block d-md-none" id="myVideo"width="100%" height="300px">
     <div class="landingback">
     
         <div class="landingtext d-none d-lg-block d-xl-block">

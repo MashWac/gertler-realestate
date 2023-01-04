@@ -19,15 +19,15 @@ use Illuminate\Support\Facades\File;
 class ClientendController extends Controller
 {
     public function landingpage(){
-        $data['locations']=LocationsModel::where('is_deleted',0)->paginate(6);
-        $data['listings']=PropertyModel::where('is_deleted',0)->get();
+        $data['locations']=LocationsModel::where('is_deleted',0)->paginate(5);
+        $data['listings']=PropertyModel::where('is_deleted',0)->paginate(6);
         $data['count']= PropertyModel::where('is_deleted',0)->count();
         return view('clientend.homepage', compact('data'));
     }
     public function filteropts($id){
         $strid=strval($id);
-        $data['locations']=LocationsModel::where('is_deleted',0)->paginate(6);
-        $data['listings']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->get(); 
+        $data['locations']=LocationsModel::where('is_deleted',0)->paginate(5);
+        $data['listings']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->paginate(6); 
         $data['count']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->count(); 
 
         return view('clientend.homepage', compact('data'));

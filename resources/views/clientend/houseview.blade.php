@@ -149,21 +149,21 @@
 					<input type="hidden" name="propid" value="{{$data['property']->property_id}}">
 					<div class="col-md-6 formhousevisitfield">
 						<label for="sellerfname">First Name</label>
-						<input id="sellerfname" type="text" class="form-control @error('sellerfname') is-invalid @enderror"   name="sellerfname" value="{{ old('sellerfname')}}" autocomplete="sellerfname" autofocus>
+						<input id="sellerfname" type="text" class="form-control @error('sellerfname') is-invalid @enderror"   name="sellerfname" value="{{ old('sellerfname')}}" autocomplete="sellerfname" >
 						<span class="invalid-feedback" role="alert">
 						@error('sellerfname')<strong>{{ $message }}</strong>@enderror
 						</span>
 					</div>
 					<div class="col-md-6 formhousevisitfield">
 						<label for="sellerlname">Last Name</label> 
-						<input id="sellerlname" type="text" class="form-control @error('sellerlname') is-invalid @enderror"  name="sellerlname" value="{{ old('sellerlname')}}" autocomplete="sellerlname" autofocus>
+						<input id="sellerlname" type="text" class="form-control @error('sellerlname') is-invalid @enderror"  name="sellerlname" value="{{ old('sellerlname')}}" autocomplete="sellerlname" >
 						<span class="invalid-feedback" role="alert">
 						@error('sellerlname')<strong>{{ $message }}</strong>@enderror
 						</span>
 					</div>
 					<div class="col-md-6 formhousevisitfield">
 						<label for="selleremail">Email</label>
-						<input id="selleremail" type="email" class="form-control @error('selleremail') is-invalid @enderror"  name="selleremail" value="{{ old('selleremail')}}" autocomplete="selleremail" autofocus>
+						<input id="selleremail" type="email" class="form-control @error('selleremail') is-invalid @enderror"  name="selleremail" value="{{ old('selleremail')}}" autocomplete="selleremail" >
 						<span class="invalid-feedback" role="alert">
 						@error('selleremail')
 							<strong>{{ $message }}</strong>
