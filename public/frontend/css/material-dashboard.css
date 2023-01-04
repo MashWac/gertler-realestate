@@ -27773,3 +27773,42 @@ pre[class*="language-"] {
   .Accorcionitem:target .accordionlink .ion-icon[name="remove"]{
       display: block;
   }
+
+
+  .filtersection{
+    background-color:  whitesmoke;
+    display: block;
+    padding: 2%;
+    overflow: auto;
+  
+  }
+  .filteroptions>ul{
+    width: 100%;
+  }
+  .filterform{
+    padding-top: 4%;
+    background-color: whitesmoke;
+  }
+  .filterinputs{
+     max-width: 200px;
+    float: left;
+    margin-right: 1%;
+  }
+  #formrent{
+    margin: 2%;
+  }
+  .buttongoproduct{
+    border-radius: 0.1rem;
+    height: 50px;
+    width: fit-content;
+  }
+  .filtersbutton{
+    background-color: #131313;
+    border-radius: 0rem;
+    color: #ffffff;
+  
+  }
+  .filtersbutton:hover{
+    background-color:#3b3b3b;
+    color: whitesmoke;
+  }

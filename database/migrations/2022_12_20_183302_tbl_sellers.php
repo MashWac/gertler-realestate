@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('sellerid');
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->integer('phone');
             $table->string('country_code');
             $table->timestamp('created_at');

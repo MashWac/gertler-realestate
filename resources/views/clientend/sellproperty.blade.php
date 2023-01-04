@@ -99,7 +99,7 @@
                             </select>
                         </div>
                         <div class="col-md-6 formhousevisitfield">
-                            <label for="propertyaddress">Full Address</label>
+                            <label for="propertyaddress">Street</label>
                             
                             <input id="propertyaddress" type="text" class="form-control @error('propertyaddress') is-invalid @enderror"   name="propertyaddress" value="{{ old('propertyaddress')}}" autocomplete="propertyaddress" autofocus>
                             <span class="invalid-feedback" role="alert">

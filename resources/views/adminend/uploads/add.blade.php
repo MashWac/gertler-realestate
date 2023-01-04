@@ -103,7 +103,7 @@
                             </select>
                         </div>
                         <div class="col-md-6 ">
-                            <label for="propertyaddress">Full Address</label>
+                            <label for="propertyaddress">Street</label>
                             
                             <input id="propertyaddress" type="text" class="form-control @error('propertyaddress') is-invalid @enderror"   name="propertyaddress" value="{{ old('propertyaddress')}}" autocomplete="propertyaddress" autofocus>
                             <span class="invalid-feedback" role="alert">
@@ -175,13 +175,13 @@
                         </div>
                         <div class="col-md-6 ">
                             <label for="acreage">Acreage</label> 
-                            <input id="acreage" type="number" class="form-control @error('acreage') is-invalid @enderror"  name="acreage" value="{{ old('acreage')}}" autocomplete="acreage" autofocus>
+                            <input id="acreage" type="number" class="form-control @error('acreage') is-invalid @enderror" step="any"   name="acreage" value="{{ old('acreage')}}" autocomplete="acreage" autofocus>
                             <span class="invalid-feedback" role="alert">
                             @error('acreage')<strong>{{ $message }}</strong>@enderror
                             </span>
                         </div>
                         <div class="col-md-6 ">
-                            <label for="sqft">Square Footage</label> 
+                            <label for="sqft">Square Meters</label> 
                             <input id="sqft" type="number" class="form-control @error('sqft') is-invalid @enderror"  name="sqft" value="{{ old('sqft')}}" autocomplete="sqft" autofocus>
                             <span class="invalid-feedback" role="alert">
                             @error('sqft')<strong>{{ $message }}</strong>@enderror
@@ -207,7 +207,7 @@
                         </div>
                         <div class="col-md-6 ">
                             <label for="propertybathrooms">Total Bathrooms</label>
-                            <input type="number" class="form-control @error('propertybathrooms') is-invalid @enderror"  name="propertybathrooms" value="{{ old('propertybathrooms')}}">
+                            <input type="number" class="form-control @error('propertybathrooms') is-invalid @enderror" step="any"   name="propertybathrooms" value="{{ old('propertybathrooms')}}">
                             <span class="invalid-feedback" role="alert">
                             @error('propertybathrooms')
                                 <strong>{{ $message }}</strong>
@@ -280,7 +280,7 @@
                         </div>
                         <div class="col-md-12">
                                 <label for="mainimage">Main Property Image</label>
-                                <input type="file" class="form-control @error('mainimage') is-invalid @enderror" id="img"  name="mainimage">
+                                <input type="file" class="form-control @error('mainimage') is-invalid @enderror" id="img"  value="{{ old('mainimage')}}"name="mainimage">
                                 <span class="invalid-feedback" role="alert">
                                 @error('mainimage')
                                     <strong>{{ $message }}</strong>
@@ -421,7 +421,7 @@
                             </select>
                         </div>
                         <div class="col-md-6 ">
-                            <label for="propertyaddress">Full Address</label>
+                            <label for="propertyaddress">Street</label>
                             
                             <input id="propertyaddress" type="text" class="form-control @error('propertyaddress') is-invalid @enderror"   name="propertyaddress" value="{{ $data['listing']->full_address}}" autocomplete="propertyaddress" autofocus>
                             <span class="invalid-feedback" role="alert">
@@ -493,13 +493,13 @@
                         </div>
                         <div class="col-md-6 ">
                             <label for="acreage">Acreage</label> 
-                            <input id="acreage" type="number" class="form-control @error('acreage') is-invalid @enderror"  name="acreage" value="{{ $data['listing']->acreage}}" autocomplete="acreage" autofocus>
+                            <input id="acreage" type="number" class="form-control @error('acreage') is-invalid @enderror"  name="acreage" step="any" value="{{ $data['listing']->acreage}}" autocomplete="acreage" autofocus>
                             <span class="invalid-feedback" role="alert">
                             @error('acreage')<strong>{{ $message }}</strong>@enderror
                             </span>
                         </div>
                         <div class="col-md-6 ">
-                            <label for="sqft">Square Footage</label> 
+                            <label for="sqft">Square Meters</label> 
                             <input id="sqft" type="number" class="form-control @error('sqft') is-invalid @enderror"  name="sqft" value="{{  $data['listing']->square_feet}}" autocomplete="sqft" autofocus>
                             <span class="invalid-feedback" role="alert">
                             @error('sqft')<strong>{{ $message }}</strong>@enderror
@@ -525,7 +525,7 @@
                         </div>
                         <div class="col-md-6 ">
                             <label for="propertybathrooms">Total Bathrooms</label>
-                            <input type="number" class="form-control @error('propertybathrooms') is-invalid @enderror"  name="propertybathrooms" value="{{ $data['listing']->total_bathrooms}}">
+                            <input type="number" class="form-control @error('propertybathrooms') is-invalid @enderror" step="any"  name="propertybathrooms" value="{{ $data['listing']->total_bathrooms}}">
                             <span class="invalid-feedback" role="alert">
                             @error('propertybathrooms')
                                 <strong>{{ $message }}</strong>
@@ -639,7 +639,7 @@
                         </div>
                         <div class="col-md-12">
                                 <label for="mainimage">Main Property Image</label>
-                                <input type="file" class="form-control @error('mainimage') is-invalid @enderror" id="img"  name="mainimage">
+                                <input type="file" class="form-control @error('mainimage') is-invalid @enderror" id="img" value="{{old('mainimage')}}"  name="mainimage">
                                 <span class="invalid-feedback" role="alert">
                                 @error('mainimage')
                                     <strong>{{ $message }}</strong>

@@ -23,7 +23,7 @@
             </li>
             <li>
                 <div class="featureshouse">
-                    <h3 class="featuretitle">Sqft</h3>
+                    <h3 class="featuretitle">SqM</h3>
                     <p class="featureinfo">{{$data['property']->square_feet}} </p>
                 </div>
             </li>

@@ -1,7 +1,9 @@
 @extends('layouts.client')
 @section('content')
-
-    <img src="/assets/staticimg/newgif.gif" id="myVideo"width="100%">
+    <video width="100%" autoplay muted loop id="myVide0">
+        <source src="https://gertler-investment.s3.amazonaws.com/public/assets/statics/final7.mp4" type="video/mp4">
+    </video>
+    <!-- <img src="/assets/staticimg/newgif.gif" id="myVideo"width="100%"> -->
     <div class="landingback">
     
         <div class="landingtext d-none d-lg-block d-xl-block">
@@ -167,7 +169,7 @@
                                 @endif
                                 @if($item->square_feet != NULL)
                                 <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">SqFt</h3>
+                                        <h3 class="housetitles">SqM</h3>
                                         <div class="houseicondetails">
                                             <p class="valuehomeicon">{{$item->square_feet}}</p>
                                             <i class="fas homeicon fa-ruler-combined fa-xl"></i>

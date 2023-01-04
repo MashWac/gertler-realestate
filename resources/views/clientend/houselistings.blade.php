@@ -107,7 +107,7 @@
                     @endif
                     @if($item->square_feet != NULL)
                     <div class="housepace">
-                        <h3 class="housetitles"> SqFt</h3>
+                        <h3 class="housetitles"> SqM</h3>
                         <p>{{$item->square_feet}}</p>
                     </div>
                     @endif

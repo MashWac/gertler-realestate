@@ -29,10 +29,10 @@ return new class extends Migration
             $table->integer('starting_price');
             $table->integer('end_price')->nullable();
             $table->integer('floor')->nullable();
-            $table->integer('acreage')->nullable();
+            $table->decimal('acreage',11,2)->nullable();
             $table->integer('square_feet')->nullable();
             $table->integer('total_bedrooms')->nullable();
-            $table->integer('total_bathrooms')->nullable();
+            $table->decimal('total_bathrooms',11,1)->nullable();
             $table->string('mainphoto');
             $table->string('doorman')->nullable();
             $table->string('storage')->nullable();

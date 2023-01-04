@@ -69,6 +69,9 @@ Route::middleware(['adminonly'])->group(function(){
     Route::get('viewpurchaselistings/{str}', [AdminendController::class,'viewpurchaselistings']);
     Route::get('edit-property/{id}', [AdminendController::class,'editproperty']);
     Route::put('update-listing/{id}', [AdminendController::class,'updateproperty']);
+    Route::get('propertiesfilter', [AdminendController::class,'filterproperties']);
+    Route::post('searchproperty', [AdminendController::class,'searchproperty']);
+
     
     Route::get('editimages/{id}', [AdminendController::class,'editimages']);
     Route::put('update-image/{id}', [AdminendController::class,'updateimages']);
