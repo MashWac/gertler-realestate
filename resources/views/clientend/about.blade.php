@@ -46,7 +46,7 @@
         </div>
         <div class="aboutinfo aboutfloat">
             <div>
-                <img src="/assets/staticimg/gertler.png" alt="gertler" width="300px" height="410px">
+                <img src="/assets/staticimg/gertler.png" alt="gertler" width="250px" height="360px">
             </div>        
         </div>
     </div>
