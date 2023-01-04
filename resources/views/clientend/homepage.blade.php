@@ -79,7 +79,7 @@
                             <div class="housefitcontent">
                                 @if($item->total_bedrooms != NULL)
                                     <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Bedrooms </h3>
+                                        <h3 class="housetitles">Rooms </h3>
                                         <div class="houseicondetails">
                                             <p class="valuehomeicon">{{$item->total_bedrooms}}</p>
                                             <ion-icon class="homeicon" size="large" name="bed-outline"></ion-icon>
@@ -88,7 +88,7 @@
                                 @endif
                                 @if($item->total_bathrooms != NULL)
                                 <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Bathrooms </h3>
+                                        <h3 class="housetitles">Baths </h3>
                                         <div class="houseicondetails">
                                             <p class="valuehomeicon">{{$item->total_bathrooms}}</p>
                                             <i class="fas homeicon fa-shower fa-xl"></i>
@@ -149,7 +149,7 @@
                             <div class="housefitcontent">
                                 @if($item->total_bedrooms != NULL)
                                     <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Bedrooms </h3>
+                                        <h3 class="housetitles">Rooms </h3>
                                         <div class="houseicondetails">
                                             <p class="valuehomeicon">{{$item->total_bedrooms}}</p>
                                             <ion-icon class="homeicon" size="large" name="bed-outline"></ion-icon>
@@ -158,7 +158,7 @@
                                 @endif
                                 @if($item->total_bathrooms != NULL)
                                 <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Bathrooms </h3>
+                                        <h3 class="housetitles">Baths </h3>
                                         <div class="houseicondetails">
                                             <p class="valuehomeicon">{{$item->total_bathrooms}}</p>
                                             <i class="fas homeicon fa-shower fa-xl"></i>

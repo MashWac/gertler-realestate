@@ -72,7 +72,7 @@
                 </div>
         </div>
     </div>
-    <div class="houselistingsection">
+    <div class="houselistingsection" style="margin-top: 10%;">
     @if($data['count']>0)
     @foreach($data['listings'] as $item)
         <div class=" houselist">

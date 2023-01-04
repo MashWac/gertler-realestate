@@ -645,7 +645,7 @@ h1,h2,h3,h4{
   float: left;
   margin-left: 4%;
   width: 40%;
-  min-height: 250px;
+  min-width: 300px;
   min-height: 320px;
   opacity: 0;
   transition: all 2s ease;
@@ -654,27 +654,34 @@ h1,h2,h3,h4{
   float: left;
   margin-left: 4%;
   width: 40%;
-  min-height: 250px;
+  min-width: 300px;
   min-height: 320px;
   opacity: 1;
+  margin-top: 5%;
+
+}
+.imagesproperty.active:hover{
+  height: 400px;
 }
 .extraimages{
   width: 100%;
-  min-width: 300px;
+  min-width: 320px;
   height: 300px;
+  transition: all 1.2s ease;
 }
 .extraimages:hover{
   width: 100%;
   height: 100%;
 }
-.exprop{
-  transition: all 0.4s ease;
+/* .exprop{
+  width: 100%;
+  transition: all 1s ease;
 }
 .exprop:hover{
   width: 100%;
   height: 500px;
 
-}
+} */
 .abouthousetitle{
   font-size: 20px;
 }
