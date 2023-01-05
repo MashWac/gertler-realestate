@@ -93,7 +93,7 @@ Route::middleware(['adminonly'])->group(function(){
     Route::get('rentalrequests', [AdminendController::class,'rentalrequests']);
     Route::get('rentrequestserviced/{id}', [AdminendController::class,'rentrequestserviced']);
 
-
+ 
     Route::get('rentpurchaserequests', [AdminendController::class,'rentpurchaserequests']);
     Route::get('rentpurchaserequestserviced/{id}', [AdminendController::class,'rentpurchaserequestserviced']);
 

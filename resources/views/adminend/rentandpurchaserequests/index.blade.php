@@ -35,7 +35,7 @@
                         <td>{{$item->neighborhood}}</td>
                         <td>{{$item->created_at}}</td>   
                         <td>
-                            <form method="GET" action="{{url('rentpurchaserequestserviced/'.$item->purchaserequest_id)}}">
+                            <form method="GET" action="{{url('rentpurchaserequestserviced/'.$item->rentandpurchaserequest_id)}}">
                                 @csrf
                                 <button type="submit" class="btn btn-danger show_confirmrequest" data-toggle="tooltip" title='Service'>Service</button>
                             </form>

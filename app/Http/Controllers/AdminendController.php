@@ -653,7 +653,7 @@ class AdminendController extends Controller
     }
     public function rentpurchaserequests(){
         $data['requests']=RentandPurchaserequestsModel::orderBy('tbl_rentandpurchaserequest.created_at', 'ASC')->where('tbl_rentandpurchaserequest.is_deleted',0)->join('tbl_propertydetails','tbl_propertydetails.property_id','=','tbl_rentandpurchaserequest.property_id')->select('tbl_rentandpurchaserequest.*','tbl_propertydetails.property_name as property_name','tbl_propertydetails.house_type as house_type','tbl_propertydetails.neighborhood as neighborhood')->paginate(5);
-        return view('adminend.rentrequests.index', compact('data'));
+        return view('adminend.rentandpurchaserequests.index', compact('data'));
     }
     public function rentpurchaserequestserviced($id){
         $property=RentandPurchaserequestsModel::find($id);
