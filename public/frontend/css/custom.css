@@ -582,8 +582,7 @@ h1,h2,h3,h4{
 .filterinputs{
    max-width: 200px;
   float: left;
-  margin-right: 1%;
-  margin: 3%;
+  margin: 1%;
 }
 #formrent{
   margin: 2%;
@@ -597,6 +596,7 @@ h1,h2,h3,h4{
   background-color: #131313;
   border-radius: 0rem;
   color: #ffffff;
+  margin: 1%;
 
 }
 .filtersbutton:hover{
