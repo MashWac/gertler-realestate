@@ -50,6 +50,8 @@
 
         @include('layouts.inc.clientfooter')
             <!--- Scripts-->
+            <script src="{{ asset('frontend/js/imgpopup.js') }}" defer></script>
+
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}" defer></script>
     <!-- <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script> -->
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" defer></script>

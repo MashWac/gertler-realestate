@@ -130,7 +130,7 @@
                     <h3 class="housetitles"> Price</h3>
                     <p>KSH {{$item->starting_price}} 
                         @if($item->end_price != NULL)
-                        - {{$item->end_price}} 
+                         to {{$item->end_price}} 
                         @endif
                     </p>
                     <a href="{{url('houseview/'.$item->property_id)}}">

@@ -153,7 +153,7 @@ h1,h2,h3,h4{
 }
 #filters{
 
-  margin-left: 10%;
+  margin-left: 3%;
   list-style: none;
 }
 .filteropts{
@@ -208,6 +208,7 @@ h1,h2,h3,h4{
 }
 .viewalllistings{
   margin-top: 3%;
+  margin-bottom: 3%;
   border: 1px solid black;
   padding: 10px;
   background-color:#f1f1f1;
@@ -215,6 +216,7 @@ h1,h2,h3,h4{
 }
 .viewalllistings:hover{
   margin-top: 2%;
+  margin-bottom: 3%;
   border: 1px solid black;
   padding: 10px;
   background-color:#000000;
@@ -653,48 +655,81 @@ h1,h2,h3,h4{
   width: 100%;
   display: block;
   overflow: auto;
+  background: #ddd;
+  margin-bottom: 8%;
+  padding-bottom: 5%;
 }
 .imagesproperty{
   float: left;
   margin-left: 4%;
-  width: 40%;
-  min-width: 300px;
-  min-height: 320px;
+  width: 280px;
+  min-width: 250px;
+  min-height: 350px;
   opacity: 0;
+  border: 10px solid #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  cursor: pointer;
   transition: all 1.3s ease;
 }
 .imagesproperty.active{
   float: left;
   margin-left: 4%;
-  width: 40%;
-  min-width: 300px;
-  min-height: 320px;
+  margin-right: 4%;
+  width: 280px;
+  min-width: 280px;
+  min-height: 300px;
   opacity: 1;
   margin-top: 5%;
 
 }
-.imagesproperty.active:hover{
-  height: 400px;
+.imagesproperty:hover .extraimages{
+  transform: scale(1.02);
+
 }
 .extraimages{
   width: 100%;
-  min-width: 320px;
-  height: 300px;
-  transition: all 1.2s ease;
+  min-width: 250px;
+  min-height: 280px;
+  height: 350px;
+  object-fit: cover;
+  transition: 0.2s linear;
 }
-.extraimages:hover{
-  width: 100%;
+.popup-image{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.9);
   height: 100%;
-}
-/* .exprop{
   width: 100%;
-  transition: all 1s ease;
+  z-index: 100;
+  display: none;
 }
-.exprop:hover{
-  width: 100%;
-  height: 500px;
+.imagessection .popup-image span{
+  position: absolute;
+  top: 15%;
+  right: 20%;
+  font-size: 60px;
+  font-weight: bolder;
+  color:#fff;
+  cursor: pointer;
+  z-index: 100;
+}
+.imagessection .popup-image img{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 5px;
+  width: 750px;
+  object-fit: cover;
+}
+@media(max-width: 768px
+){
+  .imagessection .popup-image img{
+    width: 95%;
+  }
 
-} */
+}
 .abouthousetitle{
   font-size: 20px;
 }
@@ -726,14 +761,14 @@ text-justify: inter-word;
   margin: 5%;
   width: 50%;
   opacity: 0;
-  transform: translateX(100px);
+  transform: translateY(100px);
   transition: all 2.3s ease;
 }
 .formhousevisit.active{
   margin: 5%;
   width: 50%;
   opacity: 1;
-  transform: translateX(0px);
+  transform: translateY(0px);
 }
 .formhousevisitfield{
   min-width: 320px;
@@ -754,8 +789,8 @@ text-justify: inter-word;
   margin: 5%;
 }
 .imageshouseview{
-  height: 100vh;
   width: 100%;
+  max-height: 90vh;
 }
 
 /* sell page  */

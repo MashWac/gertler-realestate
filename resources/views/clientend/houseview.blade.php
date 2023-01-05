@@ -11,7 +11,7 @@
                     <h3 class="featuretitle">Price</h3>
                     <p class="featureinfo"> KSH {{$data['property']->starting_price}}  
 						@if($data['property']->end_price != NULL)
-                        - KSH{{$data['property']->end_price}} 
+                        to KSH{{$data['property']->end_price}} 
                         @endif</p>
                 </div>
             </li>
@@ -148,13 +148,20 @@
 
         </div>
     </div>
-	<div class="imagessection">
-		@foreach($data['images'] as $item)
-		<div class="reveal imagesproperty exprop">
-			<img src="{{$item->image_url}} " alt="property_image" class="extraimages">
-		</div>
-		@endforeach
+	<div class="container imagessection">
+        <div class="imagecon">
+            @foreach($data['images'] as $item)
+            <div class="reveal imagesproperty exprop">
+                <img src="{{$item->image_url}} " alt="property_image" class="extraimages">
+            </div>
+            @endforeach
+        </div>
+        <div class="popup-image">
+            <span class="times">&times;</span>
+            <img src="{{$data['property']->mainphoto}} " alt="property_image" class="extraimages">
+        </div>
 	</div>
+    
     <div class="reveal visitformhouse">
         <div class="reveal formhousevisit">
             <h2 class="formtitlehouse">
