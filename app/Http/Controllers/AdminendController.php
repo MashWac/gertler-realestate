@@ -174,7 +174,7 @@ class AdminendController extends Controller
             'countylocate'=>['required', 'string', 'max:255','exists:App\Models\CountiesModel,name'],
             'neighborhood'=>['required', 'string', 'max:255'],
             'propertystartprice'=>['required','min:0','integer'],
-            'propertyendprice'=>['min:0','integer'],
+            'propertyendprice'=>['min:0'],
             'propertyfloor'=>['min:0'],
             'acreage'=>['min:0',],
             'sqft'=>['min:0',],
