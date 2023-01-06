@@ -606,10 +606,10 @@ class AdminendController extends Controller
         $data['pricemax']=NULL;
         $data['counties']=LocationsModel::all();
         $propertyname=$request->input('searchproperty');
-        $data['apartment']=PropertyModel::where('tbl_propertydetails.apartment_details', 'like', $propertyname . '%')->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(4);
-        $data['building']=PropertyModel::where('tbl_propertydetails.building_details', 'like', $propertyname . '%')->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(4);
-        $data['land']=PropertyModel::where('tbl_propertydetails.land_details', 'like', $propertyname . '%')->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(4);
-        $data['name']=PropertyModel::where('tbl_propertydetails.property_name', 'like', $propertyname . '%')->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(4);
+        $data['apartment']=PropertyModel::where('tbl_propertydetails.apartment_details', 'like', '%'. $propertyname . '%')->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(4);
+        $data['building']=PropertyModel::where('tbl_propertydetails.building_details', 'like','%'. $propertyname . '%')->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(4);
+        $data['land']=PropertyModel::where('tbl_propertydetails.land_details', 'like','%'. $propertyname . '%')->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(4);
+        $data['name']=PropertyModel::where('tbl_propertydetails.property_name', 'like','%'. $propertyname . '%')->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(4);
         if(count($data['apartment'])!=0){
             $data['properties']=$data['apartment'];
         }
@@ -621,6 +621,10 @@ class AdminendController extends Controller
         }
         if(count($data['name'])!=0){
             $data['properties']=$data['name'];
+        }
+        else{
+            $data['properties']=PropertyModel::where('tbl_propertydetails.property_name', 'like', '%'. $propertyname . '%')->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(4);
+
         }
 
         
@@ -698,7 +702,7 @@ class AdminendController extends Controller
             $data['pricemin']=NULL;
             $data['pricemax']=NULL;
             $data['counties']=LocationsModel::all();
-            $data['properties']=PropertyModel::where('listing_type','buy')->where('is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(2);
+            $data['properties']=PropertyModel::where('tbl_propertydetails.listing_type','buy')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(2);
 
         }elseif($str=='rent'){
             $data['house_type']='all';
@@ -708,7 +712,7 @@ class AdminendController extends Controller
             $data['pricemin']=NULL;
             $data['pricemax']=NULL;
             $data['counties']=LocationsModel::all();
-            $data['properties']=PropertyModel::where('listing_type','rent')->where('is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(2);
+            $data['properties']=PropertyModel::where('tbl_propertydetails.listing_type','rent')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(2);
 
             
         }else{
@@ -719,7 +723,7 @@ class AdminendController extends Controller
             $data['pricemin']=NULL;
             $data['pricemax']=NULL;
             $data['counties']=LocationsModel::all();
-            $data['properties']=PropertyModel::where('listing_type','buyrent')->where('is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(2);
+            $data['properties']=PropertyModel::where('tbl_propertydetails.listing_type','buyrent')->where('tbl_propertydetails.is_deleted',0)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->paginate(2);
 
         }
 

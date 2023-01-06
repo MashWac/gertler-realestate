@@ -72,34 +72,33 @@
                         </div>
                         <div class="col-md-6">
                             <label for="housetype">House Type</label> 
-                            <select name="housetype" class="form-select" aria-label="Default select example">
-                                <option value="apartment" selected>Apartment</option>
+                            <select name="housetype" class="form-select" value="{{ old('housetype')}}" aria-label="Default select example">
+                                <option value="apartment"  {{ old('housetype') == 'apartment' ? 'selected' : '' }}>Apartment</option>
                                 <optgroup label="Houses">
-                                    <option value="bungalow">Bungalow</option>
-                                    <option value="townhouse">Town House</option>
-                                    <option value="mansion">Mansion</option>
-                                    <option value="villa">Villa</option>
-                                    <option value="ranchhouse">Ranch House</option>
-                                    <option value="condominium">Condominium</option>
+                                    <option value="bungalow" {{ old('housetype') == 'bungalow' ? 'selected' : '' }}>Bungalow</option>
+                                    <option value="townhouse"  {{ old('housetype') == 'townhouse' ? 'selected' : '' }}>Town House</option>
+                                    <option value="mansion" {{ old('housetype') == 'mansion' ? 'selected' : '' }}>Mansion</option>
+                                    <option value="villa" {{ old('housetype') == 'villa' ? 'selected' : '' }}>Villa</option>
+                                    <option value="ranchhouse" {{ old('housetype') == 'ranchhouse' ? 'selected' : '' }}>Ranch House</option>
+                                    <option value="condominium"  {{ old('housetype') == 'condominium' ? 'selected' : '' }}>Condominium</option>
                                 </optgroup>
                                 <optgroup label="Land">
-                                    <option value="residentialland">Residential</option>
-                                    <option value="commercialland">Commercial Land</option>
+                                    <option value="residentialland"  {{ old('housetype') == 'buy' ? 'selected' : '' }}>Residential</option>
+                                    <option value="commercialland"  {{ old('housetype') == 'buy' ? 'selected' : '' }}>Commercial Land</option>
                                 </optgroup>
                                 <optgroup label="Commercial Property">
-                                    <option value="warehouse">Warehouses</option>
-                                    <option value="shop">Shops</option>
-                                    <option value="office">Offices</option>
+                                    <option value="warehouse" {{ old('housetype') == 'residentialland' ? 'selected' : '' }}>Warehouses</option>
+                                    <option value="shop" {{ old('housetype') == 'shop' ? 'selected' : '' }}>Shops</option>
+                                    <option value="office"  {{ old('housetype') == 'office' ? 'selected' : '' }}>Offices</option>
                                 </optgroup>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="listingtype">Listing type</label> 
-                            <select class="form-select" name="listingtype"aria-label="Default select example">
-                                <option value="buy" selected>Buy</option>
-                                <option value="rent">Rent</option>
-                                <option value="buyrent">Buy or Rent </option>
-                                <option value="selling">Brokering</option>
+                            <select class="form-select" name="listingtype" value="{{old('listingtype')}}"aria-label="Default select example">
+                                <option value="buy" {{ old('listingtype') == 'buy' ? 'selected' : '' }}>Buy</option>
+                                <option value="rent"  {{ old('listingtype') == 'rent' ? 'selected' : '' }}>Rent</option>
+                                <option value="buyrent"  {{ old('listingtype') == 'buyrent' ? 'selected' : '' }}>Buy or Rent </option>
                             </select>
                         </div>
                         <div class="col-md-6 ">
