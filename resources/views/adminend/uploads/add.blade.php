@@ -42,7 +42,7 @@
                                 </label>
                                 <select name="sellercountrycode" class="form-select" aria-label="Default select example">
                                     @foreach($data['countries'] as $item)
-                                    <option value="{{$item->phonecode}}">+{{$item->phonecode}} | {{$item->name}}</option>
+                                    <option value="{{$item->phonecode}}" {{ old('sellercountrycode') == $item->phonecode ? 'selected' : '' }}>+{{$item->phonecode}} | {{$item->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -354,18 +354,14 @@
                                 </label>
                                 <select name="sellercountrycode" class="form-select" aria-label="Default select example">
                                     @foreach($data['countries'] as $item)
-                                    @if($item['phonecode']==$data['listing']->country_code)
-                                        <option value="{{$item->phonecode}}" selected>+{{$item->phonecode}} | {{$item->name}}</option>
-                                    @else
-                                        <option value="{{$item->phonecode}}">+{{$item->phonecode}} | {{$item->name}}</option>
-
-                                    @endif
+                                        <option value="{{$item->phonecode}}" {{$data['listing']->country_code == $item->phonecode ? 'selected' : '' }}>+{{$item->phonecode}} | {{$item->name}}</option>
                                     @endforeach
+
                                 </select>
                             </div>
 
                             <label for="sellerphone">Phone</label>
-                            <input type="number" class="form-control @error('sellerphone') is-invalid @enderror"  name="sellerphone" value="{{ $data['listing']->phone}}">
+                            <input type="number" class="form-control @error('sellerphone') is-invalid @enderror"  name="sellerphone" value="0{{ $data['listing']->phone}}">
                             <span class="invalid-feedback" role="alert">
                             @error('sellerphone')
                                 <strong>{{ $message }}</strong>

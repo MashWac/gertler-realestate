@@ -228,7 +228,7 @@ class ClientendController extends Controller
         $request->validate([            
             'sellerfname' => ['required', 'string', 'max:255'],
             'sellerlname' => ['required', 'string', 'max:255'],
-            'sellerphone' => ['required','min:10'],
+            'sellerphone' => ['required','min:9'],
             'selleremail' => ['string', 'email', 'max:255'],
         ]);
         if($type=='rent'){
@@ -263,7 +263,7 @@ class ClientendController extends Controller
         $request->validate([            
             'sellerfname' => ['required', 'string', 'max:255'],
             'sellerlname' => ['required', 'string', 'max:255'],
-            'sellerphone' => ['required','min:10'],
+            'sellerphone' => ['required','min:9'],
             'selleremail' => ['string', 'email', 'max:255'],
             'propertydescription'=>['required'],
             'housetype'=>['required', 'string'],

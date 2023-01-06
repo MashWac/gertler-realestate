@@ -39,7 +39,7 @@ class AdminendController extends Controller
         $user=new AdminsModel();
         $request->validate([            
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'max:10','min:10'],
+            'phone' => ['required', 'max:10','min:9'],
             'email' => ['string', 'email', 'max:255', 'unique:users'],
             'password'=>['required'],
             'conpass'=>['required']
@@ -165,7 +165,7 @@ class AdminendController extends Controller
         $request->validate([            
             'sellerfname' => ['required', 'string', 'max:255'],
             'sellerlname' => ['required', 'string', 'max:255'],
-            'sellerphone' => ['required', 'max:10','min:10'],
+            'sellerphone' => ['required', 'max:10','min:9'],
             'propertyname'=>['required', 'string', 'max:255'],
             'propertydescription'=>['required'],
             'housetype'=>['required', 'string'],
@@ -362,7 +362,7 @@ class AdminendController extends Controller
         $request->validate([            
             'sellerfname' => ['required', 'string', 'max:255'],
             'sellerlname' => ['required', 'string', 'max:255'],
-            'sellerphone' => ['required', 'max:10','min:10'],
+            'sellerphone' => ['required', 'max:10','min:9'],
             'propertyname'=>['required', 'string', 'max:255'],
             'propertydescription'=>['required'],
             'housetype'=>['required', 'string'],
@@ -377,7 +377,6 @@ class AdminendController extends Controller
             'sqft'=>['min:0',],
             'propertybedrooms'=>['min:0'],
             'propertybathrooms'=>['min:0'],
-            'mainimage'=>['required']
         ]);
         $selleremail=$request->input('sellerphone');
         $sellers=new SellersModel();
