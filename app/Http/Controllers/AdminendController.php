@@ -182,9 +182,9 @@ class AdminendController extends Controller
             'propertybathrooms'=>['min:0'],
             'mainimage'=>['required']
         ]);
-        $selleremail=$request->input('selleremail');
+        $selleremail=$request->input('sellerphone');
         $sellers=new SellersModel();
-        $seller=$sellers->where('email',$selleremail)->first();
+        $seller=$sellers->where('phone',$selleremail)->first();
 
         if(!$seller){
             $seller=new SellersModel();
@@ -379,9 +379,9 @@ class AdminendController extends Controller
             'propertybathrooms'=>['min:0'],
             'mainimage'=>['required']
         ]);
-        $selleremail=$request->input('selleremail');
+        $selleremail=$request->input('sellerphone');
         $sellers=new SellersModel();
-        $seller=$sellers->where('email',$selleremail)->first();
+        $seller=$sellers->where('phone',$selleremail)->first();
 
         if(!$seller){
             $seller=new SellersModel();
