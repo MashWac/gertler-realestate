@@ -136,7 +136,7 @@
                         </div> 
                     </div> 
                 @endif
-                @if($data['property']->pet_policy != NULL)
+                @if($data['property']->pet_policy != 'nopets')
                 <div class="text-start houseiconsdetails"  style="position: relative;height:70px; width:100px">
                         <h3 class="housetitles" >Pets Allowed </h3>
                         <div class="houseicondetails" style="position: absolute;bottom:0%; left:40%">

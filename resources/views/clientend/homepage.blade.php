@@ -75,7 +75,7 @@
             @if($data['count']>5)
             <div class="owl-carousel owl-theme">
             @foreach($data['listings'] as $item)
-                    <div class="card propertyhome item" style="width: 18rem; height:670px">
+            <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:670px">
                         <img src="{{$item->mainphoto}}" class="card-img-top" alt="image property" height="280px" width="">
                         <p class="housetypetag"> {{$item->listing_type}}</p>
                         <div class="card-body">
@@ -102,7 +102,7 @@
                                 @endif
                                 @if($item->square_feet != NULL)
                                 <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">SqFt</h3>
+                                        <h3 class="housetitles">SqM</h3>
                                         <div class="houseicondetails">
                                             <p class="valuehomeicon">{{$item->square_feet}}</p>
                                             <i class="fas homeicon fa-ruler-combined fa-xl"></i>
@@ -128,15 +128,18 @@
                                     </div> 
                                 @endif
                             </div>
-                            <a href="{{url('houseview/'.$item->property_id)}}">
-                                @if($item->listing_type=='buy')
-                                <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">BUY</button>   
-                                @elseif($item->listing_type=='rent')
-                                <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">RENT</button>
-                                @else
-                                <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">BUY/RENT</button>
-                                @endif  
-                            </a>
+                            <div class="buttoncardsection" style="position: absolute; bottom:4%; left:38%;">
+                                <a href="{{url('houseview/'.$item->property_id)}}">
+                                    @if($item->listing_type=='buy')
+                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">BUY</button>   
+                                    @elseif($item->listing_type=='rent')
+                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">RENT</button>
+                                    @else
+                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">BUY/RENT</button>
+                                    @endif  
+                                </a>
+                            </div>
+                             
                         </div>
                     </div>
                 @endforeach
