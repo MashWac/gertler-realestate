@@ -97,6 +97,37 @@ h1,h2,h3,h4{
 .homelandoptions:hover{
   background-color: #a8a8a8;
 }
+.landingtext2{
+  width:100% ;
+}
+.landertext2{
+  font-family: 'Montesserat', serif;
+  color: rgb(228, 228, 228);
+  /* color: black; */
+  text-transform: capitalize;
+  padding-top: 80%;
+  padding-left: 3%;
+  text-shadow:2px 2px black;
+  font-size: 25px;
+}
+.landingoptions2{
+  width: 100%;
+  padding-left: 3%;
+}
+.homelandoptions2{
+  display: none;
+  border: none;
+  height: 15vh;
+  width: 28%;
+  font-family: 'Monteserrat';
+  margin:2%;
+  font-size: 20px;
+  color: black;
+  float: left;
+}
+.homelandoptions2:hover{
+  background-color: #a8a8a8;
+}
 .localexpertise{
   width: 100%;
   display: block;

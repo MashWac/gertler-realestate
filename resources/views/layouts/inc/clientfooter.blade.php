@@ -33,7 +33,7 @@
             <h5>CONTACTS</h5>
             <div id="location">
                 <h6 class="condets">Email:</h6>
-                <p>gertlerinvestltd@gmail.com</p>
+                <p>gertlerinvestmentltd@gmail.com</p>
             </div>
             <div id="telephone">
                 <h6 class="condets">TELEPHONE</h6>

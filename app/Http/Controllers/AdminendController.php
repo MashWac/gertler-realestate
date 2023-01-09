@@ -183,6 +183,11 @@ class AdminendController extends Controller
             'propertybathrooms'=>['min:0'],
             'mainimage'=>['required']
         ]);
+        if($request->input('propertyendprice')){
+            if($request->input('propertyendprice')<$request->input('propertystartprice')){
+                return redirect('addlisting')->with('status','Listing Addition failed. End Price is less than Start price');
+            }
+        }
         $selleremail=$request->input('sellerphone');
         $sellers=new SellersModel();
         $seller=$sellers->where('phone',$selleremail)->first();
@@ -379,6 +384,11 @@ class AdminendController extends Controller
             'propertybedrooms'=>['min:0'],
             'propertybathrooms'=>['min:0'],
         ]);
+        if($request->input('propertyendprice')){
+            if($request->input('propertyendprice')<$request->input('propertystartprice')){
+                return redirect('addlisting')->with('status','Listing Addition failed. End Price is less than Start price');
+            }
+        }
         $selleremail=$request->input('sellerphone');
         $sellers=new SellersModel();
         $seller=$sellers->where('phone',$selleremail)->first();

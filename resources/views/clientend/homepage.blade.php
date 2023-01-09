@@ -16,6 +16,14 @@
             <a href="{{url('houselistings/rent')}}"><div><button class="homelandoptions">RENT</button></div></a>
             <a href="{{url('rentout')}}"><div><button class="homelandoptions">SELL</button></div></a>
         </div>
+        <div class="landingtext2 d-block d-sm-block d-lg-none">
+            <p class='landertext2'>YOUR NEXT INVESTMENT IS RIGHT HERE</p>
+        </div>
+        <div class="landingoptions2 d-block d-sm-block d-lg-none">
+            <a href="{{url('houselistings/buy')}}"><div><button class="homelandoptions2">BUY</button></div></a>
+            <a href="{{url('houselistings/rent')}}"><div><button class="homelandoptions2">RENT</button></div></a>
+            <a href="{{url('rentout')}}"><div><button class="homelandoptions2">SELL</button></div></a>
+        </div>
     </div>
     <div class="localexpertise container-fluid justify-center">
         <div class="reveal localexpertisetext ms-auto">
@@ -88,7 +96,12 @@
                         
                         <div class="card-body">
                             <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
-                            <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6> 
+                            <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6>
+                            <h6>KSH{{number_format($item->starting_price)}}
+                                @if($item->end_price != NULL)
+                                    to KSH{{number_format($item->end_price)}} 
+                                 @endif
+                            </h6> 
                             <div class="housefitcontent">
                                 @if($item->total_bedrooms != NULL)
                                     <div class="text-start houseiconsdetails">
@@ -165,6 +178,11 @@
                         <div class="card-body">
                             <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
                             <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6> 
+                            <h6>KSH{{number_format($item->starting_price)}}
+                                @if($item->end_price != NULL)
+                                    to KSH{{number_format($item->end_price)}} 
+                                 @endif
+                            </h6>
                             <div class="housefitcontent">
                                 @if($item->total_bedrooms != NULL)
                                     <div class="text-start houseiconsdetails">
@@ -270,7 +288,7 @@
     <div class="reveal trustus">
         <div class="reveal trustusection text-center">
             <h3>TRANSPARENCY</h3>
-            <p> We are open, honest and straight forward with all our company operations. Provinding you with all information required to make an informed decision on which property is right for you.</p>
+            <p> We are open, honest and straight forward with all our company operations. Providing you with all information required to make an informed decision on which property is right for you.</p>
         </div>
         <div class="reveal trustusection text-center">
             <h3>TIMELY</h3>
