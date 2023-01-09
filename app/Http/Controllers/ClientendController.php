@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogsModel;
 use App\Models\CountiesModel;
 use App\Models\CountriesModel;
 use App\Models\LocationsModel;
@@ -229,7 +230,6 @@ class ClientendController extends Controller
             'sellerfname' => ['required', 'string', 'max:255'],
             'sellerlname' => ['required', 'string', 'max:255'],
             'sellerphone' => ['required','min:9'],
-            'selleremail' => ['string', 'email', 'max:255'],
         ]);
         if($type=='rent'){
             $potential=new RentrequestsModel();
@@ -264,7 +264,6 @@ class ClientendController extends Controller
             'sellerfname' => ['required', 'string', 'max:255'],
             'sellerlname' => ['required', 'string', 'max:255'],
             'sellerphone' => ['required','min:9'],
-            'selleremail' => ['string', 'email', 'max:255'],
             'propertydescription'=>['required'],
             'housetype'=>['required', 'string'],
             'listingtype'=>['required', 'string'],
@@ -305,5 +304,42 @@ class ClientendController extends Controller
 
         }
 
+    }
+    public function privacy(){
+        return view('clientend.privacy');
+    }
+    public function blogpage(){
+        $data['blogs']=BlogsModel::paginate(4);
+        $data['count']=BlogsModel::count();
+        return view('clientend.bloglanding',compact('data'));
+    }
+    public function searchblogs(Request $request){
+      
+        $data['orderby']='newtoold';
+        $blogname=$request->input('searchproperty');
+        $data['description']=BlogsModel::where('tbl_blogs.description', 'like', '%'. $blogname . '%')->paginate(4);
+        $data['title']=BlogsModel::where('tbl_blogs.title', 'like', '%'. $blogname . '%')->paginate(4);
+        if(count($data['title'])!=0){
+            $data['blogs']=$data['title'];
+            $data['count']= BlogsModel::where('tbl_blogs.title', 'like', '%'. $blogname . '%')->count();
+        }
+        if(count($data['description'])!=0){
+            $data['blogs']=$data['description'];
+            $data['count']=BlogsModel::where('tbl_blogs.description', 'like', '%'. $blogname . '%')->count();
+        }
+        else{
+            $data['blogs']=BlogsModel::where('tbl_blogs.title', 'like', '%'. $blogname . '%')->paginate(4);
+            $data['count']=BlogsModel::where('tbl_blogs.title', 'like', '%'. $blogname . '%')->count();
+
+        }
+        return view('clientend.bloglanding',compact('data'));
+
+    }
+    public function openblog($id){
+        $data['blog']=BlogsModel::where('blog_id',$id)->first();
+        return view('clientend.blogpage',compact('data'));
+    }
+    public function terms(){
+        return view('clientend.terms');
     }
 }

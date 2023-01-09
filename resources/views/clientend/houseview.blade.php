@@ -9,9 +9,9 @@
             <li>
                 <div class="featureshouse">
                     <h3 class="featuretitle">Price</h3>
-                    <p class="featureinfo"> KSH {{$data['property']->starting_price}}  
+                    <p class="featureinfo"> KSH {{number_format($data['property']->starting_price)}}  
 						@if($data['property']->end_price != NULL)
-                        to KSH{{$data['property']->end_price}} 
+                        to KSH{{number_format($data['property']->end_price)}} 
                         @endif</p>
                 </div>
             </li>
@@ -168,7 +168,7 @@
                 Interested in this property?
             </h2>
             <h4>
-                Share your details to schedule a house viewing
+                Share your details to schedule a house viewing or Call/Whatsapp on +254(0)712054154
             </h4>
             <form method="POST" action="{{url('interested/'.$data['property']->listing_type)}}">
                 @csrf

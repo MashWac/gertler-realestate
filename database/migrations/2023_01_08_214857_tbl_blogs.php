@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('tbl_blogs', function (Blueprint $table) {
             $table->increments('blog_id');
-            $table->string('blogtext');
+            $table->string('title');
+            $table->string('description');
+            $table->string('information');
+            $table->string('blog_image');
             $table->timestamp('created_at');
             $table->dateTime('updated_at')->nullable();
             $table->integer('is_deleted')->default(0);
-
         });
     }
 
@@ -31,6 +33,5 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('tbl_blogs');
-
     }
 };

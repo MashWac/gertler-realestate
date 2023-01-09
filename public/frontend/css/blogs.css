@@ -1,0 +1,145 @@
+body{
+font-family: 'Cormorant Garamond', serif;
+font-size: 19px;
+}
+
+
+/* navbar1 */
+.navlinkohid{
+font-family: 'Cormorant Garamond', serif;
+color: rgb(39, 39, 39);
+text-transform: capitalize;
+font-weight: bolder;
+font-size: 20px;
+}
+.nav-item:hover{
+background-color: #011b18;
+color: #f77e0c;
+border-radius: 0.4rem;
+}
+.nav-item:hover>a{
+color: white;
+}
+/* navbar2 */
+.clientnav{
+/* background-color: #FFB673; */
+background-color: #FFB673;
+}
+.navlinko{
+font-family: 'Cormorant Garamond', serif;
+color: rgb(1, 0, 24);
+text-transform: capitalize;
+font-weight: bolder;
+font-size: 20px;
+}
+.nav-item:hover{
+background-color: #011b18;
+color: #f77e0c;
+border-radius: 0.4rem;
+}
+.nav-item:hover>a{
+color: white;
+}
+/* landing section/homepage body */
+#myVideo {
+position: relative;
+right: 0;
+top: 0;
+min-width: 100%;
+min-height: 100%;
+}
+
+/* footer code */
+#footer{
+
+font-family: 'Vollkorn', serif;
+display:grid;
+justify-content: center;
+background-color: #FFB673;
+position: sticky;
+top: 100%;
+margin-top: 0%;
+padding-top: 20px;
+
+}
+.footerinfo{
+color: black;
+float: left;
+padding-left: 30px;
+padding-right: 30px;
+padding-bottom: 20px;
+}
+
+#socials{
+font-size: 22px;
+}
+#infolinks{
+list-style: none;
+}
+.pagelinks{
+text-decoration: none;
+color: black;
+}
+.footerlinks{
+padding-top: 15px;
+}
+.footersub{
+border-top-style: hidden;
+border-right-style: hidden;
+border-left-style: hidden;
+border-bottom-style: groove;
+background-color: #FFB673;
+}
+.social_links{
+color: #000000;
+text-decoration: none;
+}
+.blogbody{
+margin-top: 200px;
+width: 84%;
+margin-left: 8%;
+}
+.blogheader{
+    /* font-family: 'Cormorant Garamond', serif; */
+    /* font-family: 'Lexend Deca', sans-serif; */
+    font-family: 'Lobster', cursive;
+    /* font-family: 'Lobster Two', cursive; */
+    /* font-family: 'Lora', serif; */
+    /* font-family: 'Merriweather', serif; */
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-family: 'Ubuntu', sans-serif; */
+}
+h1,h2,h3,h4{
+/* font-family: 'Lora', serif; */
+    /* font-family: 'Merriweather', serif; */
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Ubuntu', sans-serif;
+}
+p{
+    /* font-family: 'Lora', serif; */
+    /* font-family: 'Merriweather', serif; */
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-family: 'Ubuntu', sans-serif; */
+    font-family: 'Cormorant Garamond', serif;
+    /* font-family: 'Lexend Deca', sans-serif; */
+    /* font-family: 'Lobster', cursive; */
+    font-size: 18px;
+    text-indent: 50px;
+
+}
+.blogtext{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+/* .btnlink{
+    position: fixed;
+    bottom: 20%;
+    right: 10%;
+    opacity: 0.9;
+}
+.btnlink:hover{
+    opacity: 1;
+}
+.btnlinkfloat{
+    border-radius: 60%;
+} */

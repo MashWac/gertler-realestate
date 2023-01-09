@@ -13,7 +13,7 @@
                             <span class="invalid-feedback" role="alert">
                             @error('selectedlocation')<strong>{{ $message }}</strong>@enderror
                             </span>                       
-                            <input class="form-control filterinputs @error('selectedlocation') is-invalid @enderror" name="selectedlocation"list="datalistOptions" style="width: 200px;" id="exampleDataList" placeholder="Type to search...">
+                            <input class="form-control filterinputs @error('selectedlocation') is-invalid @enderror" name="selectedlocation"list="datalistOptions" style="width: 200px;" id="exampleDataList" placeholder="Search Area...">
                             <datalist id="datalistOptions">
                                 @foreach($data['counties'] as $item)
                                 <option value="{{$item->name}}" {{$item->name == $data['location'] ? 'selected' : '' }}>{{$item->name}}</option>
@@ -25,7 +25,7 @@
 
                         </div>
                         <select name="housetype" class="form-select filterinputs" style="width: 150px;" aria-placeholder="Category">
-                            <option value="all" {{$data['house_type'] == 'all' ? 'selected' : '' }}>All</option>
+                            <option value="all" {{$data['house_type'] == 'all' ? 'selected' : '' }}>House Type</option>
                             <option value="apartment" {{$data['house_type'] == 'apartment' ? 'selected' : '' }} >Apartment</option>
                             <optgroup label="Houses">
                                 <option value="bungalow" {{$data['house_type'] == 'bungalow' ? 'selected' : '' }}>Bungalow</option>
@@ -46,7 +46,7 @@
                             </optgroup>
                         </select>
                         <select name="listingtype" class="form-select filterinputs" style="width: 150px;"  aria-placeholder="Category">
-                            <option value="all" {{$data['listing_type'] == 'all' ? 'selected' : '' }}>All</option>
+                            <option value="all" {{$data['listing_type'] == 'all' ? 'selected' : '' }}>Listing Type</option>
                             <option value="buy" {{$data['listing_type'] == 'buy' ? 'selected' : '' }}> Buy</option>
                             <option value="rent" {{$data['listing_type'] == 'rent' ? 'selected' : '' }}>Rent</option>
                             <option value="buyrent" {{$data['listing_type'] == 'buyrent' ? 'selected' : '' }}>Buy or Rent </option>
@@ -76,12 +76,24 @@
     @if($data['count']>0)
     @foreach($data['listings'] as $item)
         <div class=" houselist">
+            <a href="{{url('houseview/'.$item->property_id)}}">
             <div class="houseimage">
                 <img src="{{$item->mainphoto}}" class="houseimages" alt="property image">
+                <div class="housetaglisting">
+                    @if($item->listing_type=='buy')
+                        <p>For Sale</p>
+                    @elseif($item->listing_type=='rent')
+                        <p>For Rent</p>
+                    @else
+                        <p>For Buy/Rent</p>
+                    @endif   
+                </div>
             </div>
+
+            </a>
             <div class="housedetails">
-                <div class="projectname housedetailsect">
-                    <h3 class="housetitles"> Project Name</h3>
+                <div class="projectname housedetailsect" style="margin-top:5%;">
+                    <h3 class="housetitles">Property</h3>
                     <p>{{$item->property_name}}</p>
                 </div>
                 <div class="housetype housedetailsect">
@@ -128,19 +140,13 @@
                 </div>
                 <div class="Price housedetailsect">
                     <h3 class="housetitles"> Price</h3>
-                    <p>KSH {{$item->starting_price}} 
+                    <p>KSH {{number_format($item->starting_price)}} 
                         @if($item->end_price != NULL)
-                         to {{$item->end_price}} 
+                         to {{number_format($item->end_price)}} 
                         @endif
                     </p>
                     <a href="{{url('houseview/'.$item->property_id)}}">
-                        @if($item->listing_type=='buy')
-                        <button class="btn btn-dark buttongoproduct">BUY</button>   
-                        @elseif($item->listing_type=='rent')
-                        <button class="btn btn-dark buttongoproduct">RENT</button>
-                        @else
-                        <button class="btn btn-dark buttongoproduct">BUY/RENT</button>
-                        @endif  
+                        <button class="btn btn-dark buttongoproduct">View Property </button>    
                     </a>
                 </div>
                 <div>

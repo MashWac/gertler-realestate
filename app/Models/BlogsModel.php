@@ -10,5 +10,5 @@ class BlogsModel extends Model
     use HasFactory;
     protected $table='tbl_blogs';
     protected $primaryKey='blog_id';
-    protected $fillable=['blogtext','updated_at','created_at','is_deleted'];
+    protected $fillable=['title','description','information','blog_image','updated_at','created_at','is_deleted'];
 }

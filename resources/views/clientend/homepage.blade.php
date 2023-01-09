@@ -6,7 +6,6 @@
     <video width="100%" class="d-block d-sm-block d-md-none" autoplay muted loop id="myVideo">
         <source src="/assets/staticimg/final10.mp4" type="video/mp4">
     </video>
-    <!-- <img src="/assets/staticimg/final7.gif" class="" id="myVideo"width="100%" > -->
     <div class="landingback">
     
         <div class="landingtext d-none d-lg-block d-xl-block">
@@ -46,7 +45,7 @@
                 </div>
             </a>
             </div>
-            <a href="={{url('blogs')}}">
+            <a href="{{url('blogpage')}}">
             <div class="localexpertiseimage">
                 <div class="card text-bg-dark" style="width:18rem;">
                     <img src="/assets/staticimg/hillhouse.jpg" class="imgexpertisee card-img" alt="..." width="200px" height="200px">
@@ -76,8 +75,17 @@
             <div class="owl-carousel owl-theme">
             @foreach($data['listings'] as $item)
             <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:670px">
+                    <a href="{{url('houseview/'.$item->property_id)}}">
                         <img src="{{$item->mainphoto}}" class="card-img-top" alt="image property" height="280px" width="">
-                        <p class="housetypetag"> {{$item->listing_type}}</p>
+                    </a>
+                        @if($item->listing_type=='buy')
+                        <p class="housetypetag">For Sale</p>
+                        @elseif($item->listing_type=='rent')
+                        <p class="housetypetag">For Rent</p>
+                        @else
+                        <p class="housetypetag">For Rent/Sale</p>
+                        @endif   
+                        
                         <div class="card-body">
                             <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
                             <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6> 
@@ -128,15 +136,9 @@
                                     </div> 
                                 @endif
                             </div>
-                            <div class="buttoncardsection" style="position: absolute; bottom:4%; left:38%;">
+                            <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
                                 <a href="{{url('houseview/'.$item->property_id)}}">
-                                    @if($item->listing_type=='buy')
-                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">BUY</button>   
-                                    @elseif($item->listing_type=='rent')
-                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">RENT</button>
-                                    @else
-                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">BUY/RENT</button>
-                                    @endif  
+                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">View Property</button>                   
                                 </a>
                             </div>
                              
@@ -149,8 +151,17 @@
                 <div class=" justify-content-center">
                 @foreach($data['listings'] as $item)
                     <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:670px">
-                        <img src="{{$item->mainphoto}}" class="card-img-top" alt="image property" height="280px" width="">
-                        <p class="housetypetag"> {{$item->listing_type}}</p>
+                        <a href="{{url('houseview/'.$item->property_id)}}">
+                            <img src="{{$item->mainphoto}}" class="card-img-top" alt="image property" height="280px" width="">
+                        </a>
+                        @if($item->listing_type=='buy')
+                        <p class="housetypetag">For Sale</p>
+                        @elseif($item->listing_type=='rent')
+                        <p class="housetypetag">For Rent</p>
+                        @else
+                        <p class="housetypetag">For Rent/Sale</p>
+                        @endif   
+                        
                         <div class="card-body">
                             <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
                             <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6> 

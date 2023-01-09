@@ -20,10 +20,10 @@
                         <a class="pagelinks" href="">FAQ</a>
                     </li>
                     <li class="footerlinks">
-                        <a class="pagelinks" href="">Policies</a>
+                        <a class="pagelinks" href="{{url('privacy')}}">Policies</a>
                     </li>
                     <li class="footerlinks">
-                        <a class="pagelinks" href="">Terms And Conditions</a>
+                        <a class="pagelinks" href="{{url('terms')}}">Terms And Conditions</a>
                     </li>
                 </ul>
             </div>

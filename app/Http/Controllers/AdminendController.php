@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminsModel;
+use App\Models\BlogsModel;
 use App\Models\CountiesModel;
 use App\Models\CountriesModel;
 use App\Models\LocationsModel;
@@ -270,7 +271,7 @@ class AdminendController extends Controller
                 $propertyimage->image_url=$item;
                 $propertyimage->save();
             }
-            return redirect('uploads')->with('status','Product Added Successfully.');
+            return redirect('uploads')->with('status','Property Added Successfully.');
         }else{
             return redirect()-back()->with('status','Listing Addition failed.Check Fields');
 
@@ -678,9 +679,7 @@ class AdminendController extends Controller
         return redirect('sellrequests')->with('status','Serviced Successfully.');
     }
     
-    public function blogs(){
-        return view('adminend.blogs.index');
-    }
+
     public function viewpurchaselistings($str){
         
         if($str=='sall'){
@@ -728,7 +727,129 @@ class AdminendController extends Controller
 
         return view('adminend.uploads.view', compact('data'));
     }
+    public function blogs(){
+        $data['orderby']='newtoold';
+        $data['blogs']=BlogsModel::paginate(4);
+        return view('adminend.blogs.index', compact('data'));
+    }
+    public function addblog(){
+        $data['formtype']='add';
+        return view('adminend.blogs.add', compact('data'));
+    }
+    public function uploadblog(Request $request){
+        // validate
+        $request->validate([            
+            'blogtitle' => ['required', 'string', 'max:255'],
+            'blogdescription' => ['required', 'string', 'max:255'],
+            'bloginformation'=>['required'],
+            'mainimage'=>['required']
+        ]);
+
     
+        $blog=new BlogsModel();
+        if($request->hasFile('mainimage')){
+            $file=$request->file('mainimage');
+            $ext=$file->getClientOriginalExtension();
+            $filename= time().'.'.$ext;
+            $filepath='public/assets/uploads/blogs/'.$filename;
+            $path = Storage::disk('s3')->put($filepath,file_get_contents($file));
+            $path = Storage::url($filepath);
+            $blog->blog_image=$path;
+        }
+ 
+        $blog->title=$request->input('blogtitle');
+        $blog->description=$request->input('blogdescription');
+        $blog->information=$request->input('bloginformation');
+
+        if( $blog->save()){
+            return redirect('blogs')->with('status','Blog Added Successfully.');
+        }else{
+            return redirect()-back()->with('status','Listing Addition failed.Check Fields');
+
+        }
+
+    }
+    
+    public function editblog($id){
+        $data['formtype']="edit";
+        $data['blog']=BlogsModel::where('blog_id',$id)->first();
+        return view('adminend.blogs.add', compact('data'));
+    }
+    public function updateblog(Request $request,$id){
+        $request->validate([            
+            'blogtitle' => ['required', 'string', 'max:255'],
+            'blogdescription' => ['required', 'string', 'max:255'],
+            'bloginformation'=>['required']
+        ]);
+
+        $blog=BlogsModel::find($id);
+        if($request->hasFile('mainimage')){
+            $file=$request->file('mainimage');
+            $ext=$file->getClientOriginalExtension();
+            $filename= time().'.'.$ext;
+            $filepath='public/assets/uploads/properties/'.$filename;
+            $path = Storage::disk('s3')->put($filepath,file_get_contents($file));
+            $path = Storage::url($filepath);
+            $blog->blog_image=$path;
+        }
+    
+ 
+        $blog->title=$request->input('blogtitle');
+        $blog->description=$request->input('blogdescription');
+        $blog->information=$request->input('bloginformation');
+
+        if( $blog->update()){
+            return redirect()->back()->with('status','Blog Updated Successfully.');
+        }else{
+            return redirect()->back()->with('status','Blog Update Failed.');
+
+        }
+
+    }
+    public function deleteblog($id){
+        $blog=BlogsModel::find($id);
+        $blog->delete();
+        return redirect()->back()->with('status','Blog Deleted Successfully.');
+
+    }
+
+    public function blogsfilter(Request $request){
+
+        if($request->input('orderby')=='oldtonew'){
+            $orderreal='asc';
+            $data['orderby']='oldtonew';
+
+        }else{
+            $data['orderby']='newtoold';
+            $orderreal='desc';
+            
+        }
+        $data['blogs']=BlogsModel::orderBy('tbl_blogs.updated_at',$orderreal)->paginate(4);
+
+        return view('adminend.blogs.index', compact('data'));
+
+    }
+    public function searchblogs(Request $request){
+      
+        $data['orderby']='newtoold';
+        $blogname=$request->input('searchproperty');
+        $data['description']=BlogsModel::where('tbl_blogs.description', 'like', '%'. $blogname . '%')->paginate(4);
+        $data['title']=BlogsModel::where('tbl_blogs.title', 'like', '%'. $blogname . '%')->paginate(4);
+        if(count($data['title'])!=0){
+            $data['blogs']=$data['title'];
+        }
+        if(count($data['description'])!=0){
+            $data['blogs']=$data['description'];
+        }
+        else{
+            $data['blogs']=BlogsModel::where('tbl_blogs.title', 'like', '%'. $blogname . '%')->paginate(4);
+
+        }
+        return view('adminend.blogs.index', compact('data'));
+
+    }
+
+
 
 
 }

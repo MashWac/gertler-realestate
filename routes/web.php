@@ -31,6 +31,14 @@ Route::post('interested/{type}', [ClientendController::class,'potential']);
 Route::get('filterbylocation/{id}', [ClientendController::class,'filteropts']);
 Route::get('rentout', [ClientendController::class,'rentout']);
 Route::get('uploadvideo', [ClientendController::class,'uploadvideo']);
+Route::get('privacy', [ClientendController::class,'privacy']);
+Route::get('blogpage', [ClientendController::class,'blogpage']);
+Route::post('searchblog', [ClientendController::class,'searchblogs']);
+Route::get('terms', [ClientendController::class,'terms']);
+
+Route::get('openblog/{id}', [ClientendController::class,'openblog']);
+
+
 Route::post('add-video', [ClientendController::class,'addvideo']);
 Route::post('sellrequest', [ClientendController::class,'requestsell']);
 
@@ -105,6 +113,14 @@ Route::middleware(['adminonly'])->group(function(){
 
     
     Route::get('blogs', [AdminendController::class,'blogs']);
+    Route::get('addblog', [AdminendController::class,'addblog']);
+    Route::post('insert-blog', [AdminendController::class,'uploadblog']);
+    Route::get('editblog/{id}', [AdminendController::class,'editblog']);
+    Route::put('update-blog/{id}', [AdminendController::class,'updateblog']);
+    Route::get('blogsfilter', [AdminendController::class,'blogsfilter']);
+    Route::post('searchblogs', [AdminendController::class,'searchblogs']);
+    Route::get('delete-blog/{id}', [AdminendController::class,'deleteblog']);
+
     
 });
 

@@ -193,15 +193,15 @@ h1,h2,h3,h4{
 .housetypetag{
   position: absolute;
   top: 6%;
-  left: 2%;
+  left: 15px;
   
-  border: 1px solid #FFB673;
-  background-color: #FFB673;
+  border: 1px solid black;
+  background-color: rgba(0,0,0,.9);
   opacity: 0.8;
   border-radius: 0.3rem;
   padding: 3px;
-  color: #000000;
-  text-transform: uppercase;
+  color: whitesmoke;
+  text-transform:capitalize;
 }
 .housetitleprop{
   text-transform: uppercase;
@@ -508,11 +508,47 @@ h1,h2,h3,h4{
   top:65%;
   right:0%;
 }
+/*privacy policy*/
+.imagesectionprivacy{
+  background-image: url('/assets/staticimg/opthouse2.jpg');
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 90%;
+  margin-bottom: 4%;
+  background-size: cover;
+
+}
+/* terms */
+.imagesectionterms{
+  background-image: url('/assets/staticimg/opthouse1.jpg');
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 90%;
+  margin-bottom: 4%;
+  background-size: cover;
+
+}
 /* houselist */
 .mainview{
   margin-top: 150px;
   margin-left: 4%;
   margin-right: 4%;
+}
+.houseimage{
+  position:relative
+}
+.housetaglisting{
+  position: absolute; 
+  top:20px;
+  right:10%;
+  background-color: rgba(0,0,0,.8); 
+  color:whitesmoke;
+  padding-right:20px;
+  padding-left:20px;
+  padding-top:10px;
+  font-size: 16px;
+  height: fit-content;
+  border-radius: 0.5rem;
 }
 .houselistingsection{
   display: block;
@@ -826,5 +862,31 @@ text-justify: inter-word;
   transform: translateX(0px);
 }
 
+/* blogs */
+.blogbackground{
+  margin-top: 8%;
+  position: relative;
+  width: 100%;
+}
+.blogheading{
+  top: 30%;
+  left: 30%;
+  z-index: 3;
+  max-width: 50%;
+  position: absolute;
+  background-color: rgba(228, 228, 228,0.7);
+  padding: 10px;
+  border-radius: 0.3rem;
+}
+.blogheadingsm{
+  top: 25%;
+  left: 3%;
+  padding-left:10px;
+  padding-right: 10px;
+  z-index: 3;
+  position: absolute;
 
-
+}
+.bloglist{
+  width: 100%;
+}
