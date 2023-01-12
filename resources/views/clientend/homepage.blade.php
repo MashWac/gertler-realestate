@@ -69,6 +69,11 @@
     <div class="reveal ourprops text-center whywork">
         <h3>Our Properties</h3>
     </div>
+    <div class="btnviewall">
+        <a href="{{url('houselistings/none')}}">
+            <button class="viewalllistings">SEARCH AREA</button>
+        </a>    
+    </div>
     <div class="reveal forsale">
         <div id="filterbar" class="filterbar"class="text-center">
             <ul id="filters">
