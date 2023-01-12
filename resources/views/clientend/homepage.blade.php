@@ -72,7 +72,7 @@
     <div class="reveal forsale">
         <div id="filterbar" class="filterbar"class="text-center">
             <ul id="filters">
-                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('/') ? 'active' : ''}}"><a href="{{url('/')}}" >All</a></li>
+                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('/') ? 'active' : ''}}"><a href="{{url('/')}}" >Featured</a></li>
                 @foreach($data['locations'] as $things)
                     <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('filterbylocation/'.$things->location_id) ? 'active' : ''}}"><a href="{{url('filterbylocation/'.$things->location_id)}}" >{{$things->name}}</a></li>
                 @endforeach
@@ -253,7 +253,7 @@
 
             <div class="btnviewall">
                 <a href="{{url('houselistings/none')}}">
-                    <button class="viewalllistings">VIEW ALL LISTINGS</button>
+                    <button class="viewalllistings">SEARCH AREA</button>
                 </a>
                 
             </div>
