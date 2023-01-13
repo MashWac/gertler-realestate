@@ -45,6 +45,11 @@
         @include('layouts.inc.clientnavhid')
         <div class="mainbody">
             @yield('content')
+            <a class="floatinglink" href="https://wa.me/254712054154">
+            <div class="floatingicon" style="position: fixed; bottom:5%; right:2%;">
+                    <ion-icon class="floaticon" name="logo-whatsapp"></ion-icon>
+            </div>
+            </a>
         </div>
 
 

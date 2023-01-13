@@ -1,3 +1,16 @@
+.floatinglink{
+  text-decoration: none;
+  color: #000000;
+}
+.floaticon{
+  font-size: 50px;
+}
+.floatingicon{
+  background-color: rgba(256,256,256,0.8);
+  border-radius: 0.4rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  z-index: 100;
+}
 body{
   font-family: 'Cormorant Garamond', serif;
   font-size: 19px;
@@ -585,7 +598,6 @@ h1,h2,h3,h4{
   display: block;
   overflow: auto;
   width: 100%;
-  margin-top: 3%;
   padding-left: 3%;
 }
 .houseimages{
@@ -602,7 +614,7 @@ h1,h2,h3,h4{
 .houselist{
   float: left;
   min-width: 280px;
-  min-height: 250px;
+  min-height: 750px;
   width: 40%;
   margin: 5%;
 }

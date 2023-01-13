@@ -72,7 +72,7 @@
                 </div>
         </div>
     </div>
-    <div class="houselistingsection" style="margin-top: 10%;">
+    <div class="houselistingsection" style="margin-top: 5%;">
     @if($data['count']>0)
     @foreach($data['listings'] as $item)
         <div class=" houselist">
@@ -170,7 +170,7 @@
         @endif
     </div>
     <div class="text-center d-flex justify-content-center">
-        {{ $data['listings']->links('pagination::bootstrap-4') }}
+        {{ $data['listings']->onEachSide(2)->links('pagination::bootstrap-5') }}
     </div>
 </div>
 @endsection  
