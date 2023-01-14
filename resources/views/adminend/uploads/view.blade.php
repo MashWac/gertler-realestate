@@ -141,7 +141,7 @@
             </table>
         </div>
         <div class="text-center d-flex justify-content-center">
-            {{ $data['properties']->links('pagination::bootstrap-4') }}
+            {{ $data['properties']->appends(Request::all())->links('pagination::bootstrap-5')}}
         </div>
     </div>
 

@@ -50,7 +50,9 @@
         </div>
                
         </div>
-            <div class="text-center d-flex justify-content-center">
-             </div>
+        <div class="text-center d-flex justify-content-center">
+            {{ $locations->appends(Request::all())->links('pagination::bootstrap-5')}}
+
+        </div>
     </div>
 @endsection

@@ -92,6 +92,7 @@
             </table>
         </div>
         <div class="text-center d-flex justify-content-center">
+            {{ $data['requests']->appends(Request::all())->links('pagination::bootstrap-5')}}
         </div>
     </div>
 

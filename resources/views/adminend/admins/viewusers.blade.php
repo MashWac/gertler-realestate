@@ -54,7 +54,7 @@
           
         </div>
         <div class="text-center d-flex justify-content-center">
-            {{ $data['admins']->links('pagination::bootstrap-4') }}
+            {{ $data['admins']->appends(Request::all())->links('pagination::bootstrap-5')}}
         </div>
     </div>
 @endsection

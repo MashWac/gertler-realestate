@@ -170,7 +170,7 @@
         @endif
     </div>
     <div class="text-center d-flex justify-content-center">
-        {{ $data['listings']->onEachSide(2)->links('pagination::bootstrap-5') }}
+        {{ $data['listings']->appends(Request::all())->links('pagination::bootstrap-5') }}
     </div>
 </div>
 @endsection  

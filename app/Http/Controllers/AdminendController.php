@@ -89,7 +89,7 @@ class AdminendController extends Controller
 
     }
     public function locations(){
-        $locations=LocationsModel::all()->where('is_deleted',0);
+        $locations=LocationsModel::where('is_deleted',0)->orderBy('name','asc')->paginate(12);
         return view('adminend.locations.index',compact('locations'));
     }
     public function addlocations(){
