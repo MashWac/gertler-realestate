@@ -4,9 +4,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="{{ url('/assets/staticimg/gertlerinvest.png') }}">
-
-        <title>{{config('app.name', 'Gertler-Investment')}}</title>
+        <link rel="canonical" href="https://gertlerinvestment.com" />
+        <meta name="robots" content="index">
+        <meta name="sailthru.tags" content="property-for-sale" />
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Property for Sale and Rent">
+        <meta property="og:description" content="Reliable and Trustworthy agents.">
+        <meta property="og:site_name" content="Gertler-Investment">
+        <meta property="og:url" content="https://gertlerinvestment.com/">
+        <meta property="og:locale" content="en_US">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="{{config('app.name', 'Gertler-Investment')}} ">
+        <meta name="apple-mobile-web-app-capable" content="yes">
         <script src="https://kit.fontawesome.com/9afd237793.js" crossorigin="anonymous"></script>
+        @yield('metatags')
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">

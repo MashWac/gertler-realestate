@@ -1,4 +1,12 @@
 @extends('layouts.client')
+
+@section('metatags')
+<title>About Us- Find out More on {{config('app.name', 'Gertler-Investment')}} </title>
+<meta name="description" content="Best realtor in Kenya. Buy, Rent and Sell property in Kenya. {{config('app.name', 'Gertler-Investment')}}">
+<link rel="canonical" href="https://gertlerinvestment.com" />
+<meta name="robots" content="index">
+
+@endsection
 @section('content')
 <div class="mainabout">
     <div class="headerpartabout">

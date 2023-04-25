@@ -45,7 +45,7 @@
                 <a class="social_links" href="https://www.facebook.com/profile.php?id=100085293200835">
                     <ion-icon class="socialicons" name="logo-facebook"></ion-icon>
                 </a>
-                <a class="social_links" href="https://instagram.com/gertler_investment_ltd?igshid=YmMyMTA2M2Y=">
+                <a class="social_links" href="https://instagram.com/gertler_investment_ltd?igshid=ZDdkNTZiNTM=">
                     <ion-icon class="socialicons" name="logo-instagram"></ion-icon>
                 </a>
                 <a class="social_links" href="https://wa.me/254712054154">

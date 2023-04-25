@@ -1,4 +1,10 @@
 @extends('layouts.client')
+@section('metatags')
+<title>Privacy Policy - {{config('app.name', 'Gertler-Investment')}} </title>
+<meta name="description" content="Best realtor in Kenya. Buy, Rent and Sell property in Kenya. Learn more from blogs by {{config('app.name', 'Gertler-Investment')}}">
+<link rel="canonical" href="https://gertlerinvestment.com" />
+<meta name="robots" content="index">
+@endsection
 @section('content')
 <div class="mainabout">
     <div class="headerpartabout">

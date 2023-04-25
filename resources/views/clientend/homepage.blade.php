@@ -1,4 +1,8 @@
 @extends('layouts.client')
+@section('metatags')
+<title>Buy, Rent and Sell Property in Kenya {{config('app.name', 'Gertler-Investment')}} </title>
+<meta name="description" content="Find the best property in Kenya. Buy, rent and sell property in Kenya. Learn more from blogs by {{config('app.name', 'Gertler-Investment')}}">
+@endsection
 @section('content')
     <video width="100%" class="d-none d-md-block" autoplay muted loop id="myVideo">
         <source src="/assets/staticimg/final7.mp4" type="video/mp4">
@@ -12,16 +16,16 @@
             <p class='landertext'>YOUR NEXT INVESTMENT IS RIGHT HERE</p>
         </div>
         <div class="landingoptions d-none d-lg-block d-xl-block">
-            <a href="{{url('houselistings/buy')}}"><div><button class="homelandoptions">BUY</button></div></a>
-            <a href="{{url('houselistings/rent')}}"><div><button class="homelandoptions">RENT</button></div></a>
+            <a href="{{url('properties-in-kenya/buy')}}"><div><button class="homelandoptions">BUY</button></div></a>
+            <a href="{{url('properties-in-kenya/rent')}}"><div><button class="homelandoptions">RENT</button></div></a>
             <a href="{{url('rentout')}}"><div><button class="homelandoptions">SELL</button></div></a>
         </div>
         <div class="landingtext2 d-block d-sm-block d-lg-none">
             <p class='landertext2'>YOUR NEXT INVESTMENT IS RIGHT HERE</p>
         </div>
         <div class="landingoptions2 d-block d-sm-block d-lg-none">
-            <a href="{{url('houselistings/buy')}}"><div><button class="homelandoptions2">BUY</button></div></a>
-            <a href="{{url('houselistings/rent')}}"><div><button class="homelandoptions2">RENT</button></div></a>
+            <a href="{{url('properties-in-kenya/buy')}}"><div><button class="homelandoptions2">BUY</button></div></a>
+            <a href="{{url('properties-in-kenya/rent')}}"><div><button class="homelandoptions2">RENT</button></div></a>
             <a href="{{url('rentout')}}"><div><button class="homelandoptions2">SELL</button></div></a>
         </div>
     </div>
@@ -33,7 +37,7 @@
         <a href="{{ url('aboutus') }}">
             <div class="localexpertiseimage">
                 <div class="card text-bg-dark" style="width:18rem;">
-                    <img src="/assets/staticimg/infinitypool1.jpg" class=" imgexpertisee card-img" alt="..." width="200px" height="200px">
+                    <img src="/assets/staticimg/infinitypool1.jpg" class=" imgexpertisee card-img" alt="who_are_we" width="200px" height="200px">
                     <div class="card-img-overlay">
                         <h5 class="card-title expertisetexts">WHO ARE WE</h5>
 
@@ -42,21 +46,21 @@
 
             </div>
         </a>
-            <a href="{{url('houselistings/none')}}">
+            <a href="{{url('properties-in-kenya/none')}}">
             <div class="localexpertiseimage">
             
                 <div class="card text-bg-dark" style="width:18rem;">
-                    <img src="/assets/staticimg/dining2.jpg" class="imgexpertisee card-img" alt="..." width="200px" height="200px">
+                    <img src="/assets/staticimg/dining2.jpg" class="imgexpertisee card-img" alt="properties" width="200px" height="200px">
                     <div class="card-img-overlay">
                         <h5 class="card-title expertisetexts">PROPERTIES</h5>
                     </div>
                 </div>
             </a>
             </div>
-            <a href="{{url('blogpage')}}">
+            <a href="{{url('find-blogs')}}">
             <div class="localexpertiseimage">
                 <div class="card text-bg-dark" style="width:18rem;">
-                    <img src="/assets/staticimg/hillhouse.jpg" class="imgexpertisee card-img" alt="..." width="200px" height="200px">
+                    <img src="/assets/staticimg/hillhouse.jpg" class="imgexpertisee card-img" alt="Blogs" width="200px" height="200px">
                     <div class="card-img-overlay">
                         <h5 class="card-title expertisetexts">OUR BLOGS</h5>
                     </div>
@@ -71,7 +75,7 @@
     </div>
     <div class="card" width="100%" style="border: none;">
         <div class="btnviewall text-center">
-            <a href="{{url('houselistings/none')}}">
+            <a href="{{url('properties-in-kenya/none')}}">
                 <button class="viewalllistings">SEARCH AREA</button>
             </a>    
         </div>
@@ -83,7 +87,7 @@
             <ul id="filters">
                 <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('/') ? 'active' : ''}}"><a href="{{url('/')}}" >Featured</a></li>
                 @foreach($data['locations'] as $things)
-                    <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('filterbylocation/'.$things->location_id) ? 'active' : ''}}"><a href="{{url('filterbylocation/'.$things->location_id)}}" >{{$things->name}}</a></li>
+                    <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('located/'.strtolower(str_replace(' ', '-',$things->name)).'/'.$things->location_id) ? 'active' : ''}}"><a href="{{url('located/'.strtolower(str_replace(' ', '-',$things->name)).'/'.$things->location_id)}}" >{{$things->name}}</a></li>
                 @endforeach
             </ul>     
         </div>
@@ -92,8 +96,8 @@
             <div class="owl-carousel owl-theme">
             @foreach($data['listings'] as $item)
             <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:670px">
-                    <a href="{{url('houseview/'.$item->property_id)}}">
-                        <img src="{{$item->mainphoto}}" class="card-img-top" alt="image property" height="280px" width="">
+                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
+                        <img src="{{$item->mainphoto}}" class="card-img-top" alt="property image" height="280px" width="">
                     </a>
                         @if($item->listing_type=='buy')
                         <p class="housetypetag">For Sale</p>
@@ -159,7 +163,7 @@
                                 @endif
                             </div>
                             <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
-                                <a href="{{url('houseview/'.$item->property_id)}}">
+                                <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
                                     <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">View Property</button>                   
                                 </a>
                             </div>
@@ -173,8 +177,8 @@
                 <div class=" justify-content-center">
                 @foreach($data['listings'] as $item)
                     <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:670px">
-                        <a href="{{url('houseview/'.$item->property_id)}}">
-                            <img src="{{$item->mainphoto}}" class="card-img-top" alt="image property" height="280px" width="">
+                        <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
+                            <img src="{{$item->mainphoto}}" class="card-img-top" alt=" property image" height="280px" width="">
                         </a>
                         @if($item->listing_type=='buy')
                         <p class="housetypetag">For Sale</p>
@@ -240,7 +244,7 @@
                                 @endif
                             </div>
                             <div class="buttoncardsection" style="position: absolute; bottom:4%; left:38%;">
-                                <a href="{{url('houseview/'.$item->property_id)}}">
+                                <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
                                     @if($item->listing_type=='buy')
                                     <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">BUY</button>   
                                     @elseif($item->listing_type=='rent')
@@ -261,7 +265,7 @@
             @endif
 
             <div class="btnviewall">
-                <a href="{{url('houselistings/none')}}">
+                <a href="{{url('properties-in-kenya/none')}}">
                     <button class="viewalllistings">SEARCH AREA</button>
                 </a>
                 
@@ -320,21 +324,21 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000" style="position: relative;">
-                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh"alt="...">
+                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh"alt="feedback_background">
                     <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
                         <h5 style="font-size: 26px;">Angela</h5>
                         <p style="font-size: 21px;">“My wife & I have moved 6 times in the last 25 years. Obviously, we've dealt with many realtors both on the buying and selling side. I have to say that Kelvin is by far the BEST realtor we've ever worked with, his professionalism, personality, attention to detail, responsiveness and his ability to close the deal was Outstanding!!! If you are buying or selling a home, do yourselves a favor and hire Gertler Investment!!”</p>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="2000" style="position: relative;">
-                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh" alt="...">
+                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh" alt="feedback_background">
                     <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
                         <h5 style="font-size: 26px;">Rachel</h5>
                         <p style="font-size: 21px;">“I recently sold a house with Gertler and while this can be a very stressful process, I felt 110% confident by partnering with Gertler. He was candid, provided great feedback, helped explain clearly all details and managed the actual sale negotiation brilliantly. In addition, he was extremely responsive  to every one of my questions, no matter how small. As I move forward to now BUY my next house, I am extremely certain Dave will be the right partner to help me navigate this process.”</p>
                     </div>
                 </div>
                 <div class="carousel-item" style="position: relative;">
-                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh" alt="...">
+                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh" alt="feedback_background">
                     <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%;  min-width:300px;">
                         <h5 style="font-size: 26px;">Wafula</h5>
                         <p style="font-size: 21px;">“I was looking for an apartment that would be comfortable for me and my pets.Thank you for providing one that suites me”</p>

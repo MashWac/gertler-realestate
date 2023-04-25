@@ -1,8 +1,12 @@
 @extends('layouts.blogs')
+@section('metatags')
+<title> {{$data['blog']->title}} by {{config('app.name', 'Gertler-Investment')}} </title>
+<meta name="description" content=" {{$data['blog']->title}}. Learn more from blogs by {{config('app.name', 'Gertler-Investment')}}">
+@endsection
 @section('content')
 <div class="blogbody">
     <div class="">
-    <a href="{{url('blogpage')}}" class="btnlink" style="float: right;">
+    <a href="{{url('find-blogs')}}" class="btnlink" style="float: right;">
     <button class="btn btn-dark btnlinkfloat">Back</button>
     </a>
         <h1 class="blogheader">
@@ -14,7 +18,7 @@
     </div>
     <div class="blogtext">
         {!!$data['blog']->information!!}
-        <a href="{{url('blogpage')}}" class="btnlink">
+        <a href="{{url('find-blogs')}}" class="btnlink">
         <button class="btn btn-dark btnlinkfloat">Read More</button>
         </a>
     </div>

@@ -1,4 +1,33 @@
 @extends('layouts.client')
+@section('metatags')
+
+<title>For @if($data['property']->listing_type=='buyrent') Sale/Rent @elseif($data['property']->listing_type=='buy') Sale @elseif($data['property']->listing_type=='rent') Rent @endif: {{$data['property']->property_name}}@if($data['property']->total_bedrooms!= NULL) | {{$data['property']->total_bedrooms}} BedRooms @endif @if($data['property']->acreage!= NULL) | {{$data['property']->acreage}} Acre(s) @endif| Located in {{$data['property']->neighborhood}}  by {{config('app.name', 'Gertler-Investment')}}</title>
+<meta name="description" content="Find the best property in Kenya. Buy, rent and sell property in Kenya. Learn more from blogs by {{config('app.name', 'Gertler-Investment')}}">
+<meta name="robots" content="index">
+
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org/",
+    "@type": "property",
+    "name": {!! json_encode($data['property']['property_name']) !!}{!! json_encode($data['property']['neighborhood']) !!}{!!'-'. json_encode($data['property']['location']) !!},
+    "image": {!! json_encode($data['property']['mainphoto']) !!},
+    "description": {!! json_encode($data['property']['description']) !!},
+    "brand": {
+        "@type": "Brand",
+        "name": {!! json_encode(config('app.name', 'Gertler-Investment')) !!}
+    },
+    "mpn": {!! json_encode($data['property']['part']) !!},
+    "offers": {
+        "@type": "AggregateOffer",
+        "url": {!! json_encode(url()->current()) !!},
+        "priceCurrency": {!! json_encode(session('session_currency')) !!},
+        "lowPrice": "{!! json_encode($data['property']['starting_price']) !!}",
+        "highPrice": "{!! json_encode($data['property']['end_price']) !!}",
+    }
+    }
+    </script>
+
+@endsection
 @section('content')
 <div class="housepageview">
     <div class="producttitlemain">
@@ -68,7 +97,7 @@
         </ul>
     </div>
     <div class="houseimagescarousel">
-    <img src="{{$data['property']->mainphoto}} " alt="..." class="imageshouseview">
+    <img src="{{$data['property']->mainphoto}} " alt="{{$data['property']->property_name}}" class="imageshouseview">
 
     </div>
     <div class="reveal abouthousedetails">

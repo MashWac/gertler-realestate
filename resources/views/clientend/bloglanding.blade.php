@@ -1,4 +1,10 @@
 @extends('layouts.client')
+@section('metatags')
+<title>Blogs on Property in Kenya by {{config('app.name', 'Gertler-Investment')}} </title>
+<meta name="description" content="Best realtor in Kenya. Buy, Rent and Sell property in Kenya. Learn more from blogs by {{config('app.name', 'Gertler-Investment')}}">
+<link rel="canonical" href="https://gertlerinvestment.com" />
+<meta name="robots" content="index">
+@endsection
 @section('content')
 <div class="  blogbackground ">
     <div class="">
@@ -52,7 +58,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{$item->title}} </h5>
                                 <p class="card-text">{{$item->description}}</p>
-                                <a href="{{url('openblog/'.$item->blog_id)}}" class="btn btn-dark">View Blog</a>
+                                <a href="{{url('read-blog/'.strtolower(str_replace(' ', '-',$item->description)).'/'.$item->blog_id)}}" class="btn btn-dark">View Blog</a>
                                 <p class="card-text"><small class="text-muted">Updated at {{$item->updated_at}}</small></p>
                             </div>
                             </div>

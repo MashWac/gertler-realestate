@@ -25,7 +25,7 @@ class ClientendController extends Controller
         $data['count']= PropertyModel::where('is_deleted',0)->count();
         return view('clientend.homepage', compact('data'));
     }
-    public function filteropts($id){
+    public function filteropts($region,$id){
         $strid=strval($id);
         $data['locations']=LocationsModel::where('is_deleted',0)->paginate(5);
         $data['listings']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->orderBy('starting_price','asc')->paginate(6); 
@@ -210,7 +210,7 @@ class ClientendController extends Controller
 
 
     }
-    public function houseview($id){
+    public function houseview($listingtype,$location,$region,$description,$id){
         $data['counties']=CountiesModel::all();
         $data['countries']=CountriesModel::all();
         $data['locations']=LocationsModel::all()->where('is_deleted',0); 
@@ -328,7 +328,7 @@ class ClientendController extends Controller
         return view('clientend.bloglanding',compact('data'));
 
     }
-    public function openblog($id){
+    public function openblog($descript,$id){
         $data['blog']=BlogsModel::where('blog_id',$id)->first();
         return view('clientend.blogpage',compact('data'));
     }

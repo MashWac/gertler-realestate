@@ -24,19 +24,19 @@ Route::post('signin', [LoginController::class,'signin']);
 
 Route::get('/', [ClientendController::class,'landingpage']);
 Route::get('aboutus', [ClientendController::class,'aboutus']);
-Route::get('houselistings/{str}', [ClientendController::class,'houselistings']);
-Route::get('filterproperties', [ClientendController::class,'filterproperties']);
-Route::get('houseview/{id}', [ClientendController::class,'houseview']);
+Route::get('properties-in-kenya/{str}', [ClientendController::class,'houselistings']);
+Route::get('find-properties', [ClientendController::class,'filterproperties']);
+Route::get('view-property/{listingtype}/{location}/{region}/{description}/{id}', [ClientendController::class,'houseview']);
 Route::post('interested/{type}', [ClientendController::class,'potential']);
-Route::get('filterbylocation/{id}', [ClientendController::class,'filteropts']);
+Route::get('located/{region}/{id}', [ClientendController::class,'filteropts']);
 Route::get('rentout', [ClientendController::class,'rentout']);
 Route::get('uploadvideo', [ClientendController::class,'uploadvideo']);
 Route::get('privacy', [ClientendController::class,'privacy']);
-Route::get('blogpage', [ClientendController::class,'blogpage']);
+Route::get('find-blogs', [ClientendController::class,'blogpage']);
 Route::post('searchblog', [ClientendController::class,'searchblogs']);
 Route::get('terms', [ClientendController::class,'terms']);
 
-Route::get('openblog/{id}', [ClientendController::class,'openblog']);
+Route::get('read-blog/{description}/{id}', [ClientendController::class,'openblog']);
 
 
 Route::post('add-video', [ClientendController::class,'addvideo']);

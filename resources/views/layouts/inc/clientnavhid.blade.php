@@ -15,7 +15,7 @@
             <a class="nav-link navlinkohid" aria-current="page" href="{{ url('/') }}">HOME</a>
             </li>
             <li class="nav-item d-none d-lg-flex">
-            <a class="nav-link navlinkohid" href="{{url('houselistings/none')}}">OUR PROPERTIES</a>
+            <a class="nav-link navlinkohid" href="{{url('properties-in-kenya/none')}}">OUR PROPERTIES</a>
             </li>
         </ul>
         <div class=" d-none d-lg-flex justify-content-center ">        
@@ -29,7 +29,7 @@
                 <a class="nav-link navlinko" aria-current="page" href="{{ url('/') }}">HOME</a>
             </li>
             <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
-                <a class="nav-link navlinko" href="{{url('houselistings/none')}}">OUR PROPERTIES</a>
+                <a class="nav-link navlinko" href="{{url('properties-in-kenya/none')}}">OUR PROPERTIES</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link navlinko" href="#footercon">CONTACT US</a>
@@ -38,13 +38,13 @@
                 <a class="nav-link navlinko" href="{{ url('aboutus') }}">ABOUT US</a>
             </li>
             <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
-                <a class="nav-link navlinko" href="{{url('houselistings/buy')}}">BUY</a>
+                <a class="nav-link navlinko" href="{{url('properties-in-kenya/buy')}}">BUY</a>
             </li>
             <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
-                <a class="nav-link navlinko" href="{{url('houselistings/rent')}}">RENT</a>
+                <a class="nav-link navlinko" href="{{url('properties-in-kenya/rent')}}">RENT</a>
             </li>
             <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
-                <a class="nav-link navlinko" href="{{url('houselistings/sall')}}">BUY/RENT</a>
+                <a class="nav-link navlinko" href="{{url('properties-in-kenya/sall')}}">BUY/RENT</a>
             </li>
             <li class="nav-item d-block d-sm-block d-md-block d-lg-none">
                 <a class="nav-link navlinko" href="{{url('rentout')}}">SELL</a>

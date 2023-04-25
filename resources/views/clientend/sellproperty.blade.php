@@ -1,4 +1,11 @@
 @extends('layouts.client')
+@section('metatags')
+
+<title> Sell property in Kenya. Schedule appointment with the best Realtors in Kenya, {{config('app.name', 'Gertler-Investment')}}</title>
+<meta name="description" content="Find the best and most affordable property in Kenya. Buy, rent and sell property in Kenya.{{config('app.name', 'Gertler-Investment')}}">
+<meta name="robots" content="index">
+
+@endsection
 @section('content')
 <div class="housepageview">
     <div class="producttitlemain">

@@ -4,8 +4,42 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="{{ url('/assets/staticimg/gertlerinvest.png') }}">
+        <link rel="canonical" href="https://gertlerinvestment.com" />
+        <meta name="sailthru.tags" content="property-for-sale" />
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Property for Sale and Rent in Kenya- {{config('app.name', 'Gertler-Investment')}}">
+        <meta property="og:description" content="Reliable and Trustworthy agents.">
+        <meta property="og:site_name" content="Gertler-Investment">
+        <meta property="og:url" content="https://gertlerinvestment.com/">
+        <meta property="og:locale" content="en_US">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="{{config('app.name', 'Gertler-Investment')}} ">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Gertler Investment",
+            "alternateName": "gertlerinvestment.com",
+            "url": "https://gertlerinvestment.com",
+            "logo": "{{ url('/assets/staticimg/gertlerinvest.png') }}",
+            "contactPoint": {    
+            "@type": "ContactPoint",
+                "telephone": "(+254)712054154",
+                "email": "gertlerinvestmentltd@gmail.com",
+                "contactType": "customer service",
+            "sameAs": [
+            "https://twitter.com/componentscse",
+            "https://www.youtube.com/channel/UC833cWMpbwukIyEBQE9pZWg",
+            "https://www.facebook.com/people/gertler_investment_ltd/100085293200835/",
+            "https://wa.me/254712054154",
+            "https://instagram.com/gertler_investment_ltd?igshid=ZDdkNTZiNTM="
+            ]
+            }
+        }
 
-        <title>{{config('app.name', 'Gertler-Investment')}}</title>
+        </script>
+        @yield('metatags')
         <script src="https://kit.fontawesome.com/9afd237793.js" crossorigin="anonymous"></script>
 
         <!-- Fonts -->

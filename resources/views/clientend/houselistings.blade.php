@@ -1,5 +1,13 @@
 @extends('layouts.client')
 @section('content')
+@section('metatags')
+
+<title>Find the best property in Kenya by {{config('app.name', 'Gertler-Investment')}} </title>
+<meta name="description" content="Find the best property in Kenya. Buy, rent and sell property in Kenya. Learn more from blogs by {{config('app.name', 'Gertler-Investment')}}">
+<meta name="robots" content="index">
+
+
+@endsection
 <div class="landinghousesection">
 
 </div>
@@ -7,7 +15,7 @@
     <div class=" filtersection">
         <div class="formsection">
                 <div id="formbuy" style="display:inline;">
-                    <form method="GET" action="{{url('filterproperties')}}">
+                    <form method="GET" action="{{url('find-properties')}}">
                         @csrf
                         <div> 
                             <span class="invalid-feedback" role="alert">
@@ -76,7 +84,7 @@
     @if($data['count']>0)
     @foreach($data['listings'] as $item)
         <div class=" houselist">
-            <a href="{{url('houseview/'.$item->property_id)}}">
+            <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
             <div class="houseimage">
                 <img src="{{$item->mainphoto}}" class="houseimages" alt="property image">
                 <div class="housetaglisting">
@@ -145,7 +153,7 @@
                          to {{number_format($item->end_price)}} 
                         @endif
                     </p>
-                    <a href="{{url('houseview/'.$item->property_id)}}">
+                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
                         <button class="btn btn-dark buttongoproduct">View Property </button>    
                     </a>
                 </div>
