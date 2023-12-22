@@ -6,7 +6,7 @@
             <p>Sign up to get the latest on insights, new listings and more...</p>
             <form>
                 <input type="text" class="footersub" placeholder="Enter email address">
-                <button class="btn btn-dark" style="margin: 2%;" type="submit">Sign Up</button> 
+                <button class="btn footer_signupbtn" style="margin: 2%; border-radius:0px;" type="submit">Sign Up</button> 
             </form>
         </div>
         <div id="middlefooter" class="footerinfo">

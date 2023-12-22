@@ -13,66 +13,69 @@
     <div class="landingback">
     
         <div class="landingtext d-none d-lg-block d-xl-block">
-            <p class='landertext'>YOUR NEXT INVESTMENT IS RIGHT HERE</p>
+            <h1 class='landertext'>YOUR NEXT INVESTMENT IS RIGHT HERE</h1>
         </div>
         <div class="landingoptions d-none d-lg-block d-xl-block">
-            <a href="{{url('properties-in-kenya/buy')}}"><div><button class="homelandoptions">BUY</button></div></a>
-            <a href="{{url('properties-in-kenya/rent')}}"><div><button class="homelandoptions">RENT</button></div></a>
-            <a href="{{url('rentout')}}"><div><button class="homelandoptions">SELL</button></div></a>
+            <a href="{{url('properties-in-kenya/buy')}}"><div class="glass_con text-center homelandoptions"><p>BUY</p></div></a>
+            <a href="{{url('properties-in-kenya/rent')}}"><div class="glass_con text-center homelandoptions"><p>RENT</p></div></a>
+            <a href="{{url('rentout')}}"><div class="glass_con text-center homelandoptions"><p>SELL</p></div></a>
         </div>
         <div class="landingtext2 d-block d-sm-block d-lg-none">
-            <p class='landertext2'>YOUR NEXT INVESTMENT IS RIGHT HERE</p>
+            <h1 class='landertext2'>YOUR NEXT INVESTMENT IS RIGHT HERE</h1>
         </div>
         <div class="landingoptions2 d-block d-sm-block d-lg-none">
-            <a href="{{url('properties-in-kenya/buy')}}"><div><button class="homelandoptions2">BUY</button></div></a>
-            <a href="{{url('properties-in-kenya/rent')}}"><div><button class="homelandoptions2">RENT</button></div></a>
-            <a href="{{url('rentout')}}"><div><button class="homelandoptions2">SELL</button></div></a>
+            <a href="{{url('properties-in-kenya/buy')}}"><div class="glass_con2 text-center homelandoptions2"><p>BUY</p></div></a>
+            <a href="{{url('properties-in-kenya/rent')}}"><div class="glass_con2 text-center homelandoptions2"><p>RENT</p></div></a>
+            <a href="{{url('rentout')}}"><div class="glass_con2 text-center homelandoptions2"><p>SELL</p></div></a>
         </div>
     </div>
-    <div class="localexpertise container-fluid justify-center">
-        <div class="reveal localexpertisetext ms-auto">
-            <h3 class="localexpertisetextheader">LOCAL EXPERTISE - GLOBAL CONNECTIONS</h3>
+    <div class="localexpertise">
+        <div class="reveal localexpertisetext">
+            <h2 class="localexpertisetextheader mainsection_title">LOCAL EXPERTISE - GLOBAL CONNECTIONS</h2>
         </div>
         <div class="expertisesection">
-        <a href="{{ url('aboutus') }}">
-            <div class="localexpertiseimage">
-                <div class="card text-bg-dark" style="width:18rem;">
-                    <img src="/assets/staticimg/infinitypool1.jpg" class=" imgexpertisee card-img" alt="who_are_we" width="200px" height="200px">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title expertisetexts">WHO ARE WE</h5>
+            <a href="{{ url('aboutus') }}">
+                <div class="localexpertiseimage">
+                    <div class="card text-bg-dark" style="width:18rem;">
+                        <img src="/assets/staticimg/infinitypool1.jpg" class=" imgexpertisee card-img" alt="who_are_we" width="200px" height="200px">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title expertisetexts">WHO ARE WE</h5>
 
-                    </div>
-                </div>
-
-            </div>
-        </a>
-            <a href="{{url('properties-in-kenya/none')}}">
-            <div class="localexpertiseimage">
-            
-                <div class="card text-bg-dark" style="width:18rem;">
-                    <img src="/assets/staticimg/dining2.jpg" class="imgexpertisee card-img" alt="properties" width="200px" height="200px">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title expertisetexts">PROPERTIES</h5>
+                        </div>
                     </div>
                 </div>
             </a>
-            </div>
+            <a href="{{url('properties-in-kenya/none')}}">
+                <div class="localexpertiseimage">           
+                    <div class="card text-bg-dark" style="width:18rem;">
+                        <img src="/assets/staticimg/dining2.jpg" class="imgexpertisee card-img" alt="properties" width="200px" height="200px">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title expertisetexts">PROPERTIES</h5>
+                        </div>
+                    </div>
+                </div>  
+            </a>
             <a href="{{url('find-blogs')}}">
-            <div class="localexpertiseimage">
-                <div class="card text-bg-dark" style="width:18rem;">
-                    <img src="/assets/staticimg/hillhouse.jpg" class="imgexpertisee card-img" alt="Blogs" width="200px" height="200px">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title expertisetexts">OUR BLOGS</h5>
+                <div class="localexpertiseimage">
+                    <div class="card text-bg-dark" style="width:18rem;">
+                        <img src="/assets/staticimg/hillhouse.jpg" class="imgexpertisee card-img" alt="Blogs" width="200px" height="200px">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title expertisetexts">OUR BLOGS</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
             </a>
         </div>
 
     </div>
-    <div class="reveal ourprops text-center whywork">
-        <h3>Our Properties</h3>
+    <div class="section_divider_home"> 
+        <div class="section_divider_line"> </div>
     </div>
+    <div class="reveal ourprops text-center ">
+        <h3>Our Properties</h3>
+        <p></p>
+    </div>
+
     <div class="card" width="100%" style="border: none;">
         <div class="btnviewall text-center">
             <a href="{{url('properties-in-kenya/none')}}">
