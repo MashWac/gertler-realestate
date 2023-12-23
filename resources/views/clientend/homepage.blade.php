@@ -72,8 +72,8 @@
         <div class="section_divider_line"> </div>
     </div>
     <div class="reveal ourprops text-center ">
-        <h3>Our Properties</h3>
-        <p></p>
+        <h2>Our Properties</h2>
+        <p class="entice_text">"Find apartments,homes, land and much more. Available to buy, rent and lease in Kenya."</p>
     </div>
 
     <div class="card" width="100%" style="border: none;">
@@ -98,9 +98,9 @@
             @if($data['count']>5)
             <div class="owl-carousel owl-theme">
             @foreach($data['listings'] as $item)
-            <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:670px">
+            <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:600px">
                     <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
-                        <img src="{{$item->mainphoto}}" class="card-img-top" alt="property image" height="280px" width="">
+                        <img src="{{$item->mainphoto}}" class="card-img-top property_card_img" alt="property image" height="230px" >
                     </a>
                         @if($item->listing_type=='buy')
                         <p class="housetypetag">For Sale</p>
@@ -113,7 +113,7 @@
                         <div class="card-body">
                             <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
                             <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6>
-                            <h6>KSH{{number_format($item->starting_price)}}
+                            <h6 class="pricecard_home">KSH{{number_format($item->starting_price)}}
                                 @if($item->end_price != NULL)
                                     to KSH{{number_format($item->end_price)}} 
                                  @endif
@@ -179,10 +179,10 @@
             <div class="container">
                 <div class=" justify-content-center">
                 @foreach($data['listings'] as $item)
-                    <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:670px">
-                        <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
-                            <img src="{{$item->mainphoto}}" class="card-img-top" alt=" property image" height="280px" width="">
-                        </a>
+                <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:600px">
+                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
+                        <img src="{{$item->mainphoto}}" class="card-img-top property_card_img" alt="property image" height="230px" >
+                    </a>
                         @if($item->listing_type=='buy')
                         <p class="housetypetag">For Sale</p>
                         @elseif($item->listing_type=='rent')
@@ -193,12 +193,12 @@
                         
                         <div class="card-body">
                             <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
-                            <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6> 
-                            <h6>KSH{{number_format($item->starting_price)}}
+                            <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6>
+                            <h6 class="pricecard_home">KSH{{number_format($item->starting_price)}}
                                 @if($item->end_price != NULL)
                                     to KSH{{number_format($item->end_price)}} 
                                  @endif
-                            </h6>
+                            </h6> 
                             <div class="housefitcontent">
                                 @if($item->total_bedrooms != NULL)
                                     <div class="text-start houseiconsdetails">
@@ -246,15 +246,9 @@
                                     </div> 
                                 @endif
                             </div>
-                            <div class="buttoncardsection" style="position: absolute; bottom:4%; left:38%;">
+                            <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
                                 <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
-                                    @if($item->listing_type=='buy')
-                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">BUY</button>   
-                                    @elseif($item->listing_type=='rent')
-                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">RENT</button>
-                                    @else
-                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">BUY/RENT</button>
-                                    @endif  
+                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">View Property</button>                   
                                 </a>
                             </div>
                              

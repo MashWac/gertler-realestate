@@ -313,6 +313,14 @@ h1,h2,h3,h4{
   background-color: rgba(244, 159, 40, 1); 
   margin: 0 auto; */
 }
+.entice_text{
+  /* font-family: 'Dancing Script', cursive; */
+  font-family: 'Diphylleia', serif;
+  /* font-family: 'Great Vibes', cursive; */
+  /* font-family: 'Pacifico', cursive; */
+  /* font-family: 'Satisfy', cursive; */
+  font-size: 17px;
+}
 .filterbar{
   width: 100%;
   display: block;
@@ -325,53 +333,57 @@ h1,h2,h3,h4{
 }
 .filteropts{
   float: left;
-  margin: 2%;
+  margin: 10px;
   padding:20px;
   
 }
 .filteropts>a{
   text-decoration: none;
   color: black;
-  font-family: 'Oxygen', sans-serif;
-
+  /* font-family: 'Oxygen', sans-serif; */
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
 }
-.filteropts>a:hover{
-  padding: 10px;
-  border: solid 1px;
-  /* border-radius: 0.5rem; */
-  /* color: white;
-  background-color: rgb(64, 130, 230); */
+.filteropts:hover{
+  background-color:#F49F28 ;
+  color:#011B18 ;
 }
 .filteropts.active{
-  /* padding: 10px; */
-  border-bottom: solid 1px;
-  /* border-radius: 0.5rem; */
-  /* color: white;
-  background-color: rgb(64, 130, 230); */
+  border-bottom: solid 3px #F49F28;
 }
 .propertieshome{
   border: none;
   margin-left: 5%;
   width: 90%;
+
 }
 .propertyhome{
   position: relative;
+  font-family: 'Cormorant Garamond', serif;
+  border-radius: 0px;
+}
+.property_card_img{
+  border-radius: 0px;
 }
 .housetypetag{
   position: absolute;
   top: 6%;
   left: 15px;
   
-  border: 1px solid black;
-  background-color: rgba(0,0,0,.9);
+  border: 1px solid #F49F28;
+  background-color:rgba(244,159,40,0.7) ;
   opacity: 0.8;
   border-radius: 0.3rem;
   padding: 3px;
-  color: whitesmoke;
+  color: black;
   text-transform:capitalize;
 }
 .housetitleprop{
   text-transform: uppercase;
+  /* font-family: 'Alegreya Sans', sans-serif; */
+  font-family: 'Crimson Pro', serif;
+  /* font-family: 'Spectral', serif; */
+  font-weight: 500;
 }
 .viewalllistings{
   margin-top: 3%;
@@ -384,9 +396,9 @@ h1,h2,h3,h4{
 .viewalllistings:hover{
   margin-top: 2%;
   margin-bottom: 3%;
-  border: 1px solid black;
+  border: 1px solid #011B18;
   padding: 10px;
-  background-color:#000000;
+  background-color:#011B18;
   color: whitesmoke;
 }
 .housefitcontent{
@@ -397,17 +409,21 @@ h1,h2,h3,h4{
 }
 
 .houseiconsdetails{
-  border-right: 1px solid lightgray;
-  width: 77px;
+  width: 60px;
   height: 80px;
   padding-right: 3px;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   float: left;
-  margin-left: 1%;
+  margin-left: 5%;
+  font-weight: 500;
 
 }
+.pricecard_home{
+  font-weight: bold;
+  
+}
 .valuehomeicon{
-  font-size: 22px;
+  font-size: 16px;
 }
 .homeicon{
   margin-left:3px;
@@ -415,6 +431,7 @@ h1,h2,h3,h4{
 .houseicondetails{
   display: flex;
   position: relative;
+  font-size: 12px;
 }
 .fas.fa-shower{
   position: absolute;
