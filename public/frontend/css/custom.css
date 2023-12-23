@@ -302,17 +302,7 @@ h1,h2,h3,h4{
   margin: 0 auto;
   border-bottom: #F49F28 5px solid;
 }
-.section_divider_line>hr {
-  /* width: 5%;
-  min-width: 50px; 
-  border: 3px solid #F49F28;  */
-  /* margin: 0 auto;
-  width: 5%; 
-  border: none; 
-  height: 5px; 
-  background-color: rgba(244, 159, 40, 1); 
-  margin: 0 auto; */
-}
+
 .entice_text{
   /* font-family: 'Dancing Script', cursive; */
   font-family: 'Diphylleia', serif;
@@ -581,6 +571,93 @@ h1,h2,h3,h4{
   opacity: 1;
   transform: translateY(0px);
 }
+
+/* blogs homepage */
+.blogs{
+  width: 100%;
+  padding-left: 3%;
+  display: block;
+  overflow: auto;
+  /* background-color: #e9e9e9; */
+  opacity: 0;
+  margin-bottom: 3%;
+  transition: all 2.3s ease;
+}
+.blogs.active{
+  width: 100%;
+  padding-left: 3%;
+  display: block;
+  overflow: auto;
+  /* background-color: #e9e9e9; */
+  opacity: 1;
+  margin-bottom: 3%;
+
+}
+.blogitems{
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  float: left;
+  opacity: 0;
+  transition: all 2.3s ease;
+  transform: translateX(100px);
+}
+.blogitems.active{
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 1%;
+  float: left;
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.blog_blur{
+  position: relative;
+}
+.blog_blur::after{
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 0.8) 90%);
+  width: 100%;
+  height: 25px;
+}
+.section_divider_home_blogs{
+  width: 100%;
+}
+.section_divider_line_blogs{
+  width: 5%;
+  height: 1px;
+  margin: 0 auto;
+  border-bottom: #011B18 5px solid;
+}
+.btnviewall_blogs{
+  width: 100%;
+  display: block;
+  overflow: auto;
+}
+.viewalllistings_blogs{
+  float: right;
+  margin-right: 4%;
+  border: 1px solid black;
+  padding: 10px;
+  background-color:#011B18;
+  color:#F49F28;
+  transition: all 1s ease;
+
+}
+.viewalllistings_blogs:hover{
+  border: 1px solid #F49F28;
+  padding: 10px;
+  background-color:#F49F28;
+  color: #011B18;
+}
+
 /* carousel */
 .carouselimg{
   height: 80vh;

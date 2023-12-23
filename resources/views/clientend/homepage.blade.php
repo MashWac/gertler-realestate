@@ -352,6 +352,47 @@
             </button>
         </div>
     </div>
+    <div class="reveal text-center whywork">
+        <h3>INSIGHTFUL BLOGS</h3>
+        <div class="section_divider_home_blogs"> 
+            <div class="section_divider_line_blogs"> </div>
+        </div>
+        <div class="btnviewall_blogs">
+            <a href="{{url('find-blogs')}}">
+                <button class="viewalllistings_blogs">Find More Blogs</button>
+            </a>   
+        </div>
+    </div>
+
+    <div class="reveal blogs">
+
+        @foreach($data['blogs'] as $item)
+        <div class="reveal blogitems text-center">
+            <a href="{{url('read-blog/')}}" style="text-decoration: none;">
+            <div class="card mb-3 blog_in" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <img src="{{$item->blog_image}}" class="img-fluid rounded-start" alt="{{ucwords($item->title)}}" style="height: 200px;">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title" style="color: black; height:60px;overflow:hidden;font-weight:600;">{{ucwords($item->title)}}</h4>
+                            <p class="card-text blog_blur" style="color: black;height:75px;overflow:hidden;">{{ucfirst($item->description)}}</p>
+                            <p>Learn More...</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text"><small class="text-body-secondary">Last Update: {{$item->updated_at}}</small></p>
+                    </div>
+                </div>
+            </div>
+           
+            </a>
+        </div>
+        @endforeach
+
+    </div>
+
 @endsection  
 
 

@@ -23,6 +23,7 @@ class ClientendController extends Controller
         $data['locations']=LocationsModel::where('is_deleted',0)->paginate(5);
         $data['listings']=PropertyModel::where('is_deleted',0)->orderBy('starting_price','asc')->paginate(6);
         $data['count']= PropertyModel::where('is_deleted',0)->count();
+        $data['blogs']=BlogsModel::select('blog_id','title','description','blog_image','updated_at')->inRandomOrder()->take(4)->get();;
         return view('clientend.homepage', compact('data'));
     }
     public function filteropts($region,$id){
