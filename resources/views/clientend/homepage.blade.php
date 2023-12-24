@@ -269,87 +269,97 @@
             </div>
         </div>
     </div>
-    <div class="reveal container-fluid servicesoffered">
-        <div class="row">
-            <div class='reveal services text-center'>
-                <div class="servicesinfo">
-                    <h4>Real Estate Services</h4>
-                    <p>We work with clients to help them buy, sell or rent warehouses, office buildings, residential houses and land.We also help clients in property valuation.</p>
-                </div>
+    <div class="parallex_wrapper">
+        <div class="services_gil">
+            <div class="reveal container-fluid servicesoffered">
+                <div class="row">
+                    <div class='reveal services text-center'>
+                        <div class="servicesinfo">
+                            <h4>Real Estate Services</h4>
+                            <p>We work with clients to help them buy, sell or rent warehouses, office buildings, residential houses and land.We also help clients in property valuation.</p>
+                        </div>
 
-            </div>
-            <div class='reveal services'>
-                <div class="servicesinfo">
-                    <h4>Property Management</h4>
-                    <p>We work with property owners to ensure they engage with tenants with agreements that are protective and suitable. We ensure that the property remains profitable and attractive to the tenant. Our responsibilities include marketing, administration, tenancy facility improvement and financial reconciliation. </p>
-                </div>
-            </div>
-            <div class='reveal services'>
-                <div class="servicesinfo">
-                    <h4>Construction Services</h4>
-                    <p> We work with experts such as architects, civil engineers and surveyors to provide top quality works. This includes services such as construction, renovation works, design works or advice to clients on building works. We ensure compliance with local laws and regulations.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="reveal text-center whywork">
-        <h3>Why Work With Us?</h3>
-    </div>
-    <div class="reveal trustus">
-        <div class="reveal trustusection text-center">
-            <h3>TRANSPARENCY</h3>
-            <p> We are open, honest and straight forward with all our company operations. Providing you with all information required to make an informed decision on which property is right for you.</p>
-        </div>
-        <div class="reveal trustusection text-center">
-            <h3>TIMELY</h3>
-            <p>We complete our clients enquiries in reasonable time ensuring that all relevant information is available so that our client can make fast and informed decisions regarding the property.</p>
-        </div>
-        <div class="reveal trustusection text-center">
-            <h3>TEAMWORK</h3>
-            <p>We partner with property owners,real estate professionals,financial instituitions and government institutions with an aim to complete a task in the most effective and efficient way.</p>
-        </div>
-    </div>
-    <div class="reveal whywork text-center d-none d-lg-block d-xl-block">
-        <h3> What Our Clients Say </h3>
-    </div>
-    <div class="testimonials d-none d-lg-block d-xl-block">
-        <div id="carouselExampleDark" style="height:80vh" class="carousel carousel-dark slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000" style="position: relative;">
-                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh"alt="feedback_background">
-                    <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
-                        <h5 style="font-size: 26px;">Angela</h5>
-                        <p style="font-size: 21px;">“My wife & I have moved 6 times in the last 25 years. Obviously, we've dealt with many realtors both on the buying and selling side. I have to say that Kelvin is by far the BEST realtor we've ever worked with, his professionalism, personality, attention to detail, responsiveness and his ability to close the deal was Outstanding!!! If you are buying or selling a home, do yourselves a favor and hire Gertler Investment!!”</p>
                     </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000" style="position: relative;">
-                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh" alt="feedback_background">
-                    <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
-                        <h5 style="font-size: 26px;">Rachel</h5>
-                        <p style="font-size: 21px;">“I recently sold a house with Gertler and while this can be a very stressful process, I felt 110% confident by partnering with Gertler. He was candid, provided great feedback, helped explain clearly all details and managed the actual sale negotiation brilliantly. In addition, he was extremely responsive  to every one of my questions, no matter how small. As I move forward to now BUY my next house, I am extremely certain Dave will be the right partner to help me navigate this process.”</p>
+                    <div class='reveal services'>
+                        <div class="servicesinfo">
+                            <h4>Property Management</h4>
+                            <p>We work with property owners to ensure they engage with tenants with agreements that are protective and suitable. We ensure that the property remains profitable and attractive to the tenant. Our responsibilities include marketing, administration, tenancy facility improvement and financial reconciliation. </p>
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item" style="position: relative;">
-                    <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="80vh" alt="feedback_background">
-                    <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%;  min-width:300px;">
-                        <h5 style="font-size: 26px;">Wafula</h5>
-                        <p style="font-size: 21px;">“I was looking for an apartment that would be comfortable for me and my pets.Thank you for providing one that suites me”</p>
+                    <div class='reveal services'>
+                        <div class="servicesinfo">
+                            <h4>Construction Services</h4>
+                            <p> We work with experts such as architects, civil engineers and surveyors to provide top quality works. This includes services such as construction, renovation works, design works or advice to clients on building works. We ensure compliance with local laws and regulations.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        </div>
+        <div class="reveal text-center whywork">
+            <h3>Why Work With Us?</h3>
+        </div>
+        <div class="our_valuesgil">
+
+            <div class="reveal trustus">
+                <div class="reveal trustusection text-center">
+                    <h3>TRANSPARENCY</h3>
+                    <p> We are open, honest and straight forward with all our company operations. Providing you with all information required to make an informed decision on which property is right for you.</p>
+                </div>
+                <div class="reveal trustusection text-center">
+                    <h3>TIMELY</h3>
+                    <p>We complete our clients enquiries in reasonable time ensuring that all relevant information is available so that our client can make fast and informed decisions regarding the property.</p>
+                </div>
+                <div class="reveal trustusection text-center">
+                    <h3>TEAMWORK</h3>
+                    <p>We partner with property owners,real estate professionals,financial instituitions and government institutions with an aim to complete a task in the most effective and efficient way.</p>
+                </div>
+            </div>
+        </div>
+        <div class="reveal whywork text-center d-none d-lg-block d-xl-block">
+                <h3> What Our Clients Say </h3>
+        </div>
+        <div class="clients_feedback">
+
+            <div class="testimonials d-none d-lg-block d-xl-block">
+                <div id="carouselExampleDark" style="height:60vh" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000" style="position: relative;">
+                            <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="60vh"alt="feedback_background">
+                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
+                                <h5 style="font-size: 26px;">Angela</h5>
+                                <p style="font-size: 21px;">“My wife & I have moved 6 times in the last 25 years. Obviously, we've dealt with many realtors both on the buying and selling side. I have to say that Kelvin is by far the BEST realtor we've ever worked with, his professionalism, personality, attention to detail, responsiveness and his ability to close the deal was Outstanding!!! If you are buying or selling a home, do yourselves a favor and hire Gertler Investment!!”</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000" style="position: relative;">
+                            <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="60vh" alt="feedback_background">
+                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
+                                <h5 style="font-size: 26px;">Rachel</h5>
+                                <p style="font-size: 21px;">“I recently sold a house with Gertler and while this can be a very stressful process, I felt 110% confident by partnering with Gertler. He was candid, provided great feedback, helped explain clearly all details and managed the actual sale negotiation brilliantly. In addition, he was extremely responsive  to every one of my questions, no matter how small. As I move forward to now BUY my next house, I am extremely certain Dave will be the right partner to help me navigate this process.”</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="position: relative;">
+                            <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="60vh" alt="feedback_background">
+                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%;  min-width:300px;">
+                                <h5 style="font-size: 26px;">Wafula</h5>
+                                <p style="font-size: 21px;">“I was looking for an apartment that would be comfortable for me and my pets.Thank you for providing one that suites me”</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
     <div class="reveal text-center whywork">
@@ -357,7 +367,7 @@
         <div class="section_divider_home_blogs"> 
             <div class="section_divider_line_blogs"> </div>
         </div>
-        <div class="btnviewall_blogs">
+        <div class="btnviewall_blogs d-none d-lg-block">
             <a href="{{url('find-blogs')}}">
                 <button class="viewalllistings_blogs">Find More Blogs</button>
             </a>   
@@ -392,6 +402,15 @@
         @endforeach
 
     </div>
+    <div class="blog_small_button  d-sm-flex d-md-flex d-lg-none">
+        <div class="btnviewall_blogs text-center">
+            <a href="{{url('find-blogs')}}">
+                <button class="viewalllistings_blogs_sm">Find More Blogs</button>
+            </a>   
+        </div>
+
+    </div>
+
 
 @endsection  
 
