@@ -362,7 +362,7 @@
             </div>
         </div>
     </div>
-    <div class="reveal text-center whywork">
+    <div class="reveal text-center whywork whyblog_sect" style="margin-bottom: 2%;">
         <h3>INSIGHTFUL BLOGS</h3>
         <div class="section_divider_home_blogs"> 
             <div class="section_divider_line_blogs"> </div>
