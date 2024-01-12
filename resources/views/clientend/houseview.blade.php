@@ -33,6 +33,10 @@
     <div class="producttitlemain">
         <h1 class="producttitlemaintext"> {{$data['property']->property_name}}</h1>
     </div>
+
+    <div class="houseimagescarousel">
+    <img src="{{$data['property']->mainphoto}} " alt="{{$data['property']->property_name}}" class="imageshouseview">
+    </div>
     <div class="housefeatures">
         <ul class="listfeatures">
             <li>
@@ -96,13 +100,9 @@
             </li>
         </ul>
     </div>
-    <div class="houseimagescarousel">
-    <img src="{{$data['property']->mainphoto}} " alt="{{$data['property']->property_name}}" class="imageshouseview">
-
-    </div>
     <div class="reveal abouthousedetails">
         <div class="abouthousedetailstext">
-            <h2 class="abouthousetitle">About the property</h2>
+            <h2 class="abouthousetitle" style="font-size: 20px;">About the property</h2>
             <p class="abouthousetitleparagraph">
 			{!!$data['property']->property_description!!}
             </p>
@@ -201,56 +201,58 @@
             </h4>
             <form method="POST" action="{{url('interested/'.$data['property']->listing_type)}}">
                 @csrf
-                <div class="row">
-					<input type="hidden" name="propid" value="{{$data['property']->property_id}}">
-					<div class="col-md-6 formhousevisitfield">
-						<label for="sellerfname">First Name</label>
-						<input id="sellerfname" type="text" class="form-control @error('sellerfname') is-invalid @enderror"   name="sellerfname" value="{{ old('sellerfname')}}" autocomplete="sellerfname" >
-						<span class="invalid-feedback" role="alert">
-						@error('sellerfname')<strong>{{ $message }}</strong>@enderror
-						</span>
-					</div>
-					<div class="col-md-6 formhousevisitfield">
-						<label for="sellerlname">Last Name</label> 
-						<input id="sellerlname" type="text" class="form-control @error('sellerlname') is-invalid @enderror"  name="sellerlname" value="{{ old('sellerlname')}}" autocomplete="sellerlname" >
-						<span class="invalid-feedback" role="alert">
-						@error('sellerlname')<strong>{{ $message }}</strong>@enderror
-						</span>
-					</div>
-					<div class="col-md-6 formhousevisitfield">
-						<label for="selleremail">Email</label>
-						<input id="selleremail" type="email" class="form-control @error('selleremail') is-invalid @enderror"  name="selleremail" value="{{ old('selleremail')}}" autocomplete="selleremail" >
-						<span class="invalid-feedback" role="alert">
-						@error('selleremail')
-							<strong>{{ $message }}</strong>
-							@enderror
-						</span>   
-					</div>
-					<div class="col-md-6 formhousevisitfield ">
-						<div class="col-md-6">
-							<label for="sellercountrycode">
-								Country Code
-							</label>
-							<select name="sellercountrycode" class="form-select" aria-label="Default select example">
-								@foreach($data['countries'] as $item)
-								<option value="{{$item->phonecode}}"  {{ old('sellercountrycode') == $item->phonecode ? 'selected' : '' }}>+{{$item->phonecode}} | {{$item->name}}</option>
-								@endforeach
-							</select>
-						</div>
+                <div class="container-fluid">
+                    <div class="row ">
+                        <input type="hidden" name="propid" value="{{$data['property']->property_id}}">
+                        <div class="col-md-6 formhousevisitfield">
+                            <label for="sellerfname">First Name</label>
+                            <input id="sellerfname" type="text" class="form-control @error('sellerfname') is-invalid @enderror houseviewtext "   name="sellerfname" value="{{ old('sellerfname')}}" autocomplete="sellerfname" >
+                            <span class="invalid-feedback" role="alert">
+                            @error('sellerfname')<strong>{{ $message }}</strong>@enderror
+                            </span>
+                        </div>
+                        <div class="col-md-6 formhousevisitfield">
+                            <label for="sellerlname">Last Name</label> 
+                            <input id="sellerlname" type="text" class="form-control @error('sellerlname') is-invalid @enderror houseviewtext"  name="sellerlname" value="{{ old('sellerlname')}}" autocomplete="sellerlname" >
+                            <span class="invalid-feedback" role="alert">
+                            @error('sellerlname')<strong>{{ $message }}</strong>@enderror
+                            </span>
+                        </div>
+                        <div class="col-md-6 formhousevisitfield">
+                            <label for="selleremail">Email</label>
+                            <input id="selleremail" type="email" class="form-control @error('selleremail') is-invalid @enderror houseviewtext"  name="selleremail" value="{{ old('selleremail')}}" autocomplete="selleremail" >
+                            <span class="invalid-feedback" role="alert">
+                            @error('selleremail')
+                                <strong>{{ $message }}</strong>
+                                @enderror
+                            </span>   
+                        </div>
+                        <div class="col-md-6 formhousevisitfield ">
+                            <div class="col-md-6">
+                                <label for="sellercountrycode">
+                                    Country Code
+                                </label>
+                                <select name="sellercountrycode" class="form-select houseviewtext" aria-label="Default select example">
+                                    @foreach($data['countries'] as $item)
+                                    <option value="{{$item->phonecode}}"  {{ old('sellercountrycode') == $item->phonecode ? 'selected' : '' }}>+{{$item->phonecode}} | {{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
-						<label for="sellerphone">Phone</label>
-						<input type="number" class="form-control @error('sellerphone') is-invalid @enderror"  name="sellerphone" value="{{ old('sellerphone')}}">
-						<span class="invalid-feedback" role="alert">
-						@error('sellerphone')
-							<strong>{{ $message }}</strong>
-							@enderror
-						</span>  
-					</div>
-			
-					<div class="col-md-12" style="margin-top: 6%;">
-						<button type="submit" class="btn btn-dark buttongoproduct">Submit</button>
-					</div>
-				</div>
+                            <label for="sellerphone">Phone</label>
+                            <input type="number" class="form-control @error('sellerphone') is-invalid @enderror houseviewtext"  name="sellerphone" value="{{ old('sellerphone')}}">
+                            <span class="invalid-feedback" role="alert">
+                            @error('sellerphone')
+                                <strong>{{ $message }}</strong>
+                                @enderror
+                            </span>  
+                        </div>
+                
+                        <div class="col-md-12" style="margin-top: 6%;">
+                            <button type="submit" class="btn btn-dark buttongoproduct">Submit</button>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

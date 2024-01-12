@@ -9,10 +9,11 @@
 @endsection
 @section('content')
 <div class="mainabout">
-    <div class="headerpartabout">
-        <h3>About Us</h3>
-    </div>
+
     <div class="revealhouse imagesectionabout">
+        <div class="headerpartabout">
+            <h1>About Us</h1>
+        </div>
     </div>
     <div class="reveal aboutgertler">
         <div class="aboutgertlerheader aboutfloat">
@@ -58,12 +59,11 @@
             </div>        
         </div>
     </div>
-    <div class="founderlarge d-none d-lg-block d-xl-block">
-        <h3 class="aboutustitle"> OUR FOUNDER</h3>
-        <img src="/assets/staticimg/gertler.png" alt="gertler" width="300px" height="410px">
-    </div>
 </div>
-
+<div class="founderlarge d-none d-lg-block d-xl-block">
+    <h3 class="aboutustitle"> OUR FOUNDER</h3>
+    <img src="/assets/staticimg/gertler.png" alt="gertler" width="100%" height="300px">
+</div>
 
 @endsection  
 

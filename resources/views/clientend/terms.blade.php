@@ -7,10 +7,11 @@
 @endsection
 @section('content')
 <div class="mainabout">
-    <div class="headerpartabout">
-        <h3>Terms and Conditions</h3>
-    </div>
+
     <div class="revealhouse imagesectionprivacy">
+        <div class="headerpartabout">
+            <h3>Terms and Conditions</h3>
+        </div>
     </div>
     <div class="reveal aboutgertler">
         <div class="aboutgertlerheader aboutfloat">

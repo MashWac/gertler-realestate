@@ -77,7 +77,8 @@
     </head>
     
     <body class="antialiased">
-        @include('layouts.inc.clientnav_main')
+        @include('layouts.inc.clientnav')
+        @include('layouts.inc.clientnavhid')
         <div class="mainbody">
             @yield('content')
             <a class="floatinglink" href="https://wa.me/254712054154">
@@ -93,12 +94,14 @@
             <script src="{{ asset('frontend/js/imgpopup.js') }}" defer></script>
 
     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}" defer></script>
+    <!-- <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script> -->
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" defer></script>
     <script src="{{ asset('frontend/js/carousel.js') }}" defer></script>
 
     <script src="{{ asset('frontend/js/paycalc.js') }}" defer></script>
     <script src="{{ asset('frontend/js/downloadpdf.js') }}" defer></script>
     <script src="{{ asset('frontend/js/formdisplay.js') }}" defer></script>
+    <script src="{{ asset('frontend/js/navbarchange.js') }}" defer></script>
     <script src="{{ asset('frontend/js/changehomedivstatus.js') }}" defer></script>
     <script src="{{ asset('frontend/js/houselistload.js') }}" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

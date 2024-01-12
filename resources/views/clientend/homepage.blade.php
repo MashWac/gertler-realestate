@@ -167,7 +167,7 @@
                             </div>
                             <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
                                 <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
-                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">View Property</button>                   
+                                    <button class="btn btn-dark buttongoproduct">View Property</button>                   
                                 </a>
                             </div>
                              
@@ -248,7 +248,7 @@
                             </div>
                             <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
                                 <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
-                                    <button class="btn btn-dark buttongoproduct" style="border-radius: 0.4rem;">View Property</button>                   
+                                    <button class="btn btn-dark buttongoproduct" >View Property</button>                   
                                 </a>
                             </div>
                              

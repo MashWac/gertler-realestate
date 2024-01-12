@@ -789,20 +789,24 @@ h1,h2,h3,h4{
 /* about us page */
 .imagesectionabout{
   background-image: url('/assets/staticimg/opthouse1.jpg');
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 90%;
+  height: 60vh;
+  width: 100%;
   margin-bottom: 4%;
   background-size: cover;
-
+  display: block;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .aboutustext{
   min-width: 250px;
 }
 .mainabout{
-  width: 88%;
-  margin-left: 12%;
-  margin-top: 150px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 100px;
   margin-bottom: 150px;
   position: relative;
 }
@@ -832,10 +836,11 @@ h1,h2,h3,h4{
   font-family: 'Montesserat', serif;
   width: 25%;
   min-width: 250px;
+  
 }
 .aboutinfo{
   min-width: 250px;
-  width: 35%;
+  width: 45%;
   font-family: 'Cormorant Garamond', serif;
   text-align: justify;
   font-size: 20px;
@@ -844,18 +849,43 @@ h1,h2,h3,h4{
 }
 .founderlarge{
   position: absolute;
-  top:65%;
-  right:0%;
+  top:100%;
+  right:2%;
+}
+.founder_image{
+  width: 30%;
+  height: 30vh;
 }
 /*privacy policy*/
 .imagesectionprivacy{
+  
   background-image: url('/assets/staticimg/opthouse2.jpg');
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 90%;
+  height: 60vh;
+  width: 100%;
   margin-bottom: 4%;
   background-size: cover;
-
+  display: block;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headerpartabout{
+  background: linear-gradient(135deg,rgba(255, 255, 255, 0.836)rgba(255,255,255,0));
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, .3);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,.8);
+  padding: 10px;
+  float: inline-start;
+  min-height: 100px;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: #011B18;
 }
 /* terms */
 .imagesectionterms{
@@ -869,25 +899,27 @@ h1,h2,h3,h4{
 }
 /* houselist */
 .mainview{
-  margin-top: 150px;
-  margin-left: 4%;
-  margin-right: 4%;
+  margin-top: 80px;
 }
 .houseimage{
   position:relative
 }
 .housetaglisting{
-  position: absolute; 
-  top:20px;
-  right:10%;
-  background-color: rgba(0,0,0,.8); 
-  color:whitesmoke;
-  padding-right:20px;
-  padding-left:20px;
-  padding-top:10px;
-  font-size: 16px;
-  height: fit-content;
-  border-radius: 0.5rem;
+  position: absolute;
+  top: 6%;
+  left: 15px;
+  border: 1px solid #F49F28;
+  background-color:rgba(244,159,40,0.7) ;
+  opacity: 0.8;
+  border-radius: 0.3rem;
+  color: black;
+
+}
+.housetaglisting>p{
+  text-transform:capitalize;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 0px;
 }
 .houselistingsection{
   display: block;
@@ -911,7 +943,8 @@ h1,h2,h3,h4{
   min-width: 280px;
   min-height: 750px;
   width: 40%;
-  margin: 5%;
+  margin: 3%;
+  margin-left: 5%;
 }
 .housedetails{
   background-color: #fafafa;
@@ -939,11 +972,22 @@ h1,h2,h3,h4{
   border-radius: 0%;
 
 }
+.filtersectionbackground{
+  background-image: url(/assets/staticimg/hillhouse.jpg);
+  background-size:cover;
+  display: block;
+  overflow: auto;
+  padding: 10%;
+  width: 100%;
+  opacity: 1;
+}
 .filtersection{
-  background-color:   #FFB673;
+  background-color: #F49F28;
+
   display: block;
   padding: 2%;
   overflow: auto;
+  border-radius: 0.4rem;
 
 }
 .filteroptions>ul{
@@ -962,12 +1006,19 @@ h1,h2,h3,h4{
   margin: 2%;
 }
 .buttongoproduct{
-  border-radius: 0.1rem;
+  border-radius: 0rem;
   height: 50px;
   width: fit-content;
+  background-color: #011b18;
+  color: #F49F28;
+  font-size: 19px;
+}
+.buttongoproduct:hover{
+  background-color: #F49F28;
+  color: #011B18;
 }
 .filtersbutton{
-  background-color: #131313;
+  background-color:  rgba(1, 27, 24,1);
   border-radius: 0rem;
   color: #ffffff;
   margin: 1%;
@@ -986,15 +1037,16 @@ h1,h2,h3,h4{
 }
 .housefeatures{
   width: 100%;
-  margin: 4%;
+  margin: 2%;
   overflow: auto;
 }
 .producttitlemain{
   margin-left: 8%;
 }
 .producttitlemaintext{
-  font-size: 50px;
+  font-size: 40px;
   min-width: 340px;
+  text-transform: uppercase;
 }
 .listfeatures{
   list-style: none;
@@ -1118,7 +1170,7 @@ text-justify: inter-word;
   font-size: 16px;
 }
 .visitformhouse{
-  width: 60%;
+  width: 30%;
   background-color: #e9e9e9;
   padding-bottom: 3%;
   padding-top: 10px;
@@ -1126,11 +1178,13 @@ text-justify: inter-word;
   transition: all 1.3s ease;
 }
 .visitformhouse.active{
-  width: 100%;
-  background-color: #e9e9e9;
+  width: 60%;
+  background-color: #F49F28;
   padding-bottom: 3%;
   padding-top: 10px;
   opacity: 1;
+  min-width: 280px;
+
 }
 .formhousevisit{
   margin: 5%;
@@ -1161,11 +1215,14 @@ text-justify: inter-word;
   border-radius: 0.1rem;
 }
 .houseimagescarousel{
-  margin: 5%;
+  margin: 3%;
 }
 .imageshouseview{
   width: 100%;
   max-height: 90vh;
+}
+.houseviewtext{
+  width:250px
 }
 
 /* sell page  */
