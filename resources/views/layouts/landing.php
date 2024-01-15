@@ -6,6 +6,7 @@
         <link rel="icon" href="{{ url('/assets/staticimg/gertlerinvest.png') }}">
         <link rel="canonical" href="https://gertlerinvestment.com" />
         <meta name="sailthru.tags" content="property-for-sale" />
+        <meta name="google-site-verification" content="K_SQEHXg7mBr7BAdNUcmG-irEvpOkhyxy79edtv-IX4" />
         <meta property="og:type" content="website">
         <meta property="og:title" content="Property for Sale and Rent in Kenya- {{config('app.name', 'Gertler-Investment')}}">
         <meta property="og:description" content="Reliable and Trustworthy agents.">
