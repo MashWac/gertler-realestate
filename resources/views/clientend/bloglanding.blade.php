@@ -1,18 +1,15 @@
 @extends('layouts.client')
 @section('metatags')
-<title>Blogs on Property in Kenya by {{config('app.name', 'Gertler-Investment')}} </title>
-<meta name="description" content="Best realtor in Kenya. Buy, Rent and Sell property in Kenya. Learn more from blogs by {{config('app.name', 'Gertler-Investment')}}">
+<title>Blogs on Property in Kenya by {{config('app.name', 'Gertler Investment Limited')}} </title>
+<meta name="description" content="Unlock the secrets to successful real estate ventures in Kenya with our curated blog collection. Delve into market trends, investment strategies, and invaluable tips tailored to the Kenyan real estate landscape. Whether you're a homebuyer, investor, or industry enthusiast, our SEO-optimized content provides a local perspective to empower your decisions. Stay ahead in Kenya's real estate scene with expert insights, trends, and advice. Explore our blog for a strategic approach to navigating the dynamic Kenyan property market.">
 <link rel="canonical" href="https://gertlerinvestment.com" />
 <meta name="robots" content="index">
 @endsection
 @section('content')
-<div class="  blogbackground ">
+<div class="bloglanding">
     <div class="">
-        <div class="">
-            <div class="">
-                <img src="/assets/staticimg/infinitypool1.jpg" class="  card-img" alt="..." width="100%" height="600px">
-            </div>
-            <div class="blogheading d-none d-lg-block">
+        <div class="bloglanding_background">
+            <div class="blogheading d-none d-lg-block blogheader_back">
                 <h2>
                     Find interesting and insightful information on the Kenyan real estate market here.
                 </h2>
@@ -28,7 +25,7 @@
                 
             </div>
 
-            <div class="blogheadingsm d-block d-sm-block d-lg-none">
+            <div class="blogheadingsm d-block d-sm-block d-lg-none blogheader_back">
                 <h2>
                     Find interesting and insightful information on the Kenyan real estate market here.
                 </h2>

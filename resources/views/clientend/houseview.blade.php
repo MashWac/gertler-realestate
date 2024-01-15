@@ -1,8 +1,8 @@
 @extends('layouts.client')
 @section('metatags')
 
-<title>For @if($data['property']->listing_type=='buyrent') Sale/Rent @elseif($data['property']->listing_type=='buy') Sale @elseif($data['property']->listing_type=='rent') Rent @endif: {{$data['property']->property_name}}@if($data['property']->total_bedrooms!= NULL) | {{$data['property']->total_bedrooms}} BedRooms @endif @if($data['property']->acreage!= NULL) | {{$data['property']->acreage}} Acre(s) @endif| Located in {{$data['property']->neighborhood}}  by {{config('app.name', 'Gertler-Investment')}}</title>
-<meta name="description" content="Find the best property in Kenya. Buy, rent and sell property in Kenya. Learn more from blogs by {{config('app.name', 'Gertler-Investment')}}">
+<title>For @if($data['property']->listing_type=='buyrent') Sale/Rent @elseif($data['property']->listing_type=='buy') Sale @elseif($data['property']->listing_type=='rent') Rent @endif: {{$data['property']->property_name}}@if($data['property']->total_bedrooms!= NULL) | {{$data['property']->total_bedrooms}} BedRooms @endif @if($data['property']->acreage!= NULL) | {{$data['property']->acreage}} Acre(s) @endif| Located in {{$data['property']->neighborhood}}  by {{config('app.name', 'Gertler Investment Limited')}}</title>
+<meta name="description" content="{{$data['property']->property_name.' in '.$data['property']->neighborhood.','.$data['property']->location.'. '.'Pricing starting from KSH '.$data['property']->starting_price}}">
 <meta name="robots" content="index">
 
     <script type="application/ld+json">
@@ -14,7 +14,7 @@
     "description": {!! json_encode($data['property']['description']) !!},
     "brand": {
         "@type": "Brand",
-        "name": {!! json_encode(config('app.name', 'Gertler-Investment')) !!}
+        "name": {!! json_encode(config('app.name', 'Gertler Investment Limited')) !!}
     },
     "mpn": {!! json_encode($data['property']['part']) !!},
     "offers": {

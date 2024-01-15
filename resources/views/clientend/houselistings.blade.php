@@ -2,8 +2,8 @@
 @section('content')
 @section('metatags')
 
-<title>Find the best property in Kenya by {{config('app.name', 'Gertler-Investment')}} </title>
-<meta name="description" content="Find the best property in Kenya. Buy, rent and sell property in Kenya. Learn more from blogs by {{config('app.name', 'Gertler-Investment')}}">
+<title>Find the best property in Kenya by {{config('app.name', 'Gertler Investment Limited')}} </title>
+<meta name="description" content="Explore our premier property listings tailored for the Kenyan real estate market. Uncover your dream home with detailed descriptions, high-resolution images, and essential property insights. Whether you seek a cozy urban retreat or a spacious countryside haven, our listings cater to diverse preferences and budgets. Start your journey to homeownership in Kenya by exploring our house listings, offering a comprehensive and user-friendly experience. Find your perfect property and make your property ownership dreams a reality. Explore Gertler Investment Limited.}}">
 <meta name="robots" content="index">
 
 
@@ -84,7 +84,7 @@
     @if($data['count']>0)
     @foreach($data['listings'] as $item)
         <div class=" houselist">
-            <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
+            <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->house_type))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
             <div class="houseimage">
                 <img src="{{$item->mainphoto}}" class="houseimages" alt="property image">
                 <div class="housetaglisting text-center">
@@ -152,7 +152,7 @@
                          to {{number_format($item->end_price)}} 
                         @endif
                     </p>
-                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
+                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->house_type))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
                         <button class="btn btn-dark buttongoproduct">View Property </button>    
                     </a>
                 </div>

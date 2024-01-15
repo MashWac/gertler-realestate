@@ -1,7 +1,7 @@
 @extends('layouts.client')
 @section('metatags')
-<title>Buy, Rent and Sell Property in Kenya {{config('app.name', 'Gertler-Investment')}} </title>
-<meta name="description" content="Find the best property in Kenya. Buy, rent and sell property in Kenya. Learn more from blogs by {{config('app.name', 'Gertler-Investment')}}">
+<title>Buy, Rent and Sell Property in Kenya.Explore Prime Real Estate Opportunities in Nairobi | Gertler Investment Limited {{config('app.name', 'Gertler Investment Limited')}} </title>
+<meta name="description" content="Find the best property in Kenya. Buy, rent and sell property in Kenya. Start your property search now with Gertler Investment Limited. Browse our listings and find your perfect home or investment. Get a free property valuation from Gertler Investment Limited. We'll help you determine the true market value of your property. Invest in Nairobi's booming property market with Gertler Investment Limited. We offer a wide range of investment properties in prime locations across the city. Learn more from blogs by {{config('app.name', 'Gertler Investment Limited')}}">
 @endsection
 @section('content')
     <video width="100%" class="d-none d-md-block" autoplay muted loop id="myVideo">
@@ -90,7 +90,7 @@
             <ul id="filters">
                 <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('/') ? 'active' : ''}}"><a href="{{url('/')}}" >Featured</a></li>
                 @foreach($data['locations'] as $things)
-                    <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('located/'.strtolower(str_replace(' ', '-',$things->name)).'/'.$things->location_id) ? 'active' : ''}}"><a href="{{url('located/'.strtolower(str_replace(' ', '-',$things->name)).'/'.$things->location_id)}}" >{{$things->name}}</a></li>
+                    <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('located/'.strtolower(str_replace(' ', '-',str_replace('/','|',$things->name))).'/'.$things->location_id) ? 'active' : ''}}"><a href="{{url('located/'.strtolower(str_replace(' ', '-',str_replace('/','|',$things->name))).'/'.$things->location_id)}}" >{{$things->name}}</a></li>
                 @endforeach
             </ul>     
         </div>
@@ -99,7 +99,7 @@
             <div class="owl-carousel owl-theme">
             @foreach($data['listings'] as $item)
             <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:600px">
-                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
+                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
                         <img src="{{$item->mainphoto}}" class="card-img-top property_card_img" alt="property image" height="230px" >
                     </a>
                         @if($item->listing_type=='buy')
@@ -166,7 +166,7 @@
                                 @endif
                             </div>
                             <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
-                                <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
+                                <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
                                     <button class="btn btn-dark buttongoproduct">View Property</button>                   
                                 </a>
                             </div>
@@ -180,7 +180,7 @@
                 <div class=" justify-content-center">
                 @foreach($data['listings'] as $item)
                 <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:600px">
-                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
+                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
                         <img src="{{$item->mainphoto}}" class="card-img-top property_card_img" alt="property image" height="230px" >
                     </a>
                         @if($item->listing_type=='buy')
@@ -247,7 +247,7 @@
                                 @endif
                             </div>
                             <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
-                                <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',$item->location)).'/'.strtolower(str_replace(' ', '-',$item->neighborhood)).'/'.strtolower(str_replace(' ', '-',$item->property_name)).'/'.$item->property_id)}}">
+                                <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
                                     <button class="btn btn-dark buttongoproduct" >View Property</button>                   
                                 </a>
                             </div>
@@ -378,7 +378,7 @@
 
         @foreach($data['blogs'] as $item)
         <div class="reveal blogitems text-center">
-            <a href="{{url('read-blog/')}}" style="text-decoration: none;">
+            <a href="{{url('read-blog/'.strtolower(str_replace(' ', '-',str_replace('/','|',str_replace('?','',str_replace('.','',$item->title))))).'/'.$item->blog_id)}}" style="text-decoration: none;">
             <div class="card mb-3 blog_in" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">

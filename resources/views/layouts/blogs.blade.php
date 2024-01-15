@@ -56,8 +56,7 @@
     </head>
     
     <body class="antialiased">
-        @include('layouts.inc.clientnav')
-        @include('layouts.inc.clientnavhid')
+        @include('layouts.inc.clientnav_main')
         <div class="mainbody">
             @yield('content')
         </div>
@@ -75,7 +74,6 @@
     <script src="{{ asset('frontend/js/paycalc.js') }}" defer></script>
     <script src="{{ asset('frontend/js/downloadpdf.js') }}" defer></script>
     <script src="{{ asset('frontend/js/formdisplay.js') }}" defer></script>
-    <script src="{{ asset('frontend/js/navbarchange.js') }}" defer></script>
     <script src="{{ asset('frontend/js/changehomedivstatus.js') }}" defer></script>
     <script src="{{ asset('frontend/js/houselistload.js') }}" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

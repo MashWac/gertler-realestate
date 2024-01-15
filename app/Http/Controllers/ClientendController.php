@@ -31,6 +31,7 @@ class ClientendController extends Controller
         $data['locations']=LocationsModel::where('is_deleted',0)->paginate(5);
         $data['listings']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->orderBy('starting_price','asc')->paginate(6); 
         $data['count']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->count(); 
+        $data['blogs']=BlogsModel::select('blog_id','title','description','blog_image','updated_at')->inRandomOrder()->take(4)->get();;
 
         return view('clientend.homepage', compact('data'));
 
