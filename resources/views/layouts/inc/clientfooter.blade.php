@@ -4,8 +4,10 @@
         <div class="footerinfo">
             <h5>Subscribe</h5>
             <p>Sign up to get the latest on insights, new listings and more...</p>
-            <form>
-                <input type="text" class="footersub" placeholder="Enter email address">
+            <form action="{{url('add_newsletter')}}"  class="newsletter_signup_form" method="Post">               
+                <input type="text" class="footersub" name="first_name" placeholder="First Name"><br>
+                <input type="text" class="footersub" name="surname" placeholder="Surname"><br>
+                <input type="text" class="footersub" name="email" placeholder="Enter email address">
                 <button class="btn footer_signupbtn" style="margin: 2%; border-radius:0px;" type="submit">Sign Up</button> 
             </form>
         </div>

@@ -6,6 +6,7 @@ use App\Models\BlogsModel;
 use App\Models\CountiesModel;
 use App\Models\CountriesModel;
 use App\Models\LocationsModel;
+use App\Models\NewsletterSignupModel;
 use App\Models\PropertyimagesModel;
 use App\Models\PropertyModel;
 use App\Models\PurchaserequestsModel;
@@ -19,21 +20,58 @@ use Illuminate\Support\Facades\File;
 
 class ClientendController extends Controller
 {
+    public function addNewsLetterSignup(Request $request){
+        $firstname=$request->first_name;
+        $surname=$request->surname;
+        $email=$request->email;
+        $signup=new NewsletterSignupModel();
+        $signup->first_name=$firstname;
+        $signup->surname=$surname;
+        $signup->email=$email;
+        if($signup->save()){
+            return response()->json(['status' => 'success', 'message' => 'Signup successful']);
+        }else{
+            return response()->json(['status' => 'error', 'message' => 'Signup failed']);
+        }
+
+    }
     public function landingpage(){
         $data['locations']=LocationsModel::where('is_deleted',0)->paginate(5);
         $data['listings']=PropertyModel::where('is_deleted',0)->orderBy('starting_price','asc')->paginate(6);
         $data['count']= PropertyModel::where('is_deleted',0)->count();
+        $data['more_listings']=PropertyModel::where('is_deleted',0)->orderBy('starting_price','asc')->paginate(6);
+        $data['more_count']= PropertyModel::where('is_deleted',0)->count();
         $data['blogs']=BlogsModel::select('blog_id','title','description','blog_image','updated_at')->inRandomOrder()->take(4)->get();;
         return view('clientend.homepage', compact('data'));
     }
     public function filteropts($region,$id){
         $strid=strval($id);
-        $data['locations']=LocationsModel::where('is_deleted',0)->paginate(5);
-        $data['listings']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->orderBy('starting_price','asc')->paginate(6); 
-        $data['count']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->count(); 
-        $data['blogs']=BlogsModel::select('blog_id','title','description','blog_image','updated_at')->inRandomOrder()->take(4)->get();;
+        $data['more_listings']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->orderBy('starting_price','asc')->paginate(6); 
+        $data['more_count']=PropertyModel::join('tbl_locations','tbl_propertydetails.neighborhood','=','tbl_locations.name')->where('tbl_locations.location_id',$id)->count(); 
 
-        return view('clientend.homepage', compact('data'));
+        return view('clientend.rendered.filterlocations', compact('data'))->render();
+
+    }
+    public function propertyTypes($type){
+    
+        if($type =='house'){
+            $type=['villa','townhouse','bungalow','mansion','ranchhouse','condominium'];
+
+
+        }elseif($type=='land'){
+            $type=['residentialland','commercialland'];
+
+        }elseif($type=='commercial'){
+            $type=['warehouse','shop','office'];
+
+        }else{
+            $type=['apartment'];
+
+        }
+        $data['more_listings']=PropertyModel::whereIn('house_type',$type)->orderBy('starting_price','asc')->take(5)->get(); 
+
+
+        return view('clientend.rendered.toplistings', compact('data'))->render();
 
     }
     public function aboutus(){

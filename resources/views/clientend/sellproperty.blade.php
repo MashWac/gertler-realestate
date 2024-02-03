@@ -21,23 +21,23 @@
             <form method="POST" action="{{url('sellrequest')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="container">
-                <div class="row">
-                    <h3>Fill In Your Details</h3>
-                        <div class="col-md-6 formhousevisitfield">
+                    <div class="row gx-3 gy-2 align-items-center">
+                        <h3>Fill In Your Details</h3>
+                        <div class="col-sm-3 formhousevisitfield">
                             <label for="sellerfname">First Name</label>
                             <input id="sellerfname" type="text" class="form-control @error('sellerfname') is-invalid @enderror"   name="sellerfname" value="{{ old('sellerfname')}}" autocomplete="sellerfname" autofocus>
                             <span class="invalid-feedback" role="alert">
                             @error('sellerfname')<strong>{{ $message }}</strong>@enderror
                             </span>
                         </div>
-                        <div class="col-md-6 formhousevisitfield">
+                        <div class="col-sm-3 formhousevisitfield">
                             <label for="sellerlname">Last Name</label> 
                             <input id="sellerlname" type="text" class="form-control @error('sellerlname') is-invalid @enderror"  name="sellerlname" value="{{ old('sellerlname')}}" autocomplete="sellerlname" autofocus>
                             <span class="invalid-feedback" role="alert">
                             @error('sellerlname')<strong>{{ $message }}</strong>@enderror
                             </span>
                         </div>
-                        <div class="col-md-6 formhousevisitfield">
+                        <div class="col-sm-3 formhousevisitfield">
                             <label for="selleremail">Email</label>
                             <input id="selleremail" type="email" class="form-control @error('selleremail') is-invalid @enderror"  name="selleremail" value="{{ old('selleremail')}}" autocomplete="selleremail" autofocus>
                             <span class="invalid-feedback" role="alert">
@@ -46,17 +46,18 @@
                                 @enderror
                             </span>   
                         </div>
-                        <div class="col-md-6 formhousevisitfield ">
-                            <div class="col-md-6">
-                                <label for="sellercountrycode">
-                                    Country Code
-                                </label>
-                                <select name="sellercountrycode" class="form-select" aria-label="Default select example">
-                                    @foreach($data['countries'] as $item)
-                                    <option value="{{$item->phonecode}}"  {{ old('sellercountrycode') == $item->phonecode ? 'selected' : '' }}>+{{$item->phonecode}} | {{$item->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                        <div class="col-sm-2">
+                            <label for="sellercountrycode">
+                                Country Code
+                            </label>
+                            <select name="sellercountrycode" class="form-select" aria-label="Default select example">
+                                @foreach($data['countries'] as $item)
+                                <option value="{{$item->phonecode}}"  {{ old('sellercountrycode') == $item->phonecode ? 'selected' : '' }}>+{{$item->phonecode}} | {{$item->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-sm-3 formhousevisitfield ">
+      
 
                             <label for="sellerphone">Phone</label>
                             <input type="number" class="form-control @error('sellerphone') is-invalid @enderror"  name="sellerphone" value="{{ old('sellerphone')}}">
@@ -67,14 +68,14 @@
                             </span>  
                         </div>
                         <h3>Property Details</h3>
-                        <div class="col-md-12 formhousevisitfield">
+                        <div class="col-sm-10 formhousevisitfield">
                             <label for="propertydescription">Property Description</label> 
                             <textarea class="form-control @error('propertydescription') is-invalid @enderror" name="propertydescription" id="propertydescription"autocomplete="propertydescription" autofocus> {{ old('propertydescription')}}</textarea>
                             <span class="invalid-feedback" role="alert">
                             @error('propertydescription')<strong>{{ $message }}</strong>@enderror
                             </span>
                         </div>
-                        <div class="col-md-6 formhousevisitfield">
+                        <div class="col-sm-3 formhousevisitfield">
                             <label for="housetype">Property Type</label> 
                             <select name="housetype" class="form-select" value="{{ old('housetype')}}" aria-label="Default select example">
                                 <option value="apartment"  {{ old('housetype') == 'apartment' ? 'selected' : '' }}>Apartment</option>
@@ -97,7 +98,7 @@
                                 </optgroup>
                             </select>
                         </div>
-                        <div class="col-md-6 formhousevisitfield">
+                        <div class="col-sm-3 formhousevisitfield">
                             <label for="listingtype">Listing type</label> 
                             <select class="form-select" name="listingtype" value="{{old('listingtype')}}"aria-label="Default select example">
                                 <option value="buy" {{ old('listingtype') == 'buy' ? 'selected' : '' }}>Buy</option>
@@ -105,7 +106,7 @@
                                 <option value="buyrent"  {{ old('listingtype') == 'buyrent' ? 'selected' : '' }}>Buy or Rent </option>
                             </select>
                         </div>
-                        <div class="col-md-6 formhousevisitfield">
+                        <div class="col-sm-3 formhousevisitfield">
                             <label for="propertyaddress">Street</label>
                             
                             <input id="propertyaddress" type="text" class="form-control @error('propertyaddress') is-invalid @enderror"   name="propertyaddress" value="{{ old('propertyaddress')}}" autocomplete="propertyaddress" autofocus>
@@ -113,7 +114,7 @@
                             @error('propertyaddress')<strong>{{ $message }}</strong>@enderror
                             </span>
                         </div>
-                        <div class="col-md-6 formhousevisitfield">
+                        <div class="col-sm-3 formhousevisitfield">
                             <label for="countylocate">County</label>
                             <input type="text" class="form-control @error('countylocate') is-invalid @enderror" name="countylocate" list="countyselect" value="{{ old('countylocate')}}">
                                 <datalist id="countyselect">
@@ -127,7 +128,7 @@
                                         @enderror
                                 </span>   
                         </div>
-                        <div class="col-md-6 formhousevisitfield">
+                        <div class="col-sm-3 formhousevisitfield">
                             <label for="neighborhood">Neighborhood</label>
                             <input type="text" class="form-control @error('neighborhood') is-invalid @enderror" name="neighborhood" list="neighborhoodselect" value="{{ old('neighborhood')}}">
                                 <datalist id="neighborhoodselect">
@@ -141,7 +142,7 @@
                                         @enderror
                                 </span>   
                         </div>
-                        <div class="col-md-6 formhousevisitfield">
+                        <div class="col-sm-3 formhousevisitfield">
                             <label for="propertybedrooms">Total Bedrooms</label>
                             <input type="number" class="form-control @error('propertybedrooms') is-invalid @enderror"  name="propertybedrooms" value="{{ old('propertybedrooms')}}">
                             <span class="invalid-feedback" role="alert">
@@ -150,7 +151,7 @@
                                 @enderror
                             </span>  
                         </div>
-                        <div class="col-md-6 formhousevisitfield">
+                        <div class="col-sm-3 formhousevisitfield">
                             <label for="propertybathrooms">Total Bathrooms</label>
                             <input type="number" class="form-control @error('propertybathrooms') is-invalid @enderror"  name="propertybathrooms" value="{{ old('propertybathrooms')}}">
                             <span class="invalid-feedback" role="alert">
@@ -159,7 +160,7 @@
                                 @enderror
                             </span>  
                         </div>
-                        <div class="col-md-12 formhousevisitfield">
+                        <div class="col-sm-3 formhousevisitfield">
 
                             <label for="propertyamenities">Ammenities</label> 
                             <div class="form-check">
@@ -206,8 +207,8 @@
                             </div>
 
                         </div>
-                        <div class="col-md-6 formhousevisitfield">
-                            <div class="col-md-6">
+                        <div class="col-sm-3 formhousevisitfield">
+                            <div class="col-sm-3">
                                 <label for="policypet">Pet Policy</label> 
                             </div>
                             <div class="form-check form-check-inline">

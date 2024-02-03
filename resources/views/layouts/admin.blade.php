@@ -32,6 +32,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Open+Sans:ital@0;1&family=Poppins:wght@300;400&family=Raleway:ital,wght@0,400;1,300&family=Red+Hat+Mono&family=Roboto+Condensed&family=Roboto:ital,wght@0,400;1,300&family=Source+Sans+Pro:ital,wght@0,400;1,300&family=Ubuntu:ital@0;1&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Federo&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fjord+One&display=swap" rel="stylesheet">
+  <script src="https://cdn.tiny.cloud/1/kssr4fuqfumvhklu1ppthrz6l42rwe99sw91ntfumeihua3h/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js" integrity="sha512-vNrhFyg0jANLJzCuvgtlfTuPR21gf5Uq1uuSs/EcBfVOz6oAHmjqfyPoB5rc9iWGSnVE41iuQU4jmpXMyhBrsw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -68,7 +70,6 @@
     <script src="{{ asset('frontend/js/material-dashboard.min.js') }}" defer></script>
     <script src="{{ asset('frontend/js/material-dashboard.js.map') }}" defer></script>
     <script src="{{ asset('frontend/js/popper.min.js') }}" defer></script>
-    <script src="https://cdn.tiny.cloud/1/kssr4fuqfumvhklu1ppthrz6l42rwe99sw91ntfumeihua3h/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>

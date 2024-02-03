@@ -28,8 +28,10 @@ Route::get('properties-in-kenya/{str}', [ClientendController::class,'houselistin
 Route::get('find-properties', [ClientendController::class,'filterproperties']);
 Route::get('view-property/{listingtype}/{location}/{region}/{description}/{id}', [ClientendController::class,'houseview']);
 Route::post('interested/{type}', [ClientendController::class,'potential']);
+Route::get('property_type/{type}', [ClientendController::class,'propertyTypes']);
 Route::get('located/{region}/{id}', [ClientendController::class,'filteropts']);
-Route::get('rentout', [ClientendController::class,'rentout']);
+
+Route::get('contact_for_sale', [ClientendController::class,'rentout']);
 Route::get('uploadvideo', [ClientendController::class,'uploadvideo']);
 Route::get('privacy', [ClientendController::class,'privacy']);
 Route::get('find-blogs', [ClientendController::class,'blogpage']);
@@ -42,9 +44,11 @@ Route::get('read-blog/{description}/{id}', [ClientendController::class,'openblog
 Route::post('add-video', [ClientendController::class,'addvideo']);
 Route::post('sellrequest', [ClientendController::class,'requestsell']);
 
+Route::get('add_newsletter', [ClientendController::class,'addNewsLetterSignup']);
 
 
 Route::get('logout',[LoginController::class,'logout']);
+
 
 
 

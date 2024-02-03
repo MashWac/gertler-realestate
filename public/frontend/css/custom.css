@@ -14,6 +14,24 @@
 .floatingicon:hover{
   color:#F49F28;
 }
+.floatingnewsletterlink{
+  text-decoration: none;
+  color: #000000;
+}
+.floatnewsletter{
+  font-size: 50px;
+}
+.floatingnewsletter{
+  background-color: rgba(256,256,256,0.8);
+  border-radius: 0.4rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  z-index: 100;
+}
+.floatingnewsletter:hover{
+  color:#F49F28;
+}
+
+
 body{
   font-family: 'Cormorant Garamond', serif;
   font-size: 19px;
@@ -236,7 +254,7 @@ h1,h2,h3,h4{
   padding:3%;
 }
 .expertisesection{
-  padding-left: 7%;
+  padding-left: 0%;
   width: 100%;
   display: block;
   overflow: auto;
@@ -256,17 +274,19 @@ h1,h2,h3,h4{
 }
 .localexpertiseimage{
   float: left;
-  margin: 2%;
+  margin: 1%;
   border-radius: 0px;
-  justify-content: center;
-  align-items: center;
-  display: inline-block;
+
   overflow: hidden;
 }
+.card-img-overlay{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 .expertisetexts{
-  font-size: 130%;
-  margin-top: 30%;
-  margin-left: 20%;
+  font-size: 1.3rem;
+  text-transform:uppercase;
 }
 .localexpertiseimage:hover .expertisetexts{
   font-size: 25px;
@@ -304,12 +324,15 @@ h1,h2,h3,h4{
 }
 
 .entice_text{
+  margin-top: 30px;
   /* font-family: 'Dancing Script', cursive; */
   font-family: 'Diphylleia', serif;
   /* font-family: 'Great Vibes', cursive; */
   /* font-family: 'Pacifico', cursive; */
   /* font-family: 'Satisfy', cursive; */
-  font-size: 17px;
+  /* font-size: 17px; */
+  padding-bottom: 15px;
+  font-weight: 600;
 }
 .filterbar{
   width: 100%;
@@ -410,7 +433,53 @@ h1,h2,h3,h4{
 }
 .pricecard_home{
   font-weight: bold;
+  color: whitesmoke;
+  position: absolute;
+  top: 30%;
+  left:2%;
+  font-weight: 600;
+  font-size: 25px;
   
+}
+.image-container {
+  position: relative;
+  display: inline-block; /* or block, depending on your layout */
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* adjust the height of the overlay as needed */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+  pointer-events: none; /* allow interaction with elements behind the overlay */
+}
+.image-container_local {
+  position: relative;
+  display: inline-block; /* or block, depending on your layout */
+}
+
+.image-container_local::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* adjust the height of the overlay as needed */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+  pointer-events: none; /* allow interaction with elements behind the overlay */
+}
+.image-container_local:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* adjust the height of the overlay as needed */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9));
+  pointer-events: none; /* allow interaction with elements behind the overlay */
 }
 .valuehomeicon{
   font-size: 16px;
@@ -708,8 +777,8 @@ h1,h2,h3,h4{
 /* carousel */
 
 .clients_feedback{
-  background-image: url(/assets/staticimg/interior7.jpg);
-  background-size: cover;
+  /* background-image: url(/assets/staticimg/interior5.jpg);
+  background-size: cover; */
   display: block;
   overflow: auto;
   width: 100%;
@@ -719,12 +788,33 @@ h1,h2,h3,h4{
 }
 .carouselimg{
   height: 60vh;
-  opacity: 0.3;
+  opacity: 0.5;
 }
 .carousel-caption{
   margin-top: 5%;
 }
 /* footer code */
+.newsletter_modal{
+  box-shadow: 5px 5px 5px 5px gray;
+  width: 250px;
+  border-radius: 0.4rem;
+  padding: 5px;
+  z-index: 15;
+  background-color: whitesmoke;
+  display: none;
+
+}
+.news_submit_btn{
+  background-color: #F49F28;
+  border-radius: 0%;
+  color: #011B18;
+  border: #F49F28;
+}
+.news_submit_btn:hover{
+  background-color: #011B18;
+  color: #F49F28;
+
+}
 #footer{
 
   font-family: 'Vollkorn', serif;
@@ -1252,7 +1342,7 @@ text-justify: inter-word;
 }
 .formhousesell.active{
   margin: 5%;
-  width: 50%;
+  width: 100%;
   opacity: 1;
   transform: translateX(0px);
 }

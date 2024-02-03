@@ -1,4 +1,4 @@
-@extends('layouts.client')
+@extends('layouts.landing')
 @section('metatags')
 <title>Buy, Rent and Sell Property in Kenya.Explore Prime Real Estate Opportunities in Nairobi | Gertler Investment Limited {{config('app.name', 'Gertler Investment Limited')}} </title>
 <meta name="description" content="Find the best property in Kenya. Buy, rent and sell property in Kenya. Start your property search now with Gertler Investment Limited. Browse our listings and find your perfect home or investment. Get a free property valuation from Gertler Investment Limited. We'll help you determine the true market value of your property. Invest in Nairobi's booming property market with Gertler Investment Limited. We offer a wide range of investment properties in prime locations across the city. Learn more from blogs by {{config('app.name', 'Gertler Investment Limited')}}">
@@ -18,7 +18,7 @@
         <div class="landingoptions d-none d-lg-block d-xl-block">
             <a href="{{url('properties-in-kenya/buy')}}"><div class="glass_con text-center homelandoptions"><p>BUY</p></div></a>
             <a href="{{url('properties-in-kenya/rent')}}"><div class="glass_con text-center homelandoptions"><p>RENT</p></div></a>
-            <a href="{{url('rentout')}}"><div class="glass_con text-center homelandoptions"><p>SELL</p></div></a>
+            <a href="{{url('contact_for_sale')}}"><div class="glass_con text-center homelandoptions"><p>SELL</p></div></a>
         </div>
         <div class="landingtext2 d-block d-sm-block d-lg-none">
             <h1 class='landertext2'>YOUR NEXT INVESTMENT IS RIGHT HERE</h1>
@@ -26,7 +26,405 @@
         <div class="landingoptions2 d-block d-sm-block d-lg-none">
             <a href="{{url('properties-in-kenya/buy')}}"><div class="glass_con2 text-center homelandoptions2"><p>BUY</p></div></a>
             <a href="{{url('properties-in-kenya/rent')}}"><div class="glass_con2 text-center homelandoptions2"><p>RENT</p></div></a>
-            <a href="{{url('rentout')}}"><div class="glass_con2 text-center homelandoptions2"><p>SELL</p></div></a>
+            <a href="{{url('contact_for_sale')}}"><div class="glass_con2 text-center homelandoptions2"><p>SELL</p></div></a>
+        </div>
+    </div>
+
+    <div class="reveal text-center"> 
+        <h4 class="entice_text">"Find apartments,homes, land and much more. Available to buy, rent and lease in Kenya."<br>Hot listings this month</h4>
+
+    </div>
+    <div class="section_divider_home"> 
+        <div class="section_divider_line"> </div>
+    </div>
+
+    <div class="reveal forsale">
+        <div id="filterbar" class="filterbar text-center">
+            <ul id="filters">
+                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('/') ? 'active' : ''}}"><a href="{{url('/')}}" >Top Listings</a></li>
+                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('property_type/apartment')? 'active' : ''}}"><a class="toplistingslink" href="{{url('property_type/apartment')}}" >Apartments</a></li>
+                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('property_type/house') ? 'active' : ''}}"><a class="toplistingslink" href="{{url('property_type/house')}}" >Houses</a></li>
+                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('property_type/land') ? 'active' : ''}}"><a class="toplistingslink" href="{{url('property_type/land')}}" >Land</a></li>
+                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('property_type/commercial') ? 'active' : ''}}"><a class="toplistingslink" href="{{url('property_type/commercial')}}" >Commercial</a></li>
+            </ul>     
+        </div>
+        <div id="filterTopsection">
+            <div class="card text-center propertieshome">
+                @if($data['count']>5)
+                <div class="owl-carousel owl-theme">
+                @foreach($data['listings'] as $item)
+                <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:550px">
+                        <div class="image-container">
+                            <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
+                                <img src="{{$item->mainphoto}}" class="card-img-top property_card_img img_property " alt="property image" height="210px" >
+                            </a>
+                        </div>
+                            @if($item->listing_type=='buy')
+                            <p class="housetypetag">For Sale</p>
+                            @elseif($item->listing_type=='rent')
+                            <p class="housetypetag">For Rent</p>
+                            @else
+                            <p class="housetypetag">For Rent/Sale</p>
+                            @endif   
+                            
+                            <div class="card-body">
+                                <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
+                                <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6>
+                                <h6 class="pricecard_home">KSH{{number_format($item->starting_price)}}
+                                    @if($item->end_price != NULL)
+                                        to KSH{{number_format($item->end_price)}} 
+                                    @endif
+                                </h6> 
+                                <div class="housefitcontent">
+                                    @if($item->total_bedrooms != NULL)
+                                        <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Rooms </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->total_bedrooms}}</p>
+                                                <ion-icon class="homeicon" size="large" name="bed-outline"></ion-icon>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->total_bathrooms != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Baths </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->total_bathrooms}}</p>
+                                                <i class="fas homeicon fa-shower fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->square_feet != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">SqM</h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->square_feet}}</p>
+                                                <i class="fas homeicon fa-ruler-combined fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->acreage != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Acreage </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->acreage}}</p>
+                                                <i class="fas homeicon fa-mountain fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->floor != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Floors </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->floor}}</p>
+                                                <i class="far homeicon fa-building fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                </div>
+                                <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
+                                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
+                                        <button class="btn btn-dark buttongoproduct">View Property</button>                   
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                @else
+                <div class="container">
+                    <div class=" justify-content-center">
+                    @foreach($data['listings'] as $item)
+                    <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:550px">
+                    <div class="image-container">
+                        <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
+                            <img src="{{$item->mainphoto}}" class="card-img-top property_card_img img_property " alt="property image" height="210px" >
+                        </a>
+                    </div>
+                            @if($item->listing_type=='buy')
+                            <p class="housetypetag">For Sale</p>
+                            @elseif($item->listing_type=='rent')
+                            <p class="housetypetag">For Rent</p>
+                            @else
+                            <p class="housetypetag">For Rent/Sale</p>
+                            @endif   
+                            
+                            <div class="card-body">
+                                <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
+                                <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6>
+                                <h6 class="pricecard_home">KSH{{number_format($item->starting_price)}}
+                                    @if($item->end_price != NULL)
+                                        to KSH{{number_format($item->end_price)}} 
+                                    @endif
+                                </h6> 
+                                <div class="housefitcontent">
+                                    @if($item->total_bedrooms != NULL)
+                                        <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Rooms </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->total_bedrooms}}</p>
+                                                <ion-icon class="homeicon" size="large" name="bed-outline"></ion-icon>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->total_bathrooms != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Baths </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->total_bathrooms}}</p>
+                                                <i class="fas homeicon fa-shower fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->square_feet != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">SqM</h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->square_feet}}</p>
+                                                <i class="fas homeicon fa-ruler-combined fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->acreage != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Acreage </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->acreage}}</p>
+                                                <i class="fas homeicon fa-mountain fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->floor != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Floors </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->floor}}</p>
+                                                <i class="far homeicon fa-building fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                </div>
+                                <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
+                                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
+                                        <button class="btn btn-dark buttongoproduct" >View Property</button>                   
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    @endforeach
+                        
+                    </div>
+
+                </div>
+                @endif
+
+                <div class="btnviewall">
+                    <a href="{{url('properties-in-kenya/none')}}">
+                        <button class="viewalllistings">VIEW ALL LISTINGS</button>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reveal ourprops text-center ">
+        <h2>Our Properties</h2>
+    </div>
+    <div class="section_divider_home"> 
+        <div class="section_divider_line"> </div>
+    </div>
+    <div class="reveal forsale">
+        <div id="filterbar" class="filterbar"class="text-center">
+            <ul id="filters">
+                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('/') ? 'active' : ''}}"><a class="filterbyproperties" href="{{url('/')}}" >Featured</a></li>
+                @foreach($data['locations'] as $things)
+                    <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('located/'.strtolower(str_replace(' ', '-',str_replace('/','|',$things->name))).'/'.$things->location_id) ? 'active' : ''}}"><a class="filterbyproperties" href="{{url('located/'.strtolower(str_replace(' ', '-',str_replace('/','|',$things->name))).'/'.$things->location_id)}}" >{{$things->name}}</a></li>
+                @endforeach
+            </ul>     
+        </div>
+        <div id="filterlocationsSection">
+            <div class="card text-center propertieshome">
+                @if($data['more_count']>5)
+                <div class="owl-carousel owl-theme">
+                @foreach($data['more_listings'] as $item)
+                <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:550px">
+                <div class="image-container">
+                <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
+                    <img src="{{$item->mainphoto}}" class="card-img-top property_card_img img_property " alt="property image" height="210px" >
+                </a>
+            </div>
+                            @if($item->listing_type=='buy')
+                            <p class="housetypetag">For Sale</p>
+                            @elseif($item->listing_type=='rent')
+                            <p class="housetypetag">For Rent</p>
+                            @else
+                            <p class="housetypetag">For Rent/Sale</p>
+                            @endif   
+                            
+                            <div class="card-body">
+                                <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
+                                <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6>
+                                <h6 class="pricecard_home">KSH{{number_format($item->starting_price)}}
+                                    @if($item->end_price != NULL)
+                                        to KSH{{number_format($item->end_price)}} 
+                                    @endif
+                                </h6> 
+                                <div class="housefitcontent">
+                                    @if($item->total_bedrooms != NULL)
+                                        <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Rooms </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->total_bedrooms}}</p>
+                                                <ion-icon class="homeicon" size="large" name="bed-outline"></ion-icon>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->total_bathrooms != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Baths </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->total_bathrooms}}</p>
+                                                <i class="fas homeicon fa-shower fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->square_feet != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">SqM</h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->square_feet}}</p>
+                                                <i class="fas homeicon fa-ruler-combined fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->acreage != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Acreage </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->acreage}}</p>
+                                                <i class="fas homeicon fa-mountain fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->floor != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Floors </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->floor}}</p>
+                                                <i class="far homeicon fa-building fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                </div>
+                                <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
+                                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
+                                        <button class="btn btn-dark buttongoproduct">View Property</button>                   
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                @else
+                <div class="container">
+                    <div class=" justify-content-center">
+                    @foreach($data['more_listings'] as $item)
+                    <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:550px">
+                    <div class="image-container">
+                        <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
+                            <img src="{{$item->mainphoto}}" class="card-img-top property_card_img img_property " alt="property image" height="210px" >
+                        </a>
+                    </div>
+                            @if($item->listing_type=='buy')
+                            <p class="housetypetag">For Sale</p>
+                            @elseif($item->listing_type=='rent')
+                            <p class="housetypetag">For Rent</p>
+                            @else
+                            <p class="housetypetag">For Rent/Sale</p>
+                            @endif   
+                            
+                            <div class="card-body">
+                                <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
+                                <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6>
+                                <h6 class="pricecard_home">KSH{{number_format($item->starting_price)}}
+                                    @if($item->end_price != NULL)
+                                        to KSH{{number_format($item->end_price)}} 
+                                    @endif
+                                </h6> 
+                                <div class="housefitcontent">
+                                    @if($item->total_bedrooms != NULL)
+                                        <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Rooms </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->total_bedrooms}}</p>
+                                                <ion-icon class="homeicon" size="large" name="bed-outline"></ion-icon>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->total_bathrooms != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Baths </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->total_bathrooms}}</p>
+                                                <i class="fas homeicon fa-shower fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->square_feet != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">SqM</h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->square_feet}}</p>
+                                                <i class="fas homeicon fa-ruler-combined fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->acreage != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Acreage </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->acreage}}</p>
+                                                <i class="fas homeicon fa-mountain fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                    @if($item->floor != NULL)
+                                    <div class="text-start houseiconsdetails">
+                                            <h3 class="housetitles">Floors </h3>
+                                            <div class="houseicondetails">
+                                                <p class="valuehomeicon">{{$item->floor}}</p>
+                                                <i class="far homeicon fa-building fa-xl"></i>
+                                            </div> 
+                                        </div> 
+                                    @endif
+                                </div>
+                                <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
+                                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
+                                        <button class="btn btn-dark buttongoproduct" >View Property</button>                   
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    @endforeach
+                        
+                    </div>
+
+                </div>
+                @endif
+
+                <div class="card" width="100%" style="border: none;">
+                    <div class="btnviewall text-center">
+                        <a href="{{url('properties-in-kenya/none')}}">
+                            <button class="viewalllistings">SEARCH AREA</button>
+                        </a>    
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="localexpertise">
@@ -34,240 +432,61 @@
             <h2 class="localexpertisetextheader mainsection_title">LOCAL EXPERTISE - GLOBAL CONNECTIONS</h2>
         </div>
         <div class="expertisesection">
-            <a href="{{ url('aboutus') }}">
-                <div class="localexpertiseimage">
-                    <div class="card text-bg-dark" style="width:18rem;">
-                        <img src="/assets/staticimg/infinitypool1.jpg" class=" imgexpertisee card-img" alt="who_are_we" width="200px" height="200px">
+            <a href="{{url('properties-in-kenya/none')}}">
+                <div class="localexpertiseimage">           
+                    <div class="card text-bg-dark image-container_local" style="width:13rem;">
+                        <img src="/assets/staticimg/dining2.jpg" class="imgexpertisee card-img" alt="properties" width="100%" height="180px">
                         <div class="card-img-overlay">
-                            <h5 class="card-title expertisetexts">WHO ARE WE</h5>
+                            <h5 class="card-title expertisetexts">Our PROPERTIES</h5>
+                        </div>
+                    </div>
+                </div>  
+            </a>
+            <a href="{{url('contact_for_sale')}}" class="sellmodal">
+                <div class="localexpertiseimage">
+                    <div class="card text-bg-dark image-container_local" style="width:13rem;">
+                        <img src="/assets/staticimg/executive2.jpg" class=" imgexpertisee card-img" alt="who_are_we" width="100" height="180px">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title expertisetexts">Sell Property</h5>
 
                         </div>
                     </div>
                 </div>
             </a>
-            <a href="{{url('properties-in-kenya/none')}}">
-                <div class="localexpertiseimage">           
-                    <div class="card text-bg-dark" style="width:18rem;">
-                        <img src="/assets/staticimg/dining2.jpg" class="imgexpertisee card-img" alt="properties" width="200px" height="200px">
+            <a href="" class="newsmodal_local">
+                <div class="localexpertiseimage">
+                    <div class="card text-bg-dark image-container_local "  style="width:13rem;">
+                        <img src="/assets/staticimg/interior1.jpg" class="imgexpertisee card-img" alt="Blogs" width="100%" height="180px">
                         <div class="card-img-overlay">
-                            <h5 class="card-title expertisetexts">PROPERTIES</h5>
+                            <h5 class="card-title expertisetexts">Newsletter Signup</h5>
                         </div>
                     </div>
-                </div>  
+                </div>
             </a>
+
             <a href="{{url('find-blogs')}}">
                 <div class="localexpertiseimage">
-                    <div class="card text-bg-dark" style="width:18rem;">
-                        <img src="/assets/staticimg/hillhouse.jpg" class="imgexpertisee card-img" alt="Blogs" width="200px" height="200px">
+                    <div class="card text-bg-dark image-container_local" style="width:13rem;">
+                        <img src="/assets/staticimg/hillhouse.jpg" class="imgexpertisee card-img" alt="Blogs" width="100%" height="180px">
                         <div class="card-img-overlay">
                             <h5 class="card-title expertisetexts">OUR BLOGS</h5>
                         </div>
                     </div>
                 </div>
             </a>
-        </div>
+            <a href="{{ url('aboutus') }}">
+                <div class="localexpertiseimage">
+                    <div class="card text-bg-dark image-container_local" style="width:13rem;">
+                        <img src="/assets/staticimg/infinitypool1.jpg" class=" imgexpertisee card-img" alt="who_are_we" width="100%" height="180px">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title expertisetexts">Who Are We</h5>
 
-    </div>
-    <div class="section_divider_home"> 
-        <div class="section_divider_line"> </div>
-    </div>
-    <div class="reveal ourprops text-center ">
-        <h2>Our Properties</h2>
-        <p class="entice_text">"Find apartments,homes, land and much more. Available to buy, rent and lease in Kenya."</p>
-    </div>
-
-    <div class="card" width="100%" style="border: none;">
-        <div class="btnviewall text-center">
-            <a href="{{url('properties-in-kenya/none')}}">
-                <button class="viewalllistings">SEARCH AREA</button>
-            </a>    
-        </div>
-    </div>
-
-
-    <div class="reveal forsale">
-        <div id="filterbar" class="filterbar"class="text-center">
-            <ul id="filters">
-                <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('/') ? 'active' : ''}}"><a href="{{url('/')}}" >Featured</a></li>
-                @foreach($data['locations'] as $things)
-                    <li class="filteropts {{ \Illuminate\Support\Facades\Request::is('located/'.strtolower(str_replace(' ', '-',str_replace('/','|',$things->name))).'/'.$things->location_id) ? 'active' : ''}}"><a href="{{url('located/'.strtolower(str_replace(' ', '-',str_replace('/','|',$things->name))).'/'.$things->location_id)}}" >{{$things->name}}</a></li>
-                @endforeach
-            </ul>     
-        </div>
-        <div class="card text-center propertieshome">
-            @if($data['count']>5)
-            <div class="owl-carousel owl-theme">
-            @foreach($data['listings'] as $item)
-            <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:600px">
-                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
-                        <img src="{{$item->mainphoto}}" class="card-img-top property_card_img" alt="property image" height="230px" >
-                    </a>
-                        @if($item->listing_type=='buy')
-                        <p class="housetypetag">For Sale</p>
-                        @elseif($item->listing_type=='rent')
-                        <p class="housetypetag">For Rent</p>
-                        @else
-                        <p class="housetypetag">For Rent/Sale</p>
-                        @endif   
-                        
-                        <div class="card-body">
-                            <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
-                            <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6>
-                            <h6 class="pricecard_home">KSH{{number_format($item->starting_price)}}
-                                @if($item->end_price != NULL)
-                                    to KSH{{number_format($item->end_price)}} 
-                                 @endif
-                            </h6> 
-                            <div class="housefitcontent">
-                                @if($item->total_bedrooms != NULL)
-                                    <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Rooms </h3>
-                                        <div class="houseicondetails">
-                                            <p class="valuehomeicon">{{$item->total_bedrooms}}</p>
-                                            <ion-icon class="homeicon" size="large" name="bed-outline"></ion-icon>
-                                        </div> 
-                                    </div> 
-                                @endif
-                                @if($item->total_bathrooms != NULL)
-                                <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Baths </h3>
-                                        <div class="houseicondetails">
-                                            <p class="valuehomeicon">{{$item->total_bathrooms}}</p>
-                                            <i class="fas homeicon fa-shower fa-xl"></i>
-                                        </div> 
-                                    </div> 
-                                @endif
-                                @if($item->square_feet != NULL)
-                                <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">SqM</h3>
-                                        <div class="houseicondetails">
-                                            <p class="valuehomeicon">{{$item->square_feet}}</p>
-                                            <i class="fas homeicon fa-ruler-combined fa-xl"></i>
-                                        </div> 
-                                    </div> 
-                                @endif
-                                @if($item->acreage != NULL)
-                                <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Acreage </h3>
-                                        <div class="houseicondetails">
-                                            <p class="valuehomeicon">{{$item->acreage}}</p>
-                                            <i class="fas homeicon fa-mountain fa-xl"></i>
-                                        </div> 
-                                    </div> 
-                                @endif
-                                @if($item->floor != NULL)
-                                <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Floors </h3>
-                                        <div class="houseicondetails">
-                                            <p class="valuehomeicon">{{$item->floor}}</p>
-                                            <i class="far homeicon fa-building fa-xl"></i>
-                                        </div> 
-                                    </div> 
-                                @endif
-                            </div>
-                            <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
-                                <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
-                                    <button class="btn btn-dark buttongoproduct">View Property</button>                   
-                                </a>
-                            </div>
-                             
                         </div>
                     </div>
-                @endforeach
-            </div>
-            @else
-            <div class="container">
-                <div class=" justify-content-center">
-                @foreach($data['listings'] as $item)
-                <div class="card propertyhome item" style="width: 18rem; margin: 2%; float:left; height:600px">
-                    <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
-                        <img src="{{$item->mainphoto}}" class="card-img-top property_card_img" alt="property image" height="230px" >
-                    </a>
-                        @if($item->listing_type=='buy')
-                        <p class="housetypetag">For Sale</p>
-                        @elseif($item->listing_type=='rent')
-                        <p class="housetypetag">For Rent</p>
-                        @else
-                        <p class="housetypetag">For Rent/Sale</p>
-                        @endif   
-                        
-                        <div class="card-body">
-                            <h5 class="card-title housetitleprop">{{$item->property_name}}</h5>
-                            <h6>{{$item->neighborhood}} {{$item->location}}, KENYA.</h6>
-                            <h6 class="pricecard_home">KSH{{number_format($item->starting_price)}}
-                                @if($item->end_price != NULL)
-                                    to KSH{{number_format($item->end_price)}} 
-                                 @endif
-                            </h6> 
-                            <div class="housefitcontent">
-                                @if($item->total_bedrooms != NULL)
-                                    <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Rooms </h3>
-                                        <div class="houseicondetails">
-                                            <p class="valuehomeicon">{{$item->total_bedrooms}}</p>
-                                            <ion-icon class="homeicon" size="large" name="bed-outline"></ion-icon>
-                                        </div> 
-                                    </div> 
-                                @endif
-                                @if($item->total_bathrooms != NULL)
-                                <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Baths </h3>
-                                        <div class="houseicondetails">
-                                            <p class="valuehomeicon">{{$item->total_bathrooms}}</p>
-                                            <i class="fas homeicon fa-shower fa-xl"></i>
-                                        </div> 
-                                    </div> 
-                                @endif
-                                @if($item->square_feet != NULL)
-                                <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">SqM</h3>
-                                        <div class="houseicondetails">
-                                            <p class="valuehomeicon">{{$item->square_feet}}</p>
-                                            <i class="fas homeicon fa-ruler-combined fa-xl"></i>
-                                        </div> 
-                                    </div> 
-                                @endif
-                                @if($item->acreage != NULL)
-                                <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Acreage </h3>
-                                        <div class="houseicondetails">
-                                            <p class="valuehomeicon">{{$item->acreage}}</p>
-                                            <i class="fas homeicon fa-mountain fa-xl"></i>
-                                        </div> 
-                                    </div> 
-                                @endif
-                                @if($item->floor != NULL)
-                                <div class="text-start houseiconsdetails">
-                                        <h3 class="housetitles">Floors </h3>
-                                        <div class="houseicondetails">
-                                            <p class="valuehomeicon">{{$item->floor}}</p>
-                                            <i class="far homeicon fa-building fa-xl"></i>
-                                        </div> 
-                                    </div> 
-                                @endif
-                            </div>
-                            <div class="buttoncardsection" style="position: absolute; bottom:4%; left:32%;">
-                                <a href="{{url('view-property/'.strtolower(str_replace(' ', '-',$item->house_type)).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->location))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->neighborhood))).'/'.strtolower(str_replace(' ', '-',str_replace('/','|',$item->property_name))).'/'.$item->property_id)}}">
-                                    <button class="btn btn-dark buttongoproduct" >View Property</button>                   
-                                </a>
-                            </div>
-                             
-                        </div>
-                    </div>
-                @endforeach
-                    
                 </div>
-
-            </div>
-            @endif
-
-            <div class="btnviewall">
-                <a href="{{url('properties-in-kenya/none')}}">
-                    <button class="viewalllistings">SEARCH AREA</button>
-                </a>
-                
-            </div>
+            </a>
         </div>
+
     </div>
     <div class="parallex_wrapper">
         <div class="services_gil">
@@ -329,21 +548,21 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="10000" style="position: relative;">
-                            <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="60vh"alt="feedback_background">
+                            <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="60vh"alt="feedback_background">
                             <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
                                 <h5 style="font-size: 26px;">Angela</h5>
                                 <p style="font-size: 21px;">“My wife & I have moved 6 times in the last 25 years. Obviously, we've dealt with many realtors both on the buying and selling side. I have to say that Kelvin is by far the BEST realtor we've ever worked with, his professionalism, personality, attention to detail, responsiveness and his ability to close the deal was Outstanding!!! If you are buying or selling a home, do yourselves a favor and hire Gertler Investment!!”</p>
                             </div>
                         </div>
                         <div class="carousel-item" data-bs-interval="2000" style="position: relative;">
-                            <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="60vh" alt="feedback_background">
+                            <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="60vh" alt="feedback_background">
                             <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
                                 <h5 style="font-size: 26px;">Rachel</h5>
                                 <p style="font-size: 21px;">“I recently sold a house with Gertler and while this can be a very stressful process, I felt 110% confident by partnering with Gertler. He was candid, provided great feedback, helped explain clearly all details and managed the actual sale negotiation brilliantly. In addition, he was extremely responsive  to every one of my questions, no matter how small. As I move forward to now BUY my next house, I am extremely certain Dave will be the right partner to help me navigate this process.”</p>
                             </div>
                         </div>
                         <div class="carousel-item" style="position: relative;">
-                            <img src="/assets/staticimg/option4.jpg" class="carouselimg d-block w-100" height="60vh" alt="feedback_background">
+                            <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="60vh" alt="feedback_background">
                             <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%;  min-width:300px;">
                                 <h5 style="font-size: 26px;">Wafula</h5>
                                 <p style="font-size: 21px;">“I was looking for an apartment that would be comfortable for me and my pets.Thank you for providing one that suites me”</p>
@@ -414,4 +633,41 @@
 
 @endsection  
 
+@section('scripts')
+<script type="text/javascript">
+ $('.filterbyproperties').on('click', function (e) {
+    e.preventDefault()
+    var url=$(this).attr('href')
+    $.ajax({
+      url: url,
+      method: "GET",
+      success: function (query) {
+        $('#filterlocationsSection').empty();
+        $('#filterlocationsSection').html(query);
+      }
+    })
+})
 
+</script>
+<script type="text/javascript">
+ $('.toplistingslink').on('click', function (e) {
+    e.preventDefault()
+    var url=$(this).attr('href')
+    $.ajax({
+      url: url,
+      method: "GET",
+      success: function (query) {
+        $('#filterTopsection').empty();
+        $('#filterTopsection').html(query);
+      }
+    })
+})
+$('.newsmodal_local').on('click', function (e) {
+    e.preventDefault();
+    $('.newsletter_modal').toggle();
+    console.log('rerere')
+
+});
+
+</script>
+@endsection

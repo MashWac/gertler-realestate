@@ -73,7 +73,7 @@
         <link href="{{ asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet"> 
         <link href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet"> 
         <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet"> 
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     </head>
     
@@ -82,19 +82,55 @@
         @include('layouts.inc.clientnavhid')
         <div class="mainbody">
             @yield('content')
-            <a class="floatinglink" href="https://wa.me/254712054154">
-            <div class="floatingicon" style="position: fixed; bottom:5%; right:2%;">
-                    <ion-icon class="floaticon" name="logo-whatsapp"></ion-icon>
-            </div>
+            <a class="floatingnewsletterlink" href="">
+                <div class="floatingnewsletter" style="position: fixed; bottom:15%; right:2%;">
+                    <ion-icon class="floatnewsletter" name="mail-open-outline"></ion-icon>
+                </div>
             </a>
+            <a class="floatinglink" href="https://wa.me/254712054154" target="_blank">
+                <div class="floatingicon" style="position: fixed; bottom:5%; right:2%;">
+                    <ion-icon class="floaticon" name="logo-whatsapp"></ion-icon>
+                </div>
+            </a>
+            <div class="newsletter_modal" style="position: fixed; bottom:15%; right:7%;">
+                <div class="text-center">
+                    <h5>Newsletter Signup</h5>
+                </div>
+                <form action="{{url('add_newsletter')}}" class="newsletter_signup_form" method="Post">
+                    @csrf
+                    <div class="row mb-3">
+                        <label for="first_name" class="col-sm-10 col-form-label">First name</label><br>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="first_name" name="first_name">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="surname" class="col-sm-10 col-form-label">Surname</label><br>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="surname" name="surname">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="email" class="col-sm-10 col-form-label">Email</label><br>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" name="email">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary news_submit_btn">Sign in</button>
+                </form>
+
+            </div>
         </div>
 
 
-        @include('layouts.inc.clientfooter')
-            <!--- Scripts-->
-            <script src="{{ asset('frontend/js/imgpopup.js') }}" defer></script>
 
-    <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}" defer></script>
+        @include('layouts.inc.clientfooter')
+    <!--- Scripts-->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    
+    <script src="{{ asset('frontend/js/imgpopup.js') }}" defer></script>
+
+    <!-- <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}" defer></script> -->
     <!-- <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script> -->
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" defer></script>
     <script src="{{ asset('frontend/js/carousel.js') }}" defer></script>
@@ -107,12 +143,44 @@
     <script src="{{ asset('frontend/js/houselistload.js') }}" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    
+    @yield('scripts')
+
     @if(session('status'))
     <script>
         swal("{{session('status')}}")
     </script>
     @endif
+    <script type="text/javascript">
+        $('.floatingnewsletterlink').on('click', function (e) {
+            e.preventDefault();
+            $('.newsletter_modal').toggle();
+
+        });
+        $('.newsletter_signup_form').on('submit', function (e) {
+                e.preventDefault();
+                var formData = $(this).serialize();
+                console.log(formData)
+                $.ajax({
+                url: "{{url('add_newsletter')}}", // Replace with your API endpoint
+                method: "get",
+                data: formData, // Pass the required data
+                success: function(response) {
+                    if (response.status === 'success') {
+                        $('.newsletter_modal').toggle();
+                        swal('Success!', response.message, 'success');
+                    } else {
+                        swal('Error!', response.message, 'error');
+                    }
+                },
+                error: function(error) {
+                    swal('Error!', 'An unexpected error occurred.', 'error');
+
+                }
+            });
+            
+        });
+
+    </script>
 
 
     </body>
