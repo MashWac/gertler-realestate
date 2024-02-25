@@ -877,6 +877,60 @@ h1,h2,h3,h4{
   color: whitesmoke;
 }
 /* about us page */
+
+.pie_chart {
+  background-image: conic-gradient(#011B18 0deg, #011B18 120deg, #F49F28 120deg, #F49F28 240deg, #ddd 240deg, #ddd  360deg); 
+  border-radius: 60%;
+  height: 200px;
+  width:200px;
+  position: relative;
+  min-width: 150px;
+
+}
+.our_mission{
+  position: absolute;
+  transform: rotate(60deg);
+  right: 0;
+  top: 25%;
+  color: whitesmoke;
+  z-index: 10;
+
+}
+.our_vision{
+  position: absolute;
+  transform: rotate(-60deg);
+  color: #011B18;
+  top:25%;
+  z-index: 10;
+
+}
+.our_values{
+  position: absolute;
+  color: #011B18;
+  bottom: 10%;
+  right: 25%;
+  z-index: 10;
+}
+.display_new_text{
+  background-color: #011B18;
+  color: whitesmoke;
+  min-width: 150px;
+  max-width: 280px;
+  padding: 10px;
+  height: 150px;
+  border-radius: 0.4rem;
+  display: none;
+  margin-left: 10px;
+}
+.display_new_text.active {
+  display: block;
+}
+.aboutheadertitlespan{
+  padding: 10px;
+  background-color: #011B18;
+  color: whitesmoke;
+  border-radius: 0.4rem;
+}
 .imagesectionabout{
   background-image: url('/assets/staticimg/opthouse1.jpg');
   height: 60vh;

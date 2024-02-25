@@ -37,7 +37,7 @@ class ClientendController extends Controller
     }
     public function landingpage(){
         $data['locations']=LocationsModel::where('is_deleted',0)->paginate(5);
-        $data['listings']=PropertyModel::where('is_deleted',0)->orderBy('starting_price','asc')->paginate(6);
+        $data['listings']=PropertyModel::where('is_deleted',0)->whereNotNull('house_rank')->orderBy('house_rank','asc')->paginate(6);
         $data['count']= PropertyModel::where('is_deleted',0)->count();
         $data['more_listings']=PropertyModel::where('is_deleted',0)->orderBy('starting_price','asc')->paginate(6);
         $data['more_count']= PropertyModel::where('is_deleted',0)->count();

@@ -549,7 +549,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="10000" style="position: relative;">
                             <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="60vh"alt="feedback_background">
-                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
+                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px; background-color:rgba(255,255,255,0.8);">
                                 <h5 style="font-size: 26px;">Angela</h5>
                                 <p style="font-size: 21px;">“My wife & I have moved 6 times in the last 25 years. Obviously, we've dealt with many realtors both on the buying and selling side. I have to say that Kelvin is by far the BEST realtor we've ever worked with, his professionalism, personality, attention to detail, responsiveness and his ability to close the deal was Outstanding!!! If you are buying or selling a home, do yourselves a favor and hire Gertler Investment!!”</p>
                             </div>

@@ -159,6 +159,11 @@ class AdminendController extends Controller
         $data['counties']=CountiesModel::all();
         $data['countries']=CountriesModel::all();
         $data['locations']=LocationsModel::all()->where('is_deleted',0);
+        $data['ranks_taken']=PropertyModel::select('house_rank')->whereNotNull('house_rank')->get();
+        $data['ranks_house']=[];
+        foreach($data['ranks_taken'] as $item){
+            array_push($data['ranks_house'],$item->house_rank);
+        }
         return view('adminend.uploads.add', compact('data'));
     }
     public function uploadhousedetails(Request $request){
@@ -237,10 +242,12 @@ class AdminendController extends Controller
         $property->listing_type=$request->input('listingtype');
         $property->full_address=$request->input('propertyaddress');
         $property->location=$request->input('countylocate');
+        $property->house_rank=$request->input('house_rank');
         $loc=new LocationsModel();
         $propertylocation=$request->input('neighborhood');
         $propertylocation=strtoupper($propertylocation);
         $location=$loc->where('name',$propertylocation)->first();
+
         if(!$location){
             $location= new LocationsModel();
             $location->name=$propertylocation;
@@ -291,7 +298,11 @@ class AdminendController extends Controller
         $data['locations']=LocationsModel::all()->where('is_deleted',0);
         $data['listing']=PropertyModel::where('property_id',$id)->join('tbl_sellers','tbl_propertydetails.seller_id','=','tbl_sellers.sellerid')->first();
         $data['images']=PropertyimagesModel::where('property_id',$id)->get();
-        $data['count']=PropertyimagesModel::where('property_id',$id)->count();
+        $data['ranks_taken']=PropertyModel::select('house_rank')->whereNotNull('house_rank')->get();
+        $data['ranks_house']=[];
+        foreach($data['ranks_taken'] as $item){
+            array_push($data['ranks_house'],$item->house_rank);
+        }        $data['count']=PropertyimagesModel::where('property_id',$id)->count();
 
         return view('adminend.uploads.add', compact('data'));
     }
@@ -426,6 +437,7 @@ class AdminendController extends Controller
         $property->listing_type=$request->input('listingtype');
         $property->full_address=$request->input('propertyaddress');
         $property->location=$request->input('countylocate');
+        $property->house_rank=$request->input('house_rank');
         $loc=new LocationsModel();
         $propertylocation=$request->input('neighborhood');
         $propertylocation=strtoupper($propertylocation);

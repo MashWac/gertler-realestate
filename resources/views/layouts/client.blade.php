@@ -175,7 +175,7 @@
         swal("{{session('status')}}")
     </script>
     @endif
-
+    @yield('scripts')
 
 
     </body>

@@ -36,7 +36,32 @@
                             </span>   
                         </div>
                         <div class="col-md-6 ">
-                            <div class="col-md-3">
+                            <label for="house_rank">House Rank
+                            </label>
+                            <select name="house_rank" class="form-select" aria-label="Default select example">
+                                <option value="none" selected>No House Rank</option>  
+                                  @for($i = 1; $i <= 10; $i++)
+                                    @if (!in_array($i, $data['ranks_house']))
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                    @endif
+                                @endfor
+                            </select>
+
+                            <!-- <select name="house_rank" class="form-select" aria-label="Default select example">
+                                <option value="none" selected>No House Rank</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>  
+                            </select> -->
+                        </div>
+                        <div class="col-md-3">
                                 <label for="sellercountrycode">
                                     Country Code
                                 </label>
@@ -46,7 +71,7 @@
                                     @endforeach
                                 </select>
                             </div>
-
+                        <div class="col-md-6 ">
                             <label for="sellerphone">Phone</label>
                             <input type="number" class="form-control @error('sellerphone') is-invalid @enderror"  name="sellerphone" value="{{ old('sellerphone')}}">
                             <span class="invalid-feedback" role="alert">
@@ -348,6 +373,18 @@
                             </span>   
                         </div>
                         <div class="col-md-6 ">
+                            <label for="house_rank">House Rank
+                            </label>
+                            <select name="house_rank" class="form-select" aria-label="Default select example">
+                                <option value="none" selected>No House Rank</option>  
+                                  @for($i = 1; $i <= 10; $i++)
+                                    @if (!in_array($i, $data['ranks_house'])||$i==$data['listing']->house_rank)
+                                        <option value="{{ $i }}" {{$data['listing']->house_rank == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                    @endif
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="col-md-12 ">
                             <div class="col-md-3">
                                 <label for="sellercountrycode">
                                     Country Code

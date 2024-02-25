@@ -17,41 +17,86 @@
     </div>
     <div class="reveal aboutgertler">
         <div class="aboutgertlerheader aboutfloat">
-            <h3 class="aboutustitle">About GIL</h3>
+            <h3 class="aboutustitle"> <span class="aboutheadertitlespan">About GIL</span> </h3>
         </div>
         <div class="aboutinfo aboutfloat">
-            <p class="aboutustext"> Gertler Investment Limited is a real estate, construction and management company based in Kenya. We provide property brokerage, asset valuation report and construction services. We are committed to our vision, mission and values to ensure client satisfaction. We strive to be dependable and consistent in all of our dealings.
-                <br>Our professional, friendly and experienced team is made up of experts in wide range of property and construction field. From our civil engineers to our experience property agents, we can provide a complete property liaising, development and management service.</p>
+            <p class="aboutustext"> We offer land and housing investment services in Kenya. Whether you are looking for an
+            apartment, town house, home or commercial property, we make your dream a reality. Our
+            liaising process gives you complete property analysis before you engage with the purchase
+            process.</p>
         </div>
     </div>
 
-    <div class="reveal aboutgertler">
+    <div class="reveal aboutgertler d-block d-sm-block d-md-block d-lg-none">
         <div class="aboutgertlerheader aboutfloat">
-            <h3 class="aboutustitle"> OUR VISION</h3>
+            <h3 class="aboutustitle"><span class="aboutheadertitlespan">OUR VISION</span> </h3>
         </div>
         <div class="aboutinfo aboutfloat">
             <p class="aboutustext"> Our vision is to maintain reliable and trustworthy relationship with our clients.</p>
         </div>
     </div>
-    <div class="reveal aboutgertler">
+    <div class="reveal aboutgertler d-block d-sm-block d-md-block d-lg-none">
         <div class="aboutgertlerheader aboutfloat">
-            <h3 class="aboutustitle">OUR MISSION</h3>
+            <h3 class="aboutustitle"><span class="aboutheadertitlespan">OUR MISSION</span> </h3>
         </div>
         <div class="aboutinfo aboutfloat">
             <p class="aboutustext">Our mission is to be Kenya's most trusted and reliable property firm that fully satisfies the clients needs.</p>
         </div>
     </div>
-    <div class="reveal aboutgertler">
+    <div class="reveal aboutgertler d-block d-sm-block d-md-block d-lg-none">
         <div class="aboutgertlerheader aboutfloat">
-            <h3 class="aboutustitle">OUR OBJECTIVE</h3>
+            <h3 class="aboutustitle"><span class="aboutheadertitlespan">OUR OBJECTIVE</span> </h3>
         </div>
         <div class="reveal aboutinfo aboutfloat">
             <p class="aboutustext">To ensure over +1 million people invest in property</p>
         </div>
     </div>
+    <div class="reveal aboutgertler">
+        <div class="aboutgertlerheader aboutfloat">
+            <h3 class="aboutustitle"> <span class="aboutheadertitlespan">Our Focused Team</span> </h3>
+        </div>
+        <div class="aboutinfo aboutfloat" style="margin-top: 50px;">
+            <div style="background-color:#011B18; border-radius:60%;min-width:300px;  padding-bottom:30px; display:flex; align-items:center;justify-content:center;">
+                <div style="background-color: white; color:#011B18; width:80%; border-radius:60%;min-width:250px; margin-top:-20px;" >
+                    <ul style="list-style:none;" class="text-center"> 
+                        <li>Administrative Managers</li>
+                        <li>Business Developers</li>
+                        <li>Relationship Managers</li>
+                        <li>Legal officers</li>
+                        <li>Property Valuers</li>
+                        <li>Architects</li>
+                        <li>Civil Engineers</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reveal aboutgertler d-none d-lg-block">
+        <div class="aboutgertlerheader aboutfloat">
+            <h3 class="aboutustitle"> <span class="aboutheadertitlespan">What drives us</span> </h3>
+        </div>
+        <div class="aboutinfo aboutfloat">
+            <div style="display: flex;">
+                <div class="pie_chart" >
+                    <p class="our_mission">Our Mission</p> 
+                    <p class="our_vision">Our Vision</p> 
+                    <p class="our_values">Our Objective</p> 
+                </div>
+                <div class="vision_text display_new_text text-center">Our vision is to maintain reliable and trustworthy relationship with our clients.</div>
+                <div class="mission_text display_new_text text-center">Our mission is to be Kenya's most trusted and reliable property firm that fully satisfies the clients needs.</div>
+                <div class="values_text display_new_text text-center">To ensure over +1 million people invest in property</div>
+
+            </div>
+
+        </div>
+    </div>
+
+
     <div class="reveal aboutgertler d-block d-sm-block d-md-block d-lg-none">
         <div class="aboutgertlerheader aboutfloat">
-            <h3 class="aboutustitle"> OUR FOUNDER</h3>
+        <h3 class="aboutustitle"><span class="aboutheadertitlespan">OUR FOUNDER</span> </h3>
         </div>
         <div class="aboutinfo aboutfloat">
             <div>
@@ -68,3 +113,27 @@
 @endsection  
 
 
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.our_mission').hover(function() {
+            $('.display_new_text').removeClass('active');
+            $('.mission_text').addClass('active');
+        }, function() {
+            $('.mission_text').removeClass('active');
+        });
+        $('.our_vision').hover(function() {
+            $('.display_new_text').removeClass('active');
+            $('.vision_text').addClass('active');
+        }, function() {
+            $('.vision_text').removeClass('active');
+        });
+        $('.our_values').hover(function() {
+            $('.display_new_text').removeClass('active');
+            $('.values_text').addClass('active');
+        }, function() {
+            $('.values_text').removeClass('active');
+        });
+    });
+</script>
+@endsection

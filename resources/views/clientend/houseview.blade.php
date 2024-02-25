@@ -197,7 +197,7 @@
                 Interested in this property?
             </h2>
             <h4>
-                Share your details to schedule a house viewing or Call/Whatsapp on +254(0)712054154
+                Share your details to schedule a property viewing or Call/Whatsapp on +254(0)712054154
             </h4>
             <form method="POST" action="{{url('interested/'.$data['property']->listing_type)}}">
                 @csrf
