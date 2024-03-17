@@ -556,14 +556,14 @@
                         </div>
                         <div class="carousel-item" data-bs-interval="2000" style="position: relative;">
                             <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="60vh" alt="feedback_background">
-                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px;">
+                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px; background-color:rgba(255,255,255,0.8);">
                                 <h5 style="font-size: 26px;">Rachel</h5>
                                 <p style="font-size: 21px;">“I recently sold a house with Gertler and while this can be a very stressful process, I felt 110% confident by partnering with Gertler. He was candid, provided great feedback, helped explain clearly all details and managed the actual sale negotiation brilliantly. In addition, he was extremely responsive  to every one of my questions, no matter how small. As I move forward to now BUY my next house, I am extremely certain Dave will be the right partner to help me navigate this process.”</p>
                             </div>
                         </div>
                         <div class="carousel-item" style="position: relative;">
                             <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="60vh" alt="feedback_background">
-                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%;  min-width:300px;">
+                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px; background-color:rgba(255,255,255,0.8);">
                                 <h5 style="font-size: 26px;">Wafula</h5>
                                 <p style="font-size: 21px;">“I was looking for an apartment that would be comfortable for me and my pets.Thank you for providing one that suites me”</p>
                             </div>

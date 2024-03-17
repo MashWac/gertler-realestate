@@ -15,6 +15,18 @@
             <h1>About Us</h1>
         </div>
     </div>
+
+    <div class="reveal aboutgertler">
+        <div class="aboutgertlerheader aboutfloat">
+            <h3 class="aboutustitle"> <span class="aboutheadertitlespan">Welcome to GIL</span> </h3>
+        </div>
+        <div class="aboutinfo aboutfloat iframe-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/KEFgz7hx1fw?si=3nFbmTN3cTW_OXaM" 
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen></iframe>
+        </div>
+    </div>
     <div class="reveal aboutgertler">
         <div class="aboutgertlerheader aboutfloat">
             <h3 class="aboutustitle"> <span class="aboutheadertitlespan">About GIL</span> </h3>
@@ -60,12 +72,12 @@
                 <div style="background-color: white; color:#011B18; width:80%; border-radius:60%;min-width:250px; margin-top:-20px;" >
                     <ul style="list-style:none;" class="text-center"> 
                         <li>Administrative Managers</li>
-                        <li>Business Developers</li>
                         <li>Relationship Managers</li>
-                        <li>Legal officers</li>
+                        <li>Business Developers</li>
                         <li>Property Valuers</li>
-                        <li>Architects</li>
                         <li>Civil Engineers</li>
+                        <li>Legal officers</li>
+                        <li>Architects</li>
 
                     </ul>
                 </div>
@@ -94,7 +106,7 @@
     </div>
 
 
-    <div class="reveal aboutgertler d-block d-sm-block d-md-block d-lg-none">
+    <!-- <div class="reveal aboutgertler d-block d-sm-block d-md-block d-lg-none">
         <div class="aboutgertlerheader aboutfloat">
         <h3 class="aboutustitle"><span class="aboutheadertitlespan">OUR FOUNDER</span> </h3>
         </div>
@@ -103,12 +115,12 @@
                 <img src="/assets/staticimg/gertler.png" alt="gertler" width="250px" height="360px">
             </div>        
         </div>
-    </div>
+    </div> -->
 </div>
-<div class="founderlarge d-none d-lg-block d-xl-block">
+<!-- <div class="founderlarge d-none d-lg-block d-xl-block">
     <h3 class="aboutustitle"> OUR FOUNDER</h3>
     <img src="/assets/staticimg/gertler.png" alt="gertler" width="100%" height="300px">
-</div>
+</div> -->
 
 @endsection  
 
