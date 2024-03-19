@@ -120,9 +120,38 @@
                 </form>
 
             </div>
+            <div class="review_modal" style="position: fixed; bottom:10%; right:10%;">
+                <div class="text-center">
+                    <h5>Leave A Review</h5>
+                </div>
+                <form action="{{url('add_review')}}" class="review_form" method="Post">
+                    @csrf
+                    <div class="row mb-3">
+                        <label for="full_name" class="col-sm-10 col-form-label">Name </label><br>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="full_name" name="full_name">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="review" class="col-sm-10 col-form-label">Review</label><br>
+                        <div class="col-sm-10">
+                            <textarea id="autoresizing" name="review"></textarea>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="rating" class="col-sm-10 col-form-label">Rating</label><br>
+                        <div class="col-sm-10">
+                        <input type="number" min="1" max="5" class="form-control" id="rating" name="rating">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary news_submit_btn" style="float: left;">Submit Review</button>
+                </form>
+                <button class="close_review_modal btn btn-dark closemodal">Close</button>
+            </div>
         </div>
 
-
+<input type="text" value="{{$data['show_review']}}" id="show_review">
+<input type="text" value="{{$data['show_newsletter']}}" id="show_newsletter">
 
         @include('layouts.inc.clientfooter')
     <!--- Scripts-->
@@ -181,7 +210,65 @@
         });
 
     </script>
+    <script>
+        $('.leave_a_review').on('click', function (e) {
+            e.preventDefault();
+            $('.review_modal').toggle();
 
+        });
+        $('.review_form').on('submit', function (e) {
+                e.preventDefault();
+                var formData = $(this).serialize();
+                console.log(formData)
+                $.ajax({
+                url: "{{url('insert_review')}}", // Replace with your API endpoint
+                method: "get",
+                data: formData, // Pass the required data
+                success: function(response) {
+                    if (response.status === 'success') {
+                        $('.review_modal').toggle();
+                        swal('Success!', response.message, 'success');
+                    } else {
+                        swal('Error!', response.message, 'error');
+                    }
+                },
+                error: function(error) {
+                    swal('Error!', error.message, 'error');
+
+                }
+            });
+            
+        });
+    </script>
+    <script>
+        const textarea = document.querySelector("#autoresizing");
+        textarea.addEventListener('input', function() {
+            this.style.width = 'auto';
+            this.style.width = this.scrollHeight + 'px';
+        });
+    </script>
+    <script>
+        
+        $('.close_review_modal').on('click', function (e) {
+            e.preventDefault();
+            $('.review_modal').toggle();
+
+        });
+    </script>
+<script>
+    $(document).ready(function() {
+        var showNewsletter = $("#show_newsletter").val();
+        var showReview = $("#show_review").val();
+        if (showNewsletter === 'newsletter') {
+            console.log('here')
+            $('.newsletter_modal').toggle();
+        }
+
+        if (showReview === 'review') {
+            $('.review_modal').toggle();
+        }
+    });
+</script>
 
     </body>
     

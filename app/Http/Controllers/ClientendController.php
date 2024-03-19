@@ -12,6 +12,7 @@ use App\Models\PropertyModel;
 use App\Models\PurchaserequestsModel;
 use App\Models\RentandPurchaserequestsModel;
 use App\Models\RentrequestsModel;
+use App\Models\ReviewModel;
 use App\Models\SellrequestsModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -35,7 +36,9 @@ class ClientendController extends Controller
         }
 
     }
-    public function landingpage(){
+    public function landingpage(Request $request){
+        $data['show_review']=$request->show_review;
+        $data['show_newsletter']=$request->show_newsletter;
         $data['locations']=LocationsModel::where('is_deleted',0)->paginate(5);
         $data['listings']=PropertyModel::where('is_deleted',0)->whereNotNull('house_rank')->orderBy('house_rank','asc')->paginate(6);
         $data['count']= PropertyModel::where('is_deleted',0)->count();
@@ -374,5 +377,28 @@ class ClientendController extends Controller
     }
     public function terms(){
         return view('clientend.terms');
+    }
+    public function add_review(Request $request){
+        $full_name=$request->input('full_name');      
+        $review=$request->input('review');      
+        $rating=$request->input('rating');  
+        
+        $add_review=new ReviewModel();
+        $add_review->full_name=$full_name;
+        $add_review->review=$review;
+        $add_review->rating=$rating;
+        if($add_review->save()){
+            return response()->json(['status' => 'success', 'message' => 'Review Added Successfully']);
+        }else{
+            return response()->json(['status' => 'error', 'message' => 'Failed to add Review. Please try again.']);
+        }
+
+
+    }
+    public function open_review(){
+
+    }
+    public function open_news_letter(){
+
     }
 }

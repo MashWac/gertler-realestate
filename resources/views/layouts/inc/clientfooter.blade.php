@@ -27,6 +27,9 @@
                     <li class="footerlinks">
                         <a class="pagelinks" href="{{url('terms')}}">Terms And Conditions</a>
                     </li>
+                    <li class="footerlinks">
+                        <a class="pagelinks leave_a_review" href="{{url('terms')}}">Leave A Review</a>
+                    </li>
                 </ul>
             </div>
 

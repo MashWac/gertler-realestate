@@ -46,6 +46,7 @@ Route::post('sellrequest', [ClientendController::class,'requestsell']);
 
 Route::get('add_newsletter', [ClientendController::class,'addNewsLetterSignup']);
 
+Route::get('insert_review', [ClientendController::class,'add_review']);
 
 Route::get('logout',[LoginController::class,'logout']);
 

@@ -796,24 +796,75 @@ h1,h2,h3,h4{
 /* footer code */
 .newsletter_modal{
   box-shadow: 5px 5px 5px 5px gray;
+  border: #011B18 2px solid;
+
   width: 250px;
   border-radius: 0.4rem;
   padding: 5px;
   z-index: 15;
   background-color: whitesmoke;
   display: none;
+  animation: glow 1.5s infinite alternate; /* Apply the glow animation */
 
+}
+@keyframes glow {
+  0% {
+    border-color: rgba(255, 165, 0, 0.5); /* Start color */
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5); /* Optional: Add glow effect */
+  }
+  100% {
+    border-color: rgba(255, 165, 0, 1); /* End color */
+    box-shadow: 0 0 20px rgba(255, 165, 0, 1); /* Optional: Add stronger glow effect */
+  }
 }
 .news_submit_btn{
   background-color: #F49F28;
   border-radius: 0%;
   color: #011B18;
   border: #F49F28;
+  transition: all 0.5s ease;
+
 }
 .news_submit_btn:hover{
-  background-color: #011B18;
-  color: #F49F28;
+  background-color: #ddd;
+  color: #011B18;
+  border: #011B18 1px solid;
 
+}
+.review_modal{
+  background-color: #e9e9e9;
+  padding: 10px;
+  z-index: 10;
+  width: 60%;
+  min-width: 250px;
+  border: #011B18 2px solid;
+  display: none;
+  animation: glow 1.5s infinite alternate; /* Apply the glow animation */
+
+
+}
+.closemodal{
+  border-radius: 0rem;
+  background-color: #011b18;
+  color: #F49F28;
+  float: left;
+  margin-left: 10px;
+  transition: all 0.5s ease;
+  
+
+}
+.closemodal:hover{
+  background-color: #ddd;
+  color: #011B18;
+  border: #011B18 1px solid;
+
+}
+#autoresizing {
+    display: block;
+    overflow: hidden;
+    resize: none;
+    overflow-y: scroll;
+    width: 80%;
 }
 #footer{
 
