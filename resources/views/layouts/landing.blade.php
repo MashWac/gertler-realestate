@@ -141,7 +141,13 @@
                     <div class="row mb-3">
                         <label for="rating" class="col-sm-10 col-form-label">Rating</label><br>
                         <div class="col-sm-10">
-                        <input type="number" min="1" max="5" class="form-control" id="rating" name="rating">
+                            <select class="form-select" name="rating" id="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5" selected>5</option>
+                            </select>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary news_submit_btn" style="float: left;">Submit Review</button>
@@ -243,8 +249,7 @@
     <script>
         const textarea = document.querySelector("#autoresizing");
         textarea.addEventListener('input', function() {
-            this.style.width = 'auto';
-            this.style.width = this.scrollHeight + 'px';
+            this.style.width = this.width + 'px';
         });
     </script>
     <script>
