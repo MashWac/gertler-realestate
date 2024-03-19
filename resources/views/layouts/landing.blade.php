@@ -150,8 +150,8 @@
             </div>
         </div>
 
-<input type="text" value="{{$data['show_review']}}" id="show_review">
-<input type="text" value="{{$data['show_newsletter']}}" id="show_newsletter">
+<input type="hidden" value="{{$data['show_review']}}" id="show_review">
+<input type="hidden" value="{{$data['show_newsletter']}}" id="show_newsletter">
 
         @include('layouts.inc.clientfooter')
     <!--- Scripts-->
