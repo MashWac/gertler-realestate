@@ -538,7 +538,6 @@
                 <h3> What Our Clients Say </h3>
         </div>
         <div class="clients_feedback">
-
             <div class="testimonials d-none d-lg-block d-xl-block" id="clients_feedback">
                 <div id="carouselExampleDark" style="height:60vh" class="carousel carousel-dark slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
