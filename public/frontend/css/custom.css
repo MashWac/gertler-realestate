@@ -787,9 +787,18 @@ h1,h2,h3,h4{
 
 }
 .carouselimg{
-  height: 60vh;
+  height: 70vh;
   opacity: 0.5;
 }
+
+@media(max-width: 768px
+){
+  .carouselimg,.carousel_img_item{
+    height: 80vh;
+  }
+}
+
+
 .carousel-caption{
   margin-top: 5%;
 }

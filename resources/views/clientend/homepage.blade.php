@@ -534,12 +534,12 @@
                 </div>
             </div>
         </div>
-        <div class="reveal whywork text-center d-none d-lg-block d-xl-block">
+        <div class="reveal whywork text-center ">
                 <h3> What Our Clients Say </h3>
         </div>
         <div class="clients_feedback">
-            <div class="testimonials d-none d-lg-block d-xl-block" id="clients_feedback">
-                <div id="carouselExampleDark" style="height:60vh" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="testimonials " id="clients_feedback">
+                <div id="carouselExampleDark" style="height:70vh" class="carousel carousel-dark slide carousel_img_item" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -547,35 +547,27 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="10000" style="position: relative;">
-                            <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="60vh"alt="feedback_background">
-                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px; background-color:rgba(255,255,255,0.8);">
-                                <h5 style="font-size: 26px;">Angela</h5>
-                                <p style="font-size: 21px;">“My wife & I have moved 6 times in the last 25 years. Obviously, we've dealt with many realtors both on the buying and selling side. I have to say that Kelvin is by far the BEST realtor we've ever worked with, his professionalism, personality, attention to detail, responsiveness and his ability to close the deal was Outstanding!!! If you are buying or selling a home, do yourselves a favor and hire Gertler Investment!!”</p>
+                            <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="70vh"alt="feedback_background">
+                            <div class="carousel-caption " style="position: absolute; top:16%; min-width:280px; background-color:rgba(255,255,255,0.8);">
+                                <h5 style="font-size: 22px;">Angela</h5>
+                                <p style="font-size: 18px;">“My wife & I have moved 6 times in the last 25 years. Obviously, we've dealt with many realtors both on the buying and selling side. I have to say that Kelvin is by far the BEST realtor we've ever worked with, his professionalism, personality, attention to detail, responsiveness and his ability to close the deal was Outstanding!!! If you are buying or selling a home, do yourselves a favor and hire Gertler Investment!!”</p>
                             </div>
                         </div>
                         <div class="carousel-item" data-bs-interval="2000" style="position: relative;">
-                            <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="60vh" alt="feedback_background">
-                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px; background-color:rgba(255,255,255,0.8);">
-                                <h5 style="font-size: 26px;">Rachel</h5>
-                                <p style="font-size: 21px;">“I recently sold a house with Gertler and while this can be a very stressful process, I felt 110% confident by partnering with Gertler. He was candid, provided great feedback, helped explain clearly all details and managed the actual sale negotiation brilliantly. In addition, he was extremely responsive  to every one of my questions, no matter how small. As I move forward to now BUY my next house, I am extremely certain Dave will be the right partner to help me navigate this process.”</p>
+                            <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="70vh" alt="feedback_background">
+                            <div class="carousel-caption " style="position: absolute; top:16%; min-width:280px; background-color:rgba(255,255,255,0.8);">
+                                <h5 style="font-size: 22px;">Rachel</h5>
+                                <p style="font-size: 18px;">“I recently sold a house with Gertler and while this can be a very stressful process, I felt 110% confident by partnering with Gertler. He was candid, provided great feedback, helped explain clearly all details and managed the actual sale negotiation brilliantly. In addition, he was extremely responsive  to every one of my questions, no matter how small. As I move forward to now BUY my next house, I am extremely certain Dave will be the right partner to help me navigate this process.”</p>
                             </div>
                         </div>
                         <div class="carousel-item" style="position: relative;">
-                            <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="60vh" alt="feedback_background">
-                            <div class="carousel-caption d-none d-md-block" style="position: absolute; top:16%; min-width:300px; background-color:rgba(255,255,255,0.8);">
-                                <h5 style="font-size: 26px;">Wafula</h5>
-                                <p style="font-size: 21px;">“I was looking for an apartment that would be comfortable for me and my pets.Thank you for providing one that suites me”</p>
+                            <img src="/assets/staticimg/interior5.jpg" class="carouselimg d-block w-100" height="70vh" alt="feedback_background">
+                            <div class="carousel-caption " style="position: absolute; top:16%; min-width:280px; background-color:rgba(255,255,255,0.8);">
+                                <h5 style="font-size: 22px;">Wafula</h5>
+                                <p style="font-size: 18px;">“I was looking for an apartment that would be comfortable for me and my pets.Thank you for providing one that suites me”</p>
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
         </div>
